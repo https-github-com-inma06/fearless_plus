@@ -1,3 +1,6 @@
+import 'package:fearless_assemble/src/controller/noti_history_controller.dart';
+
+import 'src/components/noti_history.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -15,7 +18,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      title: "Youtube Clone App",
+      title: "Fearless_App",
       theme: ThemeData(
         primaryColor: Colors.white,
         primarySwatch: Colors.blue,
@@ -25,6 +28,11 @@ class MyApp extends StatelessWidget {
       initialRoute: "/",
       getPages: [
         GetPage(name: "/", page: () => App()),
+        GetPage(
+            name: "/noti_history/",
+            page: () => NotiHistory(),
+            binding: BindingsBuilder(() => Get.lazyPut<NotiHistoryController>(
+                () => NotiHistoryController())))
       ],
     );
   }

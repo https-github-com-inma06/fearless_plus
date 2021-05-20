@@ -9,7 +9,7 @@ import 'controller/app_controller.dart';
 import 'pages/calendar.dart';
 
 class App extends GetView<AppController> {
-  const App({Key key}) : super(key: key);
+  const App({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

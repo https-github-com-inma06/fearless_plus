@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:table_calendar/table_calendar.dart';
@@ -41,7 +40,6 @@ class StateCalendar extends StatefulWidget {
 class _StateCalendarState extends State<StateCalendar> {
   var _selectedDay;
   var _focusedDay;
-  String ASSETS_IMAGES_URI = "assets/images/";
   final List<MockData> list = [
     MockData(
         id: 0,
@@ -73,7 +71,6 @@ class _StateCalendarState extends State<StateCalendar> {
           },
           onDaySelected: (selectedDay, focusedDay) {
             setState(() {
-
               _selectedDay = selectedDay;
               _focusedDay = focusedDay;
               print(_selectedDay.toString());

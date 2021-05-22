@@ -1,7 +1,7 @@
-import 'package:fearless_assemble/src/pages/chart.dart';
-import 'package:fearless_assemble/src/pages/campaign.dart';
-import 'package:fearless_assemble/src/pages/setting.dart';
-import 'package:fearless_assemble/src/pages/video.dart';
+import 'package:fearlessassemble/src/pages/chart.dart';
+import 'package:fearlessassemble/src/pages/campaign.dart';
+import 'package:fearlessassemble/src/pages/setting.dart';
+import 'package:fearlessassemble/src/pages/video.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_state_manager/src/rx_flutter/rx_obx_widget.dart';
 import 'package:get/get_state_manager/src/simple/get_view.dart';

@@ -1,4 +1,4 @@
-import 'package:fearless_assemble/src/controller/noti_history_controller.dart';
+import 'package:fearlessassemble/src/controller/noti_history_controller.dart';
 
 import 'src/components/noti_history.dart';
 import 'package:flutter/cupertino.dart';
@@ -25,7 +25,6 @@ class MyApp extends StatelessWidget {
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       initialBinding: InitBinding(),
-      // initialBinding: NotificationController();, // FCM 테스트
       initialRoute: "/",
       getPages: [
         GetPage(name: "/", page: () => App()),

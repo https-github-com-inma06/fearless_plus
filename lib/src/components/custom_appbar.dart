@@ -14,7 +14,7 @@ class CustomAppBar extends StatelessWidget {
         ),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 10),
-          child: Text("영상모음"), // TODO: 페이지간 인자값 받아서 변경 예정
+          child: Text("ㅇㅇ페이지"), // TODO: 페이지간 인자값 받아서 변경 예정
         ),
       ],
     );

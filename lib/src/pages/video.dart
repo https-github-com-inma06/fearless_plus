@@ -21,7 +21,7 @@ class Video extends StatelessWidget {
                 return GestureDetector(
                   onTap: () {
                     // 클릭시 영상으로 이동
-                    print("Video 클릭되었습니다"); // TODO : 영상 링크 이동 작업
+                    print("비디오 클릭되었습니다"); // TODO : 영상 링크 이동 작업
                   },
                   child: VideoWidget(),
                 );

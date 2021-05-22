@@ -1,14 +1,15 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class VideoWidget extends StatefulWidget {
-  const VideoWidget({Key key}) : super(key: key);
+class CampaignWidget extends StatefulWidget {
+  const CampaignWidget({Key key}) : super(key: key);
 
   @override
-  _VideoWidgetState createState() => _VideoWidgetState();
+  CampaignWidgetState createState() => CampaignWidgetState();
 }
 
-class _VideoWidgetState extends State<VideoWidget> {
+class CampaignWidgetState extends State<CampaignWidget> {
   @override
   void initState() {
     super.initState();
@@ -23,7 +24,8 @@ class _VideoWidgetState extends State<VideoWidget> {
           child: CachedNetworkImage(
             // imageUrl: widget.video.snippet.thumbnails.high.url,
             imageUrl:
-                "https://i.ytimg.com/vi/afQ9lAz9xyw/hqdefault.jpg", // TODO: 영상 썸네일 API 작업
+                "https://i.ytimg.com/vi/P3cs2k6IkSI/hqdefault.jpg", // TODO: 광고 썸네일 API 작업
+            height: 230,
             placeholder: (context, url) => Container(
               height: 230,
               child: Center(child: CircularProgressIndicator()),

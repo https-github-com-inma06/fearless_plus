@@ -1,6 +1,6 @@
 import 'package:fearlessassemble/src/controller/noti_history_controller.dart';
 
-import 'src/components/noti_history.dart';
+import 'src/pages/noti_history.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';

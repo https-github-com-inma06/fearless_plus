@@ -24,10 +24,6 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-
-  table_calendar: ^3.0.0
-
-
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.3
@@ -35,6 +31,7 @@ dependencies:
   shared_preferences: ^2.0.5 # 내부 저장소
   get: ^4.1.4 # GetX 상태관리
   cached_network_image: ^3.0.0 # 이미지 캐시
+  table_calendar: ^3.0.0 # 캘린더뷰
 
   ## 푸시메시지 관련 START ##
   firebase_core: "0.5.3"

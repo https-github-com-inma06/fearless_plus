@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class NotiHistory extends StatelessWidget {
-  const NotiHistory({Key? key}) : super(key: key);
+  const NotiHistory({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

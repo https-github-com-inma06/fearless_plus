@@ -6,6 +6,7 @@ enum RouteName {
   Video, // 관련영상
   Campaign, // 이벤트, 광고
   Setting, // 셋팅
+  Development,
 }
 
 class AppController extends GetxService {

@@ -59,6 +59,7 @@ class Setting extends StatelessWidget {
   }
 }
 
+/*  */
 class StateSetting extends StatefulWidget {
   @override
   _StateSettingState createState() => _StateSettingState();
@@ -78,12 +79,13 @@ class _StateSettingState extends State<StateSetting> {
         //padding: const EdgeInsets.all(16.0),
         children: [
           _oneMenuTile(
-              "",
-              _emptyIcon(),
-              IconButton(
-                icon: Icon(Icons.arrow_forward_ios),
-                onPressed: _emptyEvent,
-              )),
+            "",
+            _emptyIcon(),
+            IconButton(
+              icon: Icon(Icons.arrow_forward_ios),
+              onPressed: _emptyEvent,
+            ),
+          ),
           _divider(10.0),
           Container(
             decoration: new BoxDecoration(color: Colors.white),
@@ -108,44 +110,49 @@ class _StateSettingState extends State<StateSetting> {
           ),
           _divider(10.0),
           _oneMenuTile(
-              "Notification",
-              _emptyIcon(),
-              IconButton(
-                icon: Icon(Icons.arrow_forward_ios),
-                onPressed: _notificationNavi,
-              )),
+            "Notification",
+            _emptyIcon(),
+            IconButton(
+              icon: Icon(Icons.arrow_forward_ios),
+              onPressed: _notificationNavi,
+            ),
+          ),
           _divider(1.0),
           _oneMenuTile(
-              "......",
-              _emptyIcon(),
-              IconButton(
-                icon: Icon(Icons.arrow_forward_ios),
-                onPressed: _emptyEvent,
-              )),
+            "......",
+            _emptyIcon(),
+            IconButton(
+              icon: Icon(Icons.arrow_forward_ios),
+              onPressed: _emptyEvent,
+            ),
+          ),
           _divider(1.0),
           _oneMenuTile(
-              "..........",
-              _emptyIcon(),
-              IconButton(
-                icon: Icon(Icons.arrow_forward_ios),
-                onPressed: _emptyEvent,
-              )),
+            "..........",
+            _emptyIcon(),
+            IconButton(
+              icon: Icon(Icons.arrow_forward_ios),
+              onPressed: _emptyEvent,
+            ),
+          ),
           _divider(10.0),
           _oneMenuTile(
-              "..........",
-              Icon(Icons.settings),
-              IconButton(
-                icon: Icon(Icons.arrow_forward_ios),
-                onPressed: _emptyEvent,
-              )),
+            "dev",
+            Icon(Icons.settings),
+            IconButton(
+              icon: Icon(Icons.arrow_forward_ios),
+              onPressed: _developmentNavi,
+            ),
+          ),
           _divider(10.0),
           _oneMenuTile(
-              "Help center",
-              Icon(Icons.headset_mic),
-              IconButton(
-                icon: Icon(Icons.arrow_forward_ios),
-                onPressed: _emptyEvent,
-              )),
+            "Help center",
+            Icon(Icons.headset_mic),
+            IconButton(
+              icon: Icon(Icons.arrow_forward_ios),
+              onPressed: _emptyEvent,
+            ),
+          ),
           _divider(50.0),
         ],
       ),
@@ -187,17 +194,38 @@ class _StateSettingState extends State<StateSetting> {
     );
   }
 
+  void _developmentNavi() {
+    Navigator.of(context).push(
+      MaterialPageRoute<void>(
+        builder: (BuildContext context) {
+          return Scaffold(
+            appBar: AppBar(
+              title: Text('Development'),
+              centerTitle: true,
+            ),
+            body: Container(
+              child: Text("Development Page"),
+            ),
+          );
+        },
+      ),
+    );
+  }
+
   void _notificationNavi() {
-    Navigator.of(context)
-        .push(MaterialPageRoute<void>(builder: (BuildContext context) {
-      return Scaffold(
-        appBar: AppBar(
-          title: Text('Notification'),
-          centerTitle: true,
-        ),
-        body: NotificationSetting(),
-      );
-    }));
+    Navigator.of(context).push(
+      MaterialPageRoute<void>(
+        builder: (BuildContext context) {
+          return Scaffold(
+            appBar: AppBar(
+              title: Text('Notification'),
+              centerTitle: true,
+            ),
+            body: NotificationSetting(),
+          );
+        },
+      ),
+    );
   }
 }
 

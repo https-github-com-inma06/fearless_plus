@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
+// TODO : GetX 미적용
+
 // notification status
 // 'insta'
 // 'twitter'

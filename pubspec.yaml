@@ -39,6 +39,8 @@ dependencies:
   onesignal_flutter: ^2.0.0 # 원시그널 (푸시메시지)
   ## 푸시메시지 관련 END ##
 
+  easy_localization: ^3.0.0 # 다국어 지원
+
 
 
 dev_dependencies:
@@ -60,6 +62,7 @@ flutter:
   assets:
     - assets/images/
     - assets/svg/icons/
+    - assets/translations/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

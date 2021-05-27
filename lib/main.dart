@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:fearlessassemble/src/controller/noti_history_controller.dart';
 
 import 'src/pages/noti_history.dart';
@@ -8,7 +9,22 @@ import 'package:get/get.dart';
 import 'src/app.dart';
 import 'src/binding/init_binding.dart';
 
-void main() {
+/*
+WidgetsFlutterBinding.ensureInitialized();
+  await EasyLocalization.ensureInitialized();
+  runApp(EasyLocalization(
+    supportedLocales: [
+      Locale('en', 'US'),
+      Locale('ko', 'KR'),
+      Locale('ja', 'JP')
+    ],
+    path: 'assets/translations',
+    fallbackLocale: Locale('en', 'US'),
+    child: MyApp(),
+  ));
+ */
+
+void main() async {
   runApp(MyApp());
 }
 
@@ -19,6 +35,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       title: "Fearless_App",
+      // localizationsDelegates: context.localizationDelegates,
+      // supportedLocales: context.supportedLocales,
+      // locale: context.locale,
       theme: ThemeData(
         fontFamily: 'dohyeon',
         primaryColor: Colors.white,

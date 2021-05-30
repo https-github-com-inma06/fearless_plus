@@ -50,7 +50,8 @@ class EventWidgetState extends State<EventWidget> {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
-          Text(utf8.decode(widget.event.title.codeUnits)), // 한글 인코딩
+          Text(utf8.decode(
+              widget.event.title.codeUnits)), // TODO: 한글 표시안되는 문제 api받아올때 해결해야함
         ],
       ),
     );

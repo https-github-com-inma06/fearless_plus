@@ -39,7 +39,6 @@ class MyApp extends StatelessWidget {
       // supportedLocales: context.supportedLocales,
       // locale: context.locale,
       theme: ThemeData(
-        fontFamily: 'dohyeon',
         primaryColor: Colors.white,
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,

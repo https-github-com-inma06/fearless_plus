@@ -1,6 +1,7 @@
 import 'package:fearlessassemble/src/development/dev_page.dart';
 import 'package:fearlessassemble/src/pages/chart.dart';
 import 'package:fearlessassemble/src/pages/campaign.dart';
+import 'package:fearlessassemble/src/pages/event.dart';
 import 'package:fearlessassemble/src/pages/setting.dart';
 import 'package:fearlessassemble/src/pages/video.dart';
 import 'package:flutter/material.dart';
@@ -26,14 +27,11 @@ class App extends GetView<AppController> {
           case RouteName.Video:
             return Video();
             break;
-          case RouteName.Campaign:
-            return Campaign();
+          case RouteName.Event:
+            return Event();
             break;
           case RouteName.Setting:
             return Setting();
-            break;
-          case RouteName.Development:
-            return Development();
             break;
         }
         return Container();
@@ -84,7 +82,7 @@ class App extends GetView<AppController> {
               ),
               label: "VIDEO",
             ),
-            /* 캠페인 */
+            /* 광고 / 캠페인 */
             BottomNavigationBarItem(
               icon: Icon(
                 Icons.campaign,

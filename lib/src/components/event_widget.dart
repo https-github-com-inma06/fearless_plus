@@ -1,20 +1,23 @@
 import 'dart:convert';
+import 'dart:ffi';
 
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:fearlessassemble/src/models/campaign_model.dart';
+import 'package:fearlessassemble/src/models/event_model.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
-class CampaignWidget extends StatefulWidget {
-  final CampaignModel campaign;
+class EventWidget extends StatefulWidget {
+  final EventModel event;
   // pages - campaign_model.dart 에서  넘겨 받음
-  const CampaignWidget({Key key, this.campaign}) : super(key: key);
+  const EventWidget({Key key, this.event}) : super(key: key);
 
   @override
-  CampaignWidgetState createState() => CampaignWidgetState();
+  EventWidgetState createState() => EventWidgetState();
 }
 
-class CampaignWidgetState extends State<CampaignWidget> {
+class EventWidgetState extends State<EventWidget> {
   @override
   void initState() {
     super.initState();
@@ -25,16 +28,14 @@ class CampaignWidgetState extends State<CampaignWidget> {
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         Container(
-          color: Colors.grey.withOpacity(0.5),
+          height: 230,
           child: CachedNetworkImage(
-            // imageUrl: widget.video.snippet.thumbnails.high.url,
-            imageUrl: widget.campaign.image == null
-                ? "https://i.pinimg.com/originals/6e/2b/37/6e2b3766b78038cc505596134a5d1cda.jpg"
-                : widget.campaign.image, // TODO: 광고 썸네일 API 작업
-            height: 230,
+            imageUrl: widget.event.image == null
+                ? "https://pbs.twimg.com/media/EzLcSgSVgAE-r_Q.jpg"
+                : widget.event.image, // TODO: 광고 썸네일 API 작업
             placeholder: (context, url) => Container(
-              height: 230,
               child: Center(child: CircularProgressIndicator()),
+              height: 230,
             ),
             fit: BoxFit.fitWidth,
           ),
@@ -49,7 +50,8 @@ class CampaignWidgetState extends State<CampaignWidget> {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
-          Text(utf8.decode(widget.campaign.title.codeUnits)), // 한글 인코딩
+          Text(utf8.decode(
+              widget.event.title.codeUnits)), // TODO: 한글 표시안되는 문제 api받아올때 해결해야함
         ],
       ),
     );

@@ -1,4 +1,4 @@
-import 'package:fearlessassemble/src/components/custom_appbar.dart';
+import '../components/appbar/custom_appbar.dart';
 import 'package:fearlessassemble/src/components/video_widget.dart';
 import 'package:flutter/material.dart';
 

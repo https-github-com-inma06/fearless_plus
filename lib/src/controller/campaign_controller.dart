@@ -1,5 +1,4 @@
-import 'package:fearlessassemble/src/models/campaign_result.dart';
-import 'package:fearlessassemble/src/pages/campaign.dart';
+import 'package:fearlessassemble/src/models/campaign/campaign_result.dart';
 import 'package:fearlessassemble/src/repository/campaign_repository.dart';
 import 'package:get/get.dart';
 
@@ -10,11 +9,11 @@ class CampaignController extends GetxController {
 
   @override
   void onInit() {
-    _videoLoad();
+    _campaignLoad();
     super.onInit();
   }
 
-  void _videoLoad() async {
+  void _campaignLoad() async {
     CampaignResult campaignResult = await CampaignRepository.to.loadCampaign();
     print("event api response : ${campaignResult.lists.length}");
 

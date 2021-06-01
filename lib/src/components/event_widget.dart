@@ -1,12 +1,9 @@
 import 'dart:convert';
-import 'dart:ffi';
 
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:fearlessassemble/src/models/campaign_model.dart';
-import 'package:fearlessassemble/src/models/event_model.dart';
+import '../models/event/event_model.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 class EventWidget extends StatefulWidget {
   final EventModel event;

@@ -1,14 +1,25 @@
+import 'dart:convert';
+import 'dart:ffi';
+
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:fearlessassemble/src/models/video/video_model.dart';
+import 'package:fearlessassemble/src/pages/video.dart';
+import '../models/campaign/campaign_model.dart';
+import '../models/event/event_model.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class VideoWidget extends StatefulWidget {
-  const VideoWidget({Key key}) : super(key: key);
+  final VideoModel video;
+  // pages - campaign_model.dart 에서  넘겨 받음
+  const VideoWidget({Key key, this.video}) : super(key: key);
 
   @override
-  _VideoWidgetState createState() => _VideoWidgetState();
+  VideoWidgetState createState() => VideoWidgetState();
 }
 
-class _VideoWidgetState extends State<VideoWidget> {
+class VideoWidgetState extends State<VideoWidget> {
   @override
   void initState() {
     super.initState();
@@ -19,14 +30,15 @@ class _VideoWidgetState extends State<VideoWidget> {
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         Container(
-          color: Colors.grey.withOpacity(0.5),
+          height: 230,
           child: CachedNetworkImage(
-            // imageUrl: widget.video.snippet.thumbnails.high.url,
-            imageUrl:
-                "https://i.ytimg.com/vi/afQ9lAz9xyw/hqdefault.jpg", // TODO: 영상 썸네일 API 작업
+            imageUrl: "https://img.youtube.com/vi/${widget.video.code}/hqdefault.jpg" ==
+                    null
+                ? "https://pbs.twimg.com/media/EzLcSgSVgAE-r_Q.jpg" // TODO : 기본이미지 ( 이미지없을때 )
+                : "https://img.youtube.com/vi/${widget.video.code}/hqdefault.jpg",
             placeholder: (context, url) => Container(
-              height: 230,
               child: Center(child: CircularProgressIndicator()),
+              height: 230,
             ),
             fit: BoxFit.fitWidth,
           ),
@@ -37,23 +49,12 @@ class _VideoWidgetState extends State<VideoWidget> {
 
   Widget _simpleDetailInfo() {
     return Container(
-      padding: const EdgeInsets.only(left: 10, top: 5, bottom: 20),
+      padding: const EdgeInsets.only(left: 10, top: 5, bottom: 20, right: 10),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
-          Text("data"),
-          SizedBox(
-            width: 10,
-          ),
-          Text("data"),
-          SizedBox(
-            width: 10,
-          ),
-          Text("data"),
-          SizedBox(
-            width: 10,
-          ),
-          Text("data"),
+          Text(utf8.decode(
+              widget.video.title.codeUnits)), // TODO: 한글 표시안되는 문제 api받아올때 해결해야함
         ],
       ),
     );

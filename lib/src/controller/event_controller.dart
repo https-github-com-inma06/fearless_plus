@@ -1,4 +1,4 @@
-import 'package:fearlessassemble/src/models/event_result.dart';
+import '../models/event/event_result.dart';
 import 'package:fearlessassemble/src/repository/event_repository.dart';
 import 'package:get/get.dart';
 
@@ -9,11 +9,11 @@ class EventController extends GetxController {
 
   @override
   void onInit() {
-    _videoLoad();
+    _eventLoad();
     super.onInit();
   }
 
-  void _videoLoad() async {
+  void _eventLoad() async {
     EventResult eventResult = await EventRepository.to.loadEvent();
     print("event api response : ${eventResult.lists.length}");
 
@@ -21,7 +21,6 @@ class EventController extends GetxController {
         eventResult.lists != null &&
         eventResult.lists.length > 0) {
       eventResponseResult(eventResult);
-
     }
   }
 }

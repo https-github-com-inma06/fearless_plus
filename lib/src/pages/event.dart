@@ -1,8 +1,6 @@
 import 'dart:convert';
 
 import 'package:fearlessassemble/src/components/appbar/campaign_appbar.dart';
-import 'package:fearlessassemble/src/components/campaign_widget.dart';
-import '../components/appbar/custom_appbar.dart';
 import 'package:fearlessassemble/src/components/event_widget.dart';
 import '../controller/event_controller.dart';
 import 'package:flutter/material.dart';

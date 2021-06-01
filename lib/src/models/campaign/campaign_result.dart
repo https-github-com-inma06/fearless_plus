@@ -1,4 +1,4 @@
-import 'package:fearlessassemble/src/models/campaign_model.dart';
+import 'package:fearlessassemble/src/models/campaign/campaign_model.dart';
 
 class CampaignResult {
   List<CampaignModel> lists;

@@ -33,6 +33,7 @@ dependencies:
   cached_network_image: ^3.0.0 # 이미지 캐시
   table_calendar: ^3.0.0 # 캘린더뷰
   flutter_staggered_grid_view: ^0.4.0 # 그리드 이미지 뷰
+  url_launcher: ^6.0.4 # 웹뷰관련
   ## 푸시메시지 관련 START ##
   firebase_core: "0.5.3"
   firebase_messaging: "7.0.3"

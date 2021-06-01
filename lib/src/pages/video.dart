@@ -1,11 +1,11 @@
 import 'dart:convert';
 
-import 'package:fearlessassemble/src/components/appbar/campaign_appbar.dart';
-import 'package:fearlessassemble/src/components/appbar/video_appbar.dart';
-import 'package:fearlessassemble/src/components/video_widget.dart';
+import 'package:fearlessassemble/src/components/video/video_appbar.dart';
+import 'package:fearlessassemble/src/components/video/video_widget.dart';
 import 'package:fearlessassemble/src/controller/video_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class Video extends StatelessWidget {
   Video({Key key}) : super(key: key);
@@ -29,9 +29,14 @@ class Video extends StatelessWidget {
                     padding: EdgeInsets.all(16),
                     child: GestureDetector(
                       onTap: () {
-                        // Get.toNamed("asdfasdf"); 클릭시 영상으로 이동
-                        print(
-                            "이벤트 클릭되었습니다 ${utf8.decode(videoController.videoResponseResult.value.lists[index].title.codeUnits)}"); // TODO : 영상 링크 이동 작업
+                        String url = "https://www.youtube.com/watch?"
+                            "v=${videoController.videoResponseResult.value.lists[index].code}";
+                        videoController.videoResponseResult.value.lists[index]
+                                    .code ==
+                                null
+                            ? print("비디오 클릭되었습니다 url == null")
+                            : _launchInBrowser(url);
+                        print("이벤트 클릭되었습니다 : $url");
                       },
                       child: VideoWidget(
                         video: videoController.videoResponseResult.value
@@ -50,5 +55,18 @@ class Video extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  Future<void> _launchInBrowser(String url) async {
+    if (await canLaunch(url)) {
+      await launch(
+        url,
+        forceSafariVC: false,
+        forceWebView: false,
+        headers: <String, String>{'my_header_key': 'my_header_value'},
+      );
+    } else {
+      throw 'Could not launch $url';
+    }
   }
 }

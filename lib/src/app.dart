@@ -1,4 +1,5 @@
 import 'package:fearlessassemble/src/development/dev_page.dart';
+import 'package:fearlessassemble/src/pages/about.dart';
 import 'package:fearlessassemble/src/pages/chart.dart';
 import 'package:fearlessassemble/src/pages/campaign.dart';
 import 'package:fearlessassemble/src/pages/event.dart';
@@ -30,8 +31,8 @@ class App extends GetView<AppController> {
           case RouteName.Event:
             return Event();
             break;
-          case RouteName.Setting:
-            return Setting();
+          case RouteName.About:
+            return About();
             break;
         }
         return Container();
@@ -95,7 +96,7 @@ class App extends GetView<AppController> {
               label: "CAMPAIGN",
             ),
 
-            /* 셋팅 */
+            /* About */
             BottomNavigationBarItem(
               icon: Icon(
                 Icons.settings,
@@ -105,7 +106,7 @@ class App extends GetView<AppController> {
                 Icons.settings,
                 color: Colors.black87,
               ),
-              label: "SETTING",
+              label: "ABOUT",
             ),
           ],
         ),

@@ -1,4 +1,4 @@
-import 'package:fearlessassemble/src/components/noti_bottom_sheet.dart';
+import '../bottom_sheet/noti_bottom_sheet.dart';
 import 'package:fearlessassemble/src/controller/app_controller.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';

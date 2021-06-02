@@ -4,8 +4,8 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 
-class NotiBottomSheet extends StatelessWidget {
-  const NotiBottomSheet({Key key}) : super(key: key);
+class SettingBottomSheet extends StatelessWidget {
+  const SettingBottomSheet({Key key}) : super(key: key);
 
   /* 바텀시트 헤더 */
   Widget _header() {
@@ -13,7 +13,7 @@ class NotiBottomSheet extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Text(
-          "노티노티",
+          "셋팅셋팅",
           style: TextStyle(fontSize: 16),
         ),
         IconButton(
@@ -71,17 +71,17 @@ class NotiBottomSheet extends StatelessWidget {
             _itemButton(
                 iconPath: "upload.svg",
                 iconSize: 17,
-                label: "동영상 업로드",
+                label: "셋팅셋팅",
                 onTap: () {
-                  print("동영상 업로드 기능");
+                  print("셋팅셋팅 버튼 클릭");
                 }),
             SizedBox(height: 10),
             _itemButton(
                 iconPath: "broadcast.svg",
                 iconSize: 25,
-                label: "실시간 스트리밍 시작",
+                label: "셋팅1111123123",
                 onTap: () {
-                  print("실시간 스트리밍 기능");
+                  print("셋팅1111123123 클릭");
                 }),
           ],
         ),

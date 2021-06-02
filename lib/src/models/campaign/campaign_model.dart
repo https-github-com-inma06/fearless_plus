@@ -11,27 +11,31 @@ class CampaignModel {
     this.startTime,
     this.endTime,
     this.description,
-    this.image,
+    this.thumbnailImg,
     this.url,
     this.regDtm,
     this.viewStart,
     this.viewEnd,
     this.isInProgress,
     this.viewCal,
+    this.limitDay,
+    this.category,
   });
 
-  String id;
+  int id;
   String title;
   String startTime;
   String endTime;
   String description;
-  String image;
+  String thumbnailImg;
   String url;
   String regDtm;
   String viewStart;
   String viewEnd;
   String isInProgress;
   String viewCal;
+  String limitDay;
+  String category;
 
   factory CampaignModel.fromJson(Map<String, dynamic> json) => CampaignModel(
         id: json["id"],
@@ -39,13 +43,15 @@ class CampaignModel {
         startTime: json["startTime"],
         endTime: json["endTime"],
         description: json["description"],
-        image: json["image"],
+        thumbnailImg: json["thumbnailImg"],
         url: json["url"],
         regDtm: json["regDtm"],
         viewStart: json["viewStart"],
         viewEnd: json["viewEnd"],
         isInProgress: json["isInProgress"],
         viewCal: json["viewCal"],
+        limitDay: json["limitDay"],
+        category: json["category"],
       );
 
   Map<String, dynamic> toJson() => {
@@ -54,12 +60,14 @@ class CampaignModel {
         "startTime": startTime,
         "endTime": endTime,
         "description": description,
-        "image": image,
+        "thumbnailImg": thumbnailImg,
         "url": url,
         "regDtm": regDtm,
         "viewStart": viewStart,
         "viewEnd": viewEnd,
         "isInProgress": isInProgress,
         "viewCal": viewCal,
+        "limitDay": limitDay,
+        "category": category,
       };
 }

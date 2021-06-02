@@ -1,36 +1,72 @@
-import '../components/appbar/custom_appbar.dart';
-import 'package:fearlessassemble/src/components/video_widget.dart';
+import 'dart:convert';
+
+import 'package:fearlessassemble/src/components/video/video_appbar.dart';
+import 'package:fearlessassemble/src/components/video/video_widget.dart';
+import 'package:fearlessassemble/src/controller/video_controller.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class Video extends StatelessWidget {
-  const Video({Key key}) : super(key: key);
+  Video({Key key}) : super(key: key);
 
+  final VideoController videoController = Get.put(VideoController());
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: CustomScrollView(
-        slivers: [
-          SliverAppBar(
-            title: CustomAppBar(),
-            floating: true,
-            snap: true,
-          ),
-          SliverList(
-            delegate: SliverChildBuilderDelegate(
-              (context, index) {
-                return GestureDetector(
-                  onTap: () {
-                    // 클릭시 영상으로 이동
-                    print("비디오 클릭되었습니다"); // TODO : 영상 링크 이동 작업
-                  },
-                  child: VideoWidget(),
-                );
-              },
-              childCount: 10,
+      child: Obx(
+        () => CustomScrollView(
+          slivers: [
+            SliverAppBar(
+              title: VideoAppBar(),
+              floating: true,
+              snap: true,
             ),
-          ),
-        ],
+            SliverList(
+              delegate: SliverChildBuilderDelegate(
+                (context, index) {
+                  return Container(
+                    padding: EdgeInsets.all(16),
+                    child: GestureDetector(
+                      onTap: () {
+                        String url = "https://www.youtube.com/watch?"
+                            "v=${videoController.videoResponseResult.value.lists[index].code}";
+                        videoController.videoResponseResult.value.lists[index]
+                                    .code ==
+                                null
+                            ? print("비디오 클릭되었습니다 url == null")
+                            : _launchInBrowser(url);
+                        print("이벤트 클릭되었습니다 : $url");
+                      },
+                      child: VideoWidget(
+                        video: videoController.videoResponseResult.value
+                            .lists[index], // VideoWidget 으로 값 넘겨줌
+                      ),
+                    ),
+                  );
+                },
+                childCount: videoController.videoResponseResult.value.lists ==
+                        null
+                    ? 0
+                    : videoController.videoResponseResult.value.lists.length,
+              ),
+            ),
+          ],
+        ),
       ),
     );
+  }
+
+  Future<void> _launchInBrowser(String url) async {
+    if (await canLaunch(url)) {
+      await launch(
+        url,
+        forceSafariVC: false,
+        forceWebView: false,
+        headers: <String, String>{'my_header_key': 'my_header_value'},
+      );
+    } else {
+      throw 'Could not launch $url';
+    }
   }
 }

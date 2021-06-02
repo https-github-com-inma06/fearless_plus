@@ -1,7 +1,6 @@
 import 'dart:convert';
 
-import 'package:fearlessassemble/src/models/campaign_result.dart';
-import 'package:fearlessassemble/src/pages/campaign.dart';
+import 'package:fearlessassemble/src/models/campaign/campaign_result.dart';
 import 'package:get/get.dart';
 
 class CampaignRepository extends GetConnect {
@@ -9,7 +8,7 @@ class CampaignRepository extends GetConnect {
 
   @override
   void onInit() {
-    httpClient.baseUrl = "http://13.209.32.248:19876/api/v1";
+    httpClient.baseUrl = "https://api.fearless-plus.cf/api/v1";
     super.onInit();
   }
 

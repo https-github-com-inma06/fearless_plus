@@ -2,22 +2,24 @@ import 'dart:convert';
 import 'dart:ffi';
 
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:fearlessassemble/src/models/campaign_model.dart';
-import 'package:fearlessassemble/src/models/event_model.dart';
+import 'package:fearlessassemble/src/models/video/video_model.dart';
+import 'package:fearlessassemble/src/pages/video.dart';
+import '../../models/campaign/campaign_model.dart';
+import '../../models/event/event_model.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class EventWidget extends StatefulWidget {
-  final EventModel event;
+class VideoWidget extends StatefulWidget {
+  final VideoModel video;
   // pages - campaign_model.dart 에서  넘겨 받음
-  const EventWidget({Key key, this.event}) : super(key: key);
+  const VideoWidget({Key key, this.video}) : super(key: key);
 
   @override
-  EventWidgetState createState() => EventWidgetState();
+  VideoWidgetState createState() => VideoWidgetState();
 }
 
-class EventWidgetState extends State<EventWidget> {
+class VideoWidgetState extends State<VideoWidget> {
   @override
   void initState() {
     super.initState();
@@ -30,9 +32,10 @@ class EventWidgetState extends State<EventWidget> {
         Container(
           height: 230,
           child: CachedNetworkImage(
-            imageUrl: widget.event.image == null
-                ? "https://pbs.twimg.com/media/EzLcSgSVgAE-r_Q.jpg"
-                : widget.event.image, // TODO: 광고 썸네일 API 작업
+            imageUrl: "https://img.youtube.com/vi/${widget.video.code}/hqdefault.jpg" ==
+                    null
+                ? "https://pbs.twimg.com/media/EzLcSgSVgAE-r_Q.jpg" // TODO : 기본이미지 ( 이미지없을때 )
+                : "https://img.youtube.com/vi/${widget.video.code}/hqdefault.jpg",
             placeholder: (context, url) => Container(
               child: Center(child: CircularProgressIndicator()),
               height: 230,
@@ -47,11 +50,11 @@ class EventWidgetState extends State<EventWidget> {
   Widget _simpleDetailInfo() {
     return Container(
       padding: const EdgeInsets.only(left: 10, top: 5, bottom: 20, right: 10),
-      child: Row(
+      child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
           Text(utf8.decode(
-              widget.event.title.codeUnits)), // TODO: 한글 표시안되는 문제 api받아올때 해결해야함
+              widget.video.title.codeUnits)), // TODO: 한글 표시안되는 문제 api받아올때 해결해야함
         ],
       ),
     );

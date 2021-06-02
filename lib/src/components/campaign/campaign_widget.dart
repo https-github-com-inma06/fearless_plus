@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:fearlessassemble/src/models/campaign_model.dart';
+import '../../models/campaign/campaign_model.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -21,16 +21,16 @@ class CampaignWidgetState extends State<CampaignWidget> {
   }
 
   Widget _thumbnail() {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.stretch,
-      children: [
-        Container(
-          color: Colors.grey.withOpacity(0.5),
-          child: CachedNetworkImage(
-            // imageUrl: widget.video.snippet.thumbnails.high.url,
-            imageUrl: widget.campaign.image == null
+    return Container(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          CachedNetworkImage(
+            // color: Colors.grey.withOpacity(0.5),
+            imageUrl: widget.campaign.thumbnailImg == null
                 ? "https://i.pinimg.com/originals/6e/2b/37/6e2b3766b78038cc505596134a5d1cda.jpg"
-                : widget.campaign.image, // TODO: 광고 썸네일 API 작업
+                : widget.campaign.thumbnailImg,
+            // TODO: 광고 썸네일 API 작업
             height: 230,
             placeholder: (context, url) => Container(
               height: 230,
@@ -38,18 +38,27 @@ class CampaignWidgetState extends State<CampaignWidget> {
             ),
             fit: BoxFit.fitWidth,
           ),
-        ),
-      ],
+          _simpleDetailInfo()
+        ],
+      ),
     );
   }
 
   Widget _simpleDetailInfo() {
     return Container(
-      padding: const EdgeInsets.only(left: 10, top: 5, bottom: 20, right: 10),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
+      padding: const EdgeInsets.only(top: 8, left: 8),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(utf8.decode(widget.campaign.title.codeUnits)), // 한글 인코딩
+          Text(
+            utf8.decode(widget.campaign.title.codeUnits),
+            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+          ), // TODO: 한글 표시안되는 문제 api받아올때 해결해야함
+          Text(utf8.decode(widget.campaign.description.codeUnits)),
+          Text(
+            "${utf8.decode(widget.campaign.startTime.codeUnits)} ~ ${utf8.decode(widget.campaign.endTime.codeUnits)}",
+            style: TextStyle(color: Colors.black26),
+          ),
         ],
       ),
     );
@@ -61,7 +70,7 @@ class CampaignWidgetState extends State<CampaignWidget> {
       child: Column(
         children: [
           _thumbnail(),
-          _simpleDetailInfo(),
+          // _simpleDetailInfo(),
         ],
       ),
     );

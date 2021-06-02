@@ -1,8 +1,8 @@
-import '../models/event/event_result.dart';
+import 'package:fearlessassemble/src/models/video/video_result.dart';
 import 'package:get/get.dart';
 
-class EventRepository extends GetConnect {
-  static EventRepository get to => Get.find();
+class VideoRepository extends GetConnect {
+  static VideoRepository get to => Get.find();
 
   @override
   void onInit() {
@@ -10,15 +10,15 @@ class EventRepository extends GetConnect {
     super.onInit();
   }
 
-  Future<EventResult> loadEvent() async {
-    String url = "/events";
+  Future<VideoResult> loadVideo() async {
+    String url = "/hotVideos?tag_id=1&off_set=1&page_size=10";
     final response = await get(url);
     if (response.status.hasError) {
       return Future.error(response.statusText);
     } else {
       if (response.body["data"]["list"] != null &&
           response.body["data"]["list"].length > 0) {
-        return EventResult.fromJson(response.body);
+        return VideoResult.fromJson(response.body);
         //  utf8.decode(response.bodyBytes)
       }
     }

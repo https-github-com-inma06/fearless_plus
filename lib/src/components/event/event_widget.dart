@@ -6,6 +6,8 @@ import 'package:fearlessassemble/src/models/event/event_model.dart';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
 
 class EventWidget extends StatefulWidget {
   final EventModel event;
@@ -23,43 +25,49 @@ class EventWidgetState extends State<EventWidget> {
   }
 
   Widget _thumbnail() {
-    return Container(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          CachedNetworkImage(
-            // color: Colors.grey.withOpacity(0.5),
-            imageUrl: widget.event.thumbnailImg == null
-                ? "https://i.pinimg.com/originals/6e/2b/37/6e2b3766b78038cc505596134a5d1cda.jpg"
-                : widget.event.thumbnailImg,
-            // TODO: 광고 썸네일 API 작업
-            height: 230,
-            placeholder: (context, url) => Container(
-              height: 230,
-              child: Center(child: CircularProgressIndicator()),
-            ),
-            fit: BoxFit.fitWidth,
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(24),
+      child: Container(
+        width: Get.width,
+        child: CachedNetworkImage(
+          imageUrl: widget.event.thumbnailImg == null
+              ? ""
+              : widget.event.thumbnailImg,
+          placeholder: (context, url) => Container(
+            width: 400,
+            height: 225,
+            child: Center(child: CircularProgressIndicator()),
           ),
-          _simpleDetailInfo()
-        ],
+          errorWidget: (context, url, error) => Image.asset(
+            "assets/images/null-img.png",
+            width: 400,
+            height: 225,
+          ),
+          fit: BoxFit.contain,
+        ),
       ),
     );
   }
 
   Widget _simpleDetailInfo() {
     return Container(
-      padding: const EdgeInsets.only(top: 8, left: 8),
+      padding: const EdgeInsets.only(top: 5, bottom: 20),
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
           Text(
             widget.event.title,
             style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
-          ), // TODO: 한글 표시안되는 문제 api받아올때 해결해야함
-          Text(widget.event.description),
+            maxLines: 1,
+          ),
+          Text(
+            widget.event.description,
+            maxLines: 1,
+          ),
           Text(
             "${widget.event.startTime} ~ ${widget.event.endTime}",
             style: TextStyle(color: Colors.black26),
+            maxLines: 1,
           ),
         ],
       ),
@@ -72,7 +80,7 @@ class EventWidgetState extends State<EventWidget> {
       child: Column(
         children: [
           _thumbnail(),
-          // _simpleDetailInfo(),
+          _simpleDetailInfo(),
         ],
       ),
     );

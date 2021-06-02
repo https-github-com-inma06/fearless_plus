@@ -26,7 +26,9 @@ class Event extends StatelessWidget {
               delegate: SliverChildBuilderDelegate(
                 (context, index) {
                   return Container(
-                    padding: EdgeInsets.all(16),
+                    color: Colors.white,
+                    padding:
+                        const EdgeInsets.only(left: 20, right: 20, bottom: 8),
                     child: GestureDetector(
                       onTap: () {
                         eventController.eventResponseResult.value.lists[index]

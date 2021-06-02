@@ -36,7 +36,7 @@ class CampaignWidgetState extends State<CampaignWidget> {
               height: 230,
               child: Center(child: CircularProgressIndicator()),
             ),
-            fit: BoxFit.fitWidth,
+            fit: BoxFit.contain,
           ),
           _simpleDetailInfo()
         ],

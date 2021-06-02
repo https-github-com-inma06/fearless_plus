@@ -1,3 +1,4 @@
+import 'package:fearlessassemble/src/components/noti_bottom_sheet.dart';
 import 'package:get/get.dart';
 
 enum RouteName {
@@ -6,6 +7,7 @@ enum RouteName {
   Video, // 관련영상
   Event,
   Setting, // 셋팅
+  BottomSheet, // 노티 바텀 시트
 }
 
 class AppController extends GetxService {

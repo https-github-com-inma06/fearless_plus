@@ -53,12 +53,12 @@ class EventWidgetState extends State<EventWidget> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            utf8.decode(widget.event.title.codeUnits),
+            widget.event.title,
             style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
           ), // TODO: 한글 표시안되는 문제 api받아올때 해결해야함
-          Text(utf8.decode(widget.event.description.codeUnits)),
+          Text(widget.event.description),
           Text(
-            "${utf8.decode(widget.event.startTime.codeUnits)} ~ ${utf8.decode(widget.event.endTime.codeUnits)}",
+            "${widget.event.startTime} ~ ${widget.event.endTime}",
             style: TextStyle(color: Colors.black26),
           ),
         ],

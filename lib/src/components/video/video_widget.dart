@@ -53,8 +53,7 @@ class VideoWidgetState extends State<VideoWidget> {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
-          Text(utf8.decode(
-              widget.video.title.codeUnits)), // TODO: 한글 표시안되는 문제 api받아올때 해결해야함
+          Text(widget.video.title),
         ],
       ),
     );

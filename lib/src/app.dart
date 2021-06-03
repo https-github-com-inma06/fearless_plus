@@ -1,10 +1,10 @@
-import 'package:fearlessassemble/src/development/dev_page.dart';
+import 'package:fearlessassemble/src/pages/about.dart';
 import 'package:fearlessassemble/src/pages/chart.dart';
-import 'package:fearlessassemble/src/pages/campaign.dart';
 import 'package:fearlessassemble/src/pages/event.dart';
-import 'package:fearlessassemble/src/pages/setting.dart';
 import 'package:fearlessassemble/src/pages/video.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:get/get_state_manager/src/rx_flutter/rx_obx_widget.dart';
 import 'package:get/get_state_manager/src/simple/get_view.dart';
 import 'controller/app_controller.dart';
@@ -30,14 +30,15 @@ class App extends GetView<AppController> {
           case RouteName.Event:
             return Event();
             break;
-          case RouteName.Setting:
-            return Setting();
+          case RouteName.About:
+            return About();
             break;
         }
         return Container();
       }),
       bottomNavigationBar: Obx(
         () => BottomNavigationBar(
+          backgroundColor: Colors.white,
           type: BottomNavigationBarType.fixed,
           currentIndex: controller.currentIndex.value,
           showSelectedLabels: false,
@@ -46,66 +47,39 @@ class App extends GetView<AppController> {
           items: [
             /* 캘린더 */
             BottomNavigationBarItem(
-              icon: Icon(
-                Icons.calendar_today_outlined,
-                color: Colors.black45,
-              ),
-              activeIcon: Icon(
-                Icons.calendar_today_outlined,
-                color: Colors.black87,
-              ),
+              icon: SvgPicture.asset('assets/svg/icons/ico_calendar.svg'),
+              activeIcon:
+                  SvgPicture.asset('assets/svg/icons/ico_calendar_on.svg'),
               label: "CALENDAR",
             ),
-
             /* 차트 */
             BottomNavigationBarItem(
-              icon: Icon(
-                Icons.bar_chart,
-                color: Colors.black45,
-              ),
-              activeIcon: Icon(
-                Icons.bar_chart,
-                color: Colors.black87,
-              ),
+              icon: SvgPicture.asset('assets/svg/icons/ico_chart.svg'),
+              activeIcon: SvgPicture.asset('assets/svg/icons/ico_chart_on.svg'),
               label: "CHART",
             ),
 
             /* 영상 */
             BottomNavigationBarItem(
-              icon: Icon(
-                Icons.ondemand_video,
-                color: Colors.black45,
-              ),
-              activeIcon: Icon(
-                Icons.ondemand_video,
-                color: Colors.black87,
-              ),
-              label: "VIDEO",
+              icon: SvgPicture.asset('assets/svg/icons/ico_bgtube.svg'),
+              activeIcon:
+                  SvgPicture.asset('assets/svg/icons/ico_bgtube_on.svg'),
+              label: "BGTUBE",
             ),
             /* 광고 / 캠페인 */
             BottomNavigationBarItem(
-              icon: Icon(
-                Icons.campaign,
-                color: Colors.black45,
-              ),
-              activeIcon: Icon(
-                Icons.campaign,
-                color: Colors.black87,
-              ),
+              icon: SvgPicture.asset('assets/svg/icons/ico_campaign.svg'),
+              activeIcon:
+                  SvgPicture.asset('assets/svg/icons/ico_campaign_on.svg'),
               label: "CAMPAIGN",
             ),
 
-            /* 셋팅 */
+            /* About */
             BottomNavigationBarItem(
-              icon: Icon(
-                Icons.settings,
-                color: Colors.black45,
-              ),
-              activeIcon: Icon(
-                Icons.settings,
-                color: Colors.black87,
-              ),
-              label: "SETTING",
+              icon: SvgPicture.asset('assets/svg/icons/ico_aboutbg.svg'),
+              activeIcon:
+                  SvgPicture.asset('assets/svg/icons/ico_aboutbg_on.svg'),
+              label: "ABOUT BG",
             ),
           ],
         ),

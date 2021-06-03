@@ -36,7 +36,7 @@ class CampaignWidgetState extends State<CampaignWidget> {
               height: 230,
               child: Center(child: CircularProgressIndicator()),
             ),
-            fit: BoxFit.fitWidth,
+            fit: BoxFit.contain,
           ),
           _simpleDetailInfo()
         ],
@@ -51,12 +51,12 @@ class CampaignWidgetState extends State<CampaignWidget> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            utf8.decode(widget.campaign.title.codeUnits),
+            widget.campaign.title,
             style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
-          ), // TODO: 한글 표시안되는 문제 api받아올때 해결해야함
-          Text(utf8.decode(widget.campaign.description.codeUnits)),
+          ),
+          Text(widget.campaign.description),
           Text(
-            "${utf8.decode(widget.campaign.startTime.codeUnits)} ~ ${utf8.decode(widget.campaign.endTime.codeUnits)}",
+            "${widget.campaign.startTime} ~ ${widget.campaign.endTime}",
             style: TextStyle(color: Colors.black26),
           ),
         ],

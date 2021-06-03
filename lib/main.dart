@@ -1,5 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:fearlessassemble/src/controller/noti_history_controller.dart';
+import 'package:flutter/services.dart';
 
 import 'src/pages/noti_history.dart';
 import 'package:flutter/cupertino.dart';
@@ -33,6 +34,8 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setEnabledSystemUIOverlays([]);
+
     return GetMaterialApp(
       title: "Fearless_App",
       // localizationsDelegates: context.localizationDelegates,

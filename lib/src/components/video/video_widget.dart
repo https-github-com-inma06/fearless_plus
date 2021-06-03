@@ -4,6 +4,7 @@ import 'dart:ffi';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:fearlessassemble/src/models/video/video_model.dart';
 import 'package:fearlessassemble/src/pages/video.dart';
+import 'package:flutter_svg/svg.dart';
 import '../../models/campaign/campaign_model.dart';
 import '../../models/event/event_model.dart';
 import 'package:flutter/cupertino.dart';
@@ -12,7 +13,7 @@ import 'package:get/get.dart';
 
 class VideoWidget extends StatefulWidget {
   final VideoModel video;
-  // pages - campaign_model.dart 에서  넘겨 받음
+  // pages - video_model.dart 에서  넘겨 받음
   const VideoWidget({Key key, this.video}) : super(key: key);
 
   @override
@@ -26,35 +27,38 @@ class VideoWidgetState extends State<VideoWidget> {
   }
 
   Widget _thumbnail() {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.stretch,
-      children: [
-        Container(
-          height: 230,
-          child: CachedNetworkImage(
-            imageUrl: "https://img.youtube.com/vi/${widget.video.code}/hqdefault.jpg" ==
-                    null
-                ? "https://pbs.twimg.com/media/EzLcSgSVgAE-r_Q.jpg" // TODO : 기본이미지 ( 이미지없을때 )
-                : "https://img.youtube.com/vi/${widget.video.code}/hqdefault.jpg",
-            placeholder: (context, url) => Container(
-              child: Center(child: CircularProgressIndicator()),
-              height: 230,
-            ),
-            fit: BoxFit.fitWidth,
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(24),
+      child: Container(
+        child: CachedNetworkImage(
+          imageUrl: widget.video.code == null
+              ? ""
+              : "https://img.youtube.com/vi/${widget.video.code}/hqdefault.jpg",
+          placeholder: (context, url) => Container(
+            width: 400,
+            height: 225,
+            child: Center(child: CircularProgressIndicator()),
           ),
+          errorWidget: (context, url, error) => Image.asset(
+            "assets/images/null-img.png",
+            width: Get.width,
+          ),
+          fit: BoxFit.contain,
         ),
-      ],
+      ),
     );
   }
 
   Widget _simpleDetailInfo() {
     return Container(
-      padding: const EdgeInsets.only(left: 10, top: 5, bottom: 20, right: 10),
+      padding: const EdgeInsets.only(top: 5, bottom: 20),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
-          Text(utf8.decode(
-              widget.video.title.codeUnits)), // TODO: 한글 표시안되는 문제 api받아올때 해결해야함
+          Text(
+            widget.video.title,
+            maxLines: 2,
+          ),
         ],
       ),
     );

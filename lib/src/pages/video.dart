@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:fearlessassemble/src/components/video/video_appbar.dart';
 import 'package:fearlessassemble/src/components/video/video_widget.dart';
 import 'package:fearlessassemble/src/controller/video_controller.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -26,7 +27,9 @@ class Video extends StatelessWidget {
               delegate: SliverChildBuilderDelegate(
                 (context, index) {
                   return Container(
-                    padding: EdgeInsets.all(16),
+                    color: Colors.white,
+                    padding:
+                        const EdgeInsets.only(left: 20, right: 20, bottom: 8),
                     child: GestureDetector(
                       onTap: () {
                         String url = "https://www.youtube.com/watch?"

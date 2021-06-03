@@ -21,7 +21,6 @@ class CampaignRepository extends GetConnect {
       if (response.body["data"]["list"] != null &&
           response.body["data"]["list"].length > 0) {
         return CampaignResult.fromJson(response.body);
-        //  utf8.decode(response.bodyBytes)
       }
     }
   }

@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="52" height="24" viewBox="0 0 52 24">
+  <g id="btn_toggle_off" transform="translate(-288 -434)">
+    <rect id="사각형_65" data-name="사각형 65" width="52" height="24" rx="12" transform="translate(288 434)" fill="#ddd"/>
+    <circle id="타원_26" data-name="타원 26" cx="8" cy="8" r="8" transform="translate(292 438)" fill="#fff"/>
+    <text id="OFF" transform="translate(321 449)" fill="#fff" font-size="8" font-family="Montserrat-Regular, Montserrat"><tspan x="-8.42" y="0">OFF</tspan></text>
+  </g>
+</svg>

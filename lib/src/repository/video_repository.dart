@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:fearlessassemble/src/models/video/video_result.dart';
 import 'package:get/get.dart';
 
@@ -19,7 +21,6 @@ class VideoRepository extends GetConnect {
       if (response.body["data"]["list"] != null &&
           response.body["data"]["list"].length > 0) {
         return VideoResult.fromJson(response.body);
-        //  utf8.decode(response.bodyBytes)
       }
     }
   }

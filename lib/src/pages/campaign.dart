@@ -1,3 +1,4 @@
+import 'package:fearlessassemble/src/components/campaign/campaign_appbar.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../components/campaign/campaign_widget.dart';
@@ -17,7 +18,7 @@ class Campaign extends StatelessWidget {
         () => CustomScrollView(
           slivers: [
             SliverAppBar(
-              title: CustomAppBar(),
+              title: CampaignAppBar(),
               floating: true,
               snap: true,
             ),

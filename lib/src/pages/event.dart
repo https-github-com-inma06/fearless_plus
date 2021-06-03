@@ -34,7 +34,7 @@ class Event extends StatelessWidget {
                         eventController.eventResponseResult.value.lists[index]
                                     .url ==
                                 null
-                            ? print("이벤트 클릭되었습니다 url == null")
+                            ? print("이벤트 클릭되11었습니다 url == null")
                             : _launchInBrowser(eventController
                                 .eventResponseResult.value.lists[index].url);
                         print(

@@ -69,7 +69,7 @@ class NotiBottomSheet extends StatelessWidget {
             _header(),
             SizedBox(height: 10),
             _itemButton(
-                iconPath: "upload.svg",
+                iconPath: "bell.svg",
                 iconSize: 17,
                 label: "ddddddd",
                 onTap: () {
@@ -77,7 +77,7 @@ class NotiBottomSheet extends StatelessWidget {
                 }),
             SizedBox(height: 10),
             _itemButton(
-                iconPath: "broadcast.svg",
+                iconPath: "bell.svg",
                 iconSize: 25,
                 label: "zzzzzzzzzzzzzzzz",
                 onTap: () {

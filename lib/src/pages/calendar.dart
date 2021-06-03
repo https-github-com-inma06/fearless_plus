@@ -11,31 +11,32 @@ class Calendar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          centerTitle: true,
-          elevation: 0.0,
-          title: Text('Calendar'),
-          actions: <Widget>[
-            Container(
-              margin: const EdgeInsets.only(right: 4.3),
-              child: IconButton(
-                icon: SvgPicture.asset(
-                  "assets/svg/icons/bell.svg",
-                  width: 25,
-                  height: 25,
-                ),
-                onPressed: () {
-                  print('bell icon clicked');
-                  Get.bottomSheet(NotiBottomSheet());
-                },
+      appBar: AppBar(
+        centerTitle: true,
+        elevation: 0.0,
+        title: Text('Calendar'),
+        actions: <Widget>[
+          Container(
+            margin: const EdgeInsets.only(right: 4.3),
+            child: IconButton(
+              icon: SvgPicture.asset(
+                "assets/svg/icons/bell.svg",
+                width: 25,
+                height: 25,
               ),
+              onPressed: () {
+                print('bell icon clicked');
+                Get.bottomSheet(NotiBottomSheet());
+              },
             ),
-          ],
-        ),
-        body: Container(
-          height: Get.height,
-          child: CalendarWidget(),
-        ));
+          ),
+        ],
+      ),
+      body: Container(
+        height: Get.height,
+        child: CalendarWidget(),
+      ),
+    );
   }
 
   Future<void> _launchInBrowser(String url) async {

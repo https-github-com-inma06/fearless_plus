@@ -25,25 +25,26 @@ class EventWidgetState extends State<EventWidget> {
   }
 
   Widget _thumbnail() {
-    return ClipRRect(
-      borderRadius: BorderRadius.circular(24),
-      child: Container(
-        width: Get.width,
+    return Container(
+      margin: const EdgeInsets.only(top: 24),
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(24),
         child: CachedNetworkImage(
+          width: Get.context.width,
+          fit: BoxFit.fitWidth,
           imageUrl: widget.event.thumbnailImg == null
               ? ""
               : widget.event.thumbnailImg,
+          errorWidget: (context, url, error) => SvgPicture.asset(
+            "assets/svg/icons/null-img.svg",
+          ),
           placeholder: (context, url) => Container(
-            width: 400,
-            height: 225,
-            child: Center(child: CircularProgressIndicator()),
+            width: 460,
+            height: 345,
+            child: Center(
+              child: CupertinoActivityIndicator(),
+            ),
           ),
-          errorWidget: (context, url, error) => Image.asset(
-            "assets/images/null-img.png",
-            width: 400,
-            height: 225,
-          ),
-          fit: BoxFit.contain,
         ),
       ),
     );
@@ -51,7 +52,7 @@ class EventWidgetState extends State<EventWidget> {
 
   Widget _simpleDetailInfo() {
     return Container(
-      padding: const EdgeInsets.only(top: 5, bottom: 20),
+      margin: const EdgeInsets.only(top: 16, bottom: 10, left: 16, right: 16),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [

@@ -28,8 +28,6 @@ class Video extends StatelessWidget {
                 (context, index) {
                   return Container(
                     color: Colors.white,
-                    padding:
-                        const EdgeInsets.only(left: 20, right: 20, bottom: 8),
                     child: GestureDetector(
                       onTap: () {
                         String url = "https://www.youtube.com/watch?"
@@ -41,9 +39,12 @@ class Video extends StatelessWidget {
                             : _launchInBrowser(url);
                         print("이벤트 클릭되었습니다 : $url");
                       },
-                      child: VideoWidget(
-                        video: videoController.videoResponseResult.value
-                            .lists[index], // VideoWidget 으로 값 넘겨줌
+                      child: Container(
+                        padding: const EdgeInsets.only(left: 20, right: 20),
+                        child: VideoWidget(
+                          video: videoController.videoResponseResult.value
+                              .lists[index], // VideoWidget 으로 값 넘겨줌
+                        ),
                       ),
                     ),
                   );

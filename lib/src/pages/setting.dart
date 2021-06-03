@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:onesignal_flutter/onesignal_flutter.dart';
+
+import '../../extension.dart';
 
 // TODO : GetX 미적용
 
@@ -282,6 +285,9 @@ class _NotificationSettingState extends State<NotificationSetting> {
         onTap: () {
           setState(() {
             _toggleNotification(name);
+
+            print("toggle $onOff $name");
+            // OneSignal().sendTag(name, onOff);
           });
         });
   }

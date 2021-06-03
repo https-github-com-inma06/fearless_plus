@@ -66,8 +66,16 @@ class NotificationController extends GetxController {
       //     jsonDecode(result.notification.jsonRepresentation()));
       // print("NotiData : ${notiData}");
 
-      print("_openedHandler_ result : $result.");
+      if(result.notification.payload.launchUrl?.isNotEmpty) {
+        launchUrlParser(result.notification.payload.launchUrl);
+      }
+
     });
+  }
+
+  launchUrlParser(String launchUrl) async {
+    // launchUrl
+
   }
 
   _initSetLogLevel() {

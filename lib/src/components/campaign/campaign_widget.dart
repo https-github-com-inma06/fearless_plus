@@ -32,11 +32,13 @@ class CampaignWidgetState extends State<CampaignWidget> {
               : widget.campaign.thumbnailImg,
           errorWidget: (context, url, error) =>
               SvgPicture.asset('assets/svg/icons/null-img.svg'),
-          placeholder: (context, url) => Container(
-            width: 370,
-            height: 275,
-            child: Center(
-              child: CircularProgressIndicator(),
+          placeholder: (context, url) => ClipRRect(
+            borderRadius: BorderRadius.circular(24),
+            child: Container(
+              height: 150,
+              child: Center(
+                child: CircularProgressIndicator(),
+              ),
             ),
           ),
         ),

@@ -33,8 +33,8 @@ class CampaignWidgetState extends State<CampaignWidget> {
           errorWidget: (context, url, error) =>
               SvgPicture.asset('assets/svg/icons/null-img.svg'),
           placeholder: (context, url) => Container(
-            width: 460,
-            height: 345,
+            width: 370,
+            height: 275,
             child: Center(
               child: CircularProgressIndicator(),
             ),

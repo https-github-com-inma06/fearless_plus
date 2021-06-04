@@ -39,8 +39,8 @@ class EventWidgetState extends State<EventWidget> {
             "assets/svg/icons/null-img.svg",
           ),
           placeholder: (context, url) => Container(
-            width: 460,
-            height: 345,
+            width: 370,
+            height: 275,
             child: Center(
               child: CupertinoActivityIndicator(),
             ),

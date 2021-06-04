@@ -4,6 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class AboutWidget extends StatelessWidget {
   const AboutWidget({Key key}) : super(key: key);
@@ -65,18 +66,38 @@ class AboutWidget extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
-                    SvgPicture.asset(
-                      'assets/svg/icons/ico_instagram.svg',
-                      width: 20,
-                      height: 20,
+                    Container(
+                      child: GestureDetector(
+                        onTap: () {
+                          _launchInBrowser(insUrl);
+                          print('인스타클릭');
+                        },
+                        child: Container(
+                          width: 20,
+                          height: 20,
+                          child: SvgPicture.asset(
+                            'assets/svg/icons/ico_instagram.svg',
+                          ),
+                        ),
+                      ),
                     ),
                     SizedBox(
                       width: 12,
                     ),
-                    SvgPicture.asset(
-                      'assets/svg/icons/ico_twitter.svg',
-                      width: 20,
-                      height: 20,
+                    Container(
+                      child: GestureDetector(
+                        onTap: () {
+                          _launchInBrowser(twiUrl);
+                          print('트위터 클릭');
+                        },
+                        child: Container(
+                          width: 20,
+                          height: 20,
+                          child: SvgPicture.asset(
+                            'assets/svg/icons/ico_twitter.svg',
+                          ),
+                        ),
+                      ),
                     ),
                   ],
                 ),
@@ -100,16 +121,26 @@ class AboutWidget extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Container(
-                  width: (Get.width / 2) - (Get.width - Get.width * 0.91),
+                  width: (Get.width / 2) - (Get.width - Get.width * 0.925),
                   height: (Get.height / 2) - (Get.height - Get.height * 0.8),
-                  child: _profile('assets/images/img_min.png', 'MINYEONG',
-                      'Main Vocalist', '1990.09.12', '', ''),
+                  child: _profile(
+                      'assets/images/img_min.png',
+                      'MINYEONG',
+                      'Main Vocalist',
+                      '1990.09.12',
+                      'https://www.instagram.com/nyong2ya',
+                      'https://twitter.com/nyong2ya'),
                 ),
                 Container(
-                  width: (Get.width / 2) - (Get.width - Get.width * 0.91),
+                  width: (Get.width / 2) - (Get.width - Get.width * 0.925),
                   height: (Get.height / 2) - (Get.height - Get.height * 0.8),
-                  child: _profile('assets/images/img_yoo.png', 'YUJEONG',
-                      'Vocalist', '1991.05.02', '', ''),
+                  child: _profile(
+                      'assets/images/img_yoo.png',
+                      'YUJEONG',
+                      'Vocalist',
+                      '1991.05.02',
+                      'https://www.instagram.com/braveg_yj',
+                      'https://twitter.com/bgyjnice'),
                 ),
               ],
             ),
@@ -118,27 +149,27 @@ class AboutWidget extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Container(
-                width: (Get.width / 2) - (Get.width - Get.width * 0.91),
+                width: (Get.width / 2) - (Get.width - Get.width * 0.925),
                 height: (Get.height / 2) - (Get.height - Get.height * 0.8),
                 child: _profile(
                   'assets/images/img_eun.png',
                   'EUNJI',
                   'Vocalist',
                   '1992.07.19',
-                  '',
-                  '',
+                  'https://www.instagram.com/bg_eunji92',
+                  'https://twitter.com/braveunji',
                 ),
               ),
               Container(
-                width: (Get.width / 2) - (Get.width - Get.width * 0.91),
+                width: (Get.width / 2) - (Get.width - Get.width * 0.925),
                 height: (Get.height / 2) - (Get.height - Get.height * 0.8),
                 child: _profile(
                   'assets/images/img_yuna.png',
                   'YUNA',
                   'Lead Vocalist',
                   '1993.04.06',
-                  '',
-                  '',
+                  'https://www.instagram.com/u.nalee',
+                  'https://twitter.com/u_nalee_',
                 ),
               ),
             ],
@@ -146,5 +177,18 @@ class AboutWidget extends StatelessWidget {
         ],
       ),
     );
+  }
+
+  Future<void> _launchInBrowser(String url) async {
+    if (await canLaunch(url)) {
+      await launch(
+        url,
+        forceSafariVC: false,
+        forceWebView: false,
+        headers: <String, String>{'my_header_key': 'my_header_value'},
+      );
+    } else {
+      throw 'Could not launch $url';
+    }
   }
 }

@@ -40,7 +40,7 @@ class EventWidgetState extends State<EventWidget> {
           placeholder: (context, url) => ClipRRect(
             borderRadius: BorderRadius.circular(24),
             child: Container(
-              height: 150,
+              height: 278.5,
               child: Center(
                 child: CircularProgressIndicator(),
               ),
@@ -58,16 +58,18 @@ class EventWidgetState extends State<EventWidget> {
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
           Text(
-            widget.event.title,
+            widget.event.title == null ? "이벤트 제목이 없습니다" : widget.event.title,
             style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
             maxLines: 1,
           ),
           Text(
-            widget.event.description,
+            widget.event.description == null ? "" : widget.event.description,
             maxLines: 1,
           ),
           Text(
-            "${widget.event.startTime} ~ ${widget.event.endTime}",
+            widget.event.startTime == null
+                ? ""
+                : "${widget.event.startTime} ~ ${widget.event.endTime}",
             style: TextStyle(color: Colors.black26),
             maxLines: 1,
           ),

@@ -13,7 +13,7 @@ class VideoRepository extends GetConnect {
   }
 
   Future<VideoResult> loadVideo() async {
-    String url = "/hotVideos?tag_id=1&off_set=1&page_size=10";
+    String url = "/hotVideos?tag_id=1&off_set=10&page_size=10";
     final response = await get(url);
     if (response.status.hasError) {
       return Future.error(response.statusText);

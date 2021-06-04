@@ -29,7 +29,10 @@ class Video extends StatelessWidget {
           title: VideoAppBar(),
         ),
         body: Container(
-            padding: const EdgeInsets.only(left: 20, right: 20),
+            padding: const EdgeInsets.only(
+              left: 20,
+              right: 20,
+            ),
             child: SvgPicture.asset('assets/svg/icons/null-img.svg')),
       );
     }

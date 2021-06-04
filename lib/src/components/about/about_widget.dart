@@ -3,6 +3,7 @@ import 'dart:ui';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
 
 class AboutWidget extends StatelessWidget {
   const AboutWidget({Key key}) : super(key: key);
@@ -13,22 +14,20 @@ class AboutWidget extends StatelessWidget {
       child: ClipRRect(
         borderRadius: BorderRadius.circular(18),
         child: Container(
-          width: 195,
-          height: 275,
           color: const Color(0xffFF9D6B),
           child: Column(
             children: [
               Container(
                 margin: const EdgeInsets.only(
-                  top: 25,
-                  bottom: 15,
+                  top: 18,
+                  bottom: 8,
                 ),
                 child: ClipRRect(
                   // borderRadius: BorderRadius.circular(0),
                   child: Image.asset(
                     image,
-                    width: 100,
-                    height: 100,
+                    width: 80,
+                    height: 80,
                     fit: BoxFit.cover,
                   ),
                 ),
@@ -36,19 +35,23 @@ class AboutWidget extends StatelessWidget {
               Text(
                 name,
                 style: TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white),
+                  fontSize: 14,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white,
+                ),
               ),
               SizedBox(
-                height: 5,
+                height: 2,
               ),
               Text(
                 position,
-                style: TextStyle(color: Colors.white),
+                style: TextStyle(
+                  fontSize: 10,
+                  color: Colors.white,
+                ),
               ),
               SizedBox(
-                height: 5,
+                height: 2,
               ),
               Text(
                 birthDay,
@@ -56,24 +59,24 @@ class AboutWidget extends StatelessWidget {
               ),
               Container(
                 margin: const EdgeInsets.only(
-                  top: 20,
-                  right: 14,
+                  top: 8,
+                  right: 18,
                 ),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
                     SvgPicture.asset(
                       'assets/svg/icons/ico_instagram.svg',
-                      width: 25,
-                      height: 25,
+                      width: 20,
+                      height: 20,
                     ),
                     SizedBox(
-                      width: 16,
+                      width: 12,
                     ),
                     SvgPicture.asset(
                       'assets/svg/icons/ico_twitter.svg',
-                      width: 25,
-                      height: 25,
+                      width: 20,
+                      height: 20,
                     ),
                   ],
                 ),
@@ -88,26 +91,56 @@ class AboutWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      // margin: const EdgeInsets.only(top: 20, left: 20),
+      margin: const EdgeInsets.only(left: 20, right: 20),
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              _profile('assets/images/img_min.png', 'MINYEONG', 'Main Vocalist',
-                  '1990.09.12', '', ''),
-              _profile('assets/images/img_yoo.png', 'YUJEONG', 'Vocalist',
-                  '1991.05.02', '', ''),
-            ],
+          Container(
+            margin: const EdgeInsets.only(bottom: 14),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Container(
+                  width: (Get.width / 2) - (Get.width - Get.width * 0.91),
+                  height: (Get.height / 2) - (Get.height - Get.height * 0.8),
+                  child: _profile('assets/images/img_min.png', 'MINYEONG',
+                      'Main Vocalist', '1990.09.12', '', ''),
+                ),
+                Container(
+                  width: (Get.width / 2) - (Get.width - Get.width * 0.91),
+                  height: (Get.height / 2) - (Get.height - Get.height * 0.8),
+                  child: _profile('assets/images/img_yoo.png', 'YUJEONG',
+                      'Vocalist', '1991.05.02', '', ''),
+                ),
+              ],
+            ),
           ),
           Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              _profile('assets/images/img_eun.png', 'EUNJI', 'Vocalist',
-                  '1992.07.19', '', ''),
-              _profile('assets/images/img_yuna.png', 'YUNA', 'Lead Vocalist',
-                  '1993.04.06', '', ''),
+              Container(
+                width: (Get.width / 2) - (Get.width - Get.width * 0.91),
+                height: (Get.height / 2) - (Get.height - Get.height * 0.8),
+                child: _profile(
+                  'assets/images/img_eun.png',
+                  'EUNJI',
+                  'Vocalist',
+                  '1992.07.19',
+                  '',
+                  '',
+                ),
+              ),
+              Container(
+                width: (Get.width / 2) - (Get.width - Get.width * 0.91),
+                height: (Get.height / 2) - (Get.height - Get.height * 0.8),
+                child: _profile(
+                  'assets/images/img_yuna.png',
+                  'YUNA',
+                  'Lead Vocalist',
+                  '1993.04.06',
+                  '',
+                  '',
+                ),
+              ),
             ],
           ),
         ],

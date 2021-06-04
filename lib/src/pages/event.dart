@@ -27,8 +27,11 @@ class Event extends StatelessWidget {
                 (context, index) {
                   return Container(
                     color: Colors.white,
-                    padding:
-                        const EdgeInsets.only(left: 20, right: 20, bottom: 8),
+                    padding: const EdgeInsets.only(
+                      left: 20,
+                      right: 20,
+                      bottom: 8,
+                    ),
                     child: GestureDetector(
                       onTap: () {
                         eventController.eventResponseResult.value.lists[index]

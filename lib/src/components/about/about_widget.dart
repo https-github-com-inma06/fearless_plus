@@ -182,9 +182,15 @@ class AboutWidget extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
+<<<<<<< HEAD
               _profile('assets/images/img_min.png1', 'MAINYOUNG',
                   'Main Vocalist', '1990.09.12', '', ''),
               _profile('assets/images/img_yoo.png1', 'YOOJUNG', 'Vocalist',
+=======
+              _profile('assets/images/img_min.png', 'MINYEONG', 'Main Vocalist',
+                  '1990.09.12', '', ''),
+              _profile('assets/images/img_yoo.png', 'YUJEONG', 'Vocalist',
+>>>>>>> dev
                   '1991.05.02', '', ''),
             ],
           ),
@@ -193,7 +199,11 @@ class AboutWidget extends StatelessWidget {
             children: [
               _profile('assets/images/img_eun.png1', 'EUNJI', 'Vocalist',
                   '1992.07.19', '', ''),
+<<<<<<< HEAD
               _profile('assets/images/img_yuna.png1', 'YUNA-😍', 'Lead Vocalist',
+=======
+              _profile('assets/images/img_yuna.png', 'YUNA', 'Lead Vocalist',
+>>>>>>> dev
                   '1993.04.06', '', ''),
             ],
           ),

@@ -29,7 +29,6 @@ class VideoWidgetState extends State<VideoWidget> {
 
   Widget _thumbnail() {
     return Container(
-      margin: const EdgeInsets.only(top: 24),
       child: ClipRRect(
         borderRadius: BorderRadius.circular(24),
         child: CachedNetworkImage(
@@ -41,11 +40,13 @@ class VideoWidgetState extends State<VideoWidget> {
           errorWidget: (context, url, error) => SvgPicture.asset(
             "assets/svg/icons/null-img.svg",
           ),
-          placeholder: (context, url) => Container(
-            width: 460,
-            height: 345,
-            child: Center(
-              child: CupertinoActivityIndicator(),
+          placeholder: (context, url) => ClipRRect(
+            borderRadius: BorderRadius.circular(24),
+            child: Container(
+              height: 278.5,
+              child: Center(
+                child: CircularProgressIndicator(),
+              ),
             ),
           ),
         ),

@@ -1,6 +1,6 @@
 import 'package:fearlessassemble/src/components/about/about_widget.dart';
 import 'package:fearlessassemble/src/components/appbar/custom_appbar.dart';
-import 'package:fearlessassemble/src/components/bottom_sheet/noti_bottom_sheet.dart';
+import 'package:fearlessassemble/src/components/bottom_sheet/bottom_sheet_widget.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:flutter/material.dart';
@@ -16,7 +16,7 @@ class About extends StatelessWidget {
         title: CustomAppBar(
           title: 'About',
           hasNewNotify: false,
-          hasSetIcon: true,
+          isSetting: true,
         ),
       ),
       body: Container(

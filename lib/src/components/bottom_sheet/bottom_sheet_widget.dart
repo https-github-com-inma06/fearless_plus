@@ -4,22 +4,51 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 
-class NotiBottomSheet extends StatelessWidget {
-  const NotiBottomSheet({Key key}) : super(key: key);
+enum SheetName {
+  Notification,
+  Setting,
+}
 
-  /* 바텀시트 헤더 */
+class BottomSheetWidget extends StatefulWidget {
+  final String title;
+
+  const BottomSheetWidget({Key key, this.title}) : super(key: key);
+
+  @override
+  BottomSheetWidgetState createState() => BottomSheetWidgetState();
+}
+
+class BottomSheetWidgetState extends State<BottomSheetWidget> {
+  @override
+  void initState() {
+    super.initState();
+  }
+
+  /* 바텀시트 상단 바 */
+  Widget _topBar() {
+    return Container(
+      margin: const EdgeInsets.only(
+        top: 5,
+      ),
+      child: SvgPicture.asset(
+        'assets/svg/icons/bottom_sheet_bar.svg',
+      ),
+    );
+  }
+
+  /* 바텀시트 헤더 타이틀 */
   Widget _header() {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Text(
-          "노티노티",
+          widget.title,
           style: TextStyle(fontSize: 16),
         ),
         IconButton(
           icon: Icon(Icons.close),
           onPressed: Get.back,
-        )
+        ),
       ],
     );
   }
@@ -57,8 +86,8 @@ class NotiBottomSheet extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: const EdgeInsets.only(
-        left: 20,
-        right: 20,
+        left: 32,
+        right: 32,
       ),
       child: ClipRRect(
         borderRadius: BorderRadius.only(
@@ -66,29 +95,34 @@ class NotiBottomSheet extends StatelessWidget {
           topRight: Radius.circular(20),
         ),
         child: Container(
-          padding: const EdgeInsets.only(left: 20),
           height: 600,
           color: Colors.white,
-          child: Column(
-            children: [
-              _header(),
-              SizedBox(height: 20),
-              _itemButton(
-                  iconPath: "bell.svg",
-                  iconSize: 17,
-                  label: "ddddddd",
-                  onTap: () {
-                    print("111111111");
-                  }),
-              SizedBox(height: 10),
-              _itemButton(
-                  iconPath: "bell.svg",
-                  iconSize: 25,
-                  label: "zzzzzzzzzzzzzzzz",
-                  onTap: () {
-                    print("22222222222222");
-                  }),
-            ],
+          child: Container(
+            margin: const EdgeInsets.only(
+              top: 10,
+            ),
+            child: Column(
+              children: [
+                _topBar(),
+                _header(),
+                SizedBox(height: 20),
+                _itemButton(
+                    iconPath: "bell.svg",
+                    iconSize: 17,
+                    label: "ddddddd",
+                    onTap: () {
+                      print("111111111");
+                    }),
+                SizedBox(height: 10),
+                _itemButton(
+                    iconPath: "bell.svg",
+                    iconSize: 25,
+                    label: "zzzzzzzzzzzzzzzz",
+                    onTap: () {
+                      print("22222222222222");
+                    }),
+              ],
+            ),
           ),
         ),
       ),

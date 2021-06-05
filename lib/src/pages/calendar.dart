@@ -1,4 +1,4 @@
-import 'package:fearlessassemble/src/components/bottom_sheet/noti_bottom_sheet.dart';
+import 'package:fearlessassemble/src/components/bottom_sheet/bottom_sheet_widget.dart';
 import 'package:fearlessassemble/src/components/calendar/calendar_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -26,7 +26,9 @@ class Calendar extends StatelessWidget {
               ),
               onPressed: () {
                 print('bell icon clicked');
-                Get.bottomSheet(NotiBottomSheet());
+                Get.bottomSheet(BottomSheetWidget(
+                  title: 'Notification',
+                ));
               },
             ),
           ),

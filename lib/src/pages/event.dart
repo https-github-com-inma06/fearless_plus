@@ -1,4 +1,4 @@
-import 'package:fearlessassemble/src/components/campaign/campaign_appbar.dart';
+import 'package:fearlessassemble/src/components/appbar/custom_appbar.dart';
 import 'package:fearlessassemble/src/components/event/event_widget.dart';
 import 'package:fearlessassemble/src/controller/event_controller.dart';
 import 'package:fearlessassemble/src/controller/web_view_controller.dart';
@@ -18,7 +18,11 @@ class Event extends StatelessWidget {
         () => CustomScrollView(
           slivers: [
             SliverAppBar(
-              title: CampaignAppBar(),
+              title: CustomAppBar(
+                title: 'Event',
+                hasNewNotify: false,
+                isSetting: false,
+              ),
               floating: true,
               snap: true,
             ),

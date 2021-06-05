@@ -1,5 +1,6 @@
 import 'dart:ui';
 
+import 'package:fearlessassemble/extension.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -60,11 +61,21 @@ class AboutWidget extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
-                    SvgPicture.asset(
-                      'assets/svg/icons/ico_instagram.svg',
-                      width: 25,
-                      height: 25,
+                    GestureDetector(
+                      onTap: () {
+
+                        launchInBrowser("");
+                        print("클릭되었습니다 :");
+                      },
+                      child: SvgPicture.asset(
+                        'assets/svg/icons/ico_instagram.svg',
+                        width: 25,
+                        height: 25,
+                      ),
                     ),
+
+
+
                     SizedBox(
                       width: 16,
                     ),
@@ -165,11 +176,6 @@ class AboutWidget extends StatelessWidget {
                       crossAxisSpacing: 10,
                       crossAxisCount: 2)),
             ),
-/*
-            SizedBox(
-                width: 100,
-                height: 40,
-                child: const ColoredBox(color: Colors.grey))*/
           ],
         ),
       )),

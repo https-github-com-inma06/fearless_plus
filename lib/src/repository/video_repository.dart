@@ -26,10 +26,6 @@ class VideoRepository extends GetConnect {
     } else {
       if (response.body["data"]["list"] != null &&
           response.body["data"]["list"].length > 0) {
-        var msg = "hello, world";
-        for (var i = 0; i < 5; i++) {
-          print(msg[i]);
-        }
         for (var i = 0; i < response.body["data"]["list"].length; i++) {
           print(
               "Video Response data->list : ${response.body["data"]["list"][i]}");

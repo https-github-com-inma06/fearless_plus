@@ -55,35 +55,41 @@ class NotiBottomSheet extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ClipRRect(
-      borderRadius: BorderRadius.only(
-        topLeft: Radius.circular(20),
-        topRight: Radius.circular(20),
+    return Container(
+      margin: const EdgeInsets.only(
+        left: 20,
+        right: 20,
       ),
-      child: Container(
-        padding: const EdgeInsets.only(left: 20),
-        height: 200,
-        color: Colors.white,
-        child: Column(
-          children: [
-            _header(),
-            SizedBox(height: 10),
-            _itemButton(
-                iconPath: "bell.svg",
-                iconSize: 17,
-                label: "ddddddd",
-                onTap: () {
-                  print("111111111");
-                }),
-            SizedBox(height: 10),
-            _itemButton(
-                iconPath: "bell.svg",
-                iconSize: 25,
-                label: "zzzzzzzzzzzzzzzz",
-                onTap: () {
-                  print("22222222222222");
-                }),
-          ],
+      child: ClipRRect(
+        borderRadius: BorderRadius.only(
+          topLeft: Radius.circular(20),
+          topRight: Radius.circular(20),
+        ),
+        child: Container(
+          padding: const EdgeInsets.only(left: 20),
+          height: 600,
+          color: Colors.white,
+          child: Column(
+            children: [
+              _header(),
+              SizedBox(height: 20),
+              _itemButton(
+                  iconPath: "bell.svg",
+                  iconSize: 17,
+                  label: "ddddddd",
+                  onTap: () {
+                    print("111111111");
+                  }),
+              SizedBox(height: 10),
+              _itemButton(
+                  iconPath: "bell.svg",
+                  iconSize: 25,
+                  label: "zzzzzzzzzzzzzzzz",
+                  onTap: () {
+                    print("22222222222222");
+                  }),
+            ],
+          ),
         ),
       ),
     );

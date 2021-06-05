@@ -19,7 +19,10 @@ class VideoAppBar extends GetView<AppController> {
       child: GestureDetector(
         onTap: () {
           print("노티아이콘 클릭");
-          Get.bottomSheet(NotiBottomSheet());
+          Get.bottomSheet(
+            NotiBottomSheet(),
+            isScrollControlled: false,
+          );
         },
         child: Container(
           width: 25,

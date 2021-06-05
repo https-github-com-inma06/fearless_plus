@@ -165,7 +165,7 @@ class AboutWidget extends StatelessWidget {
                 height: (Get.height / 2) - (Get.height - Get.height * 0.8),
                 child: _profile(
                   'assets/images/img_yuna.png',
-                  'YUNA',
+                  'YUNA😘',
                   'Lead Vocalist',
                   '1993.04.06',
                   'https://www.instagram.com/u.nalee',

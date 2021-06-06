@@ -10,18 +10,24 @@ class VideoController extends GetxController {
 
   @override
   void onInit() {
+    if (videoResponseResult.value.lists == null) {
+      print(
+          'Receiver: nullReceiver: nullReceiver: nullReceiver: nullReceiver: null');
+    } else {
+      print(videoResponseResult.toString());
+    }
     _videoLoad();
     super.onInit();
   }
 
   void _videoLoad() async {
     VideoResult videoResult = await VideoRepository.to.loadVideo();
-    print("event api response : ${videoResult.lists.length}");
+    // print("event api response : ${videoResult.lists.length}");
 
-    if (videoResult != null &&
-        videoResult.lists != null &&
-        videoResult.lists.length > 0) {
-      videoResponseResult(videoResult);
-    }
+    // if (videoResult != null &&
+    // videoResult.lists != null &&
+    // videoResult.lists.length > 0) {
+    videoResponseResult(videoResult);
+    // }
   }
 }

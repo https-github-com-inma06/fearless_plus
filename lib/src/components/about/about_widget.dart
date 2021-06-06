@@ -4,6 +4,8 @@ import 'package:fearlessassemble/extension.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class AboutWidget extends StatelessWidget {
   const AboutWidget({Key key}) : super(key: key);
@@ -19,15 +21,15 @@ class AboutWidget extends StatelessWidget {
             children: [
               Container(
                 margin: const EdgeInsets.only(
-                  top: 15,
-                  bottom: 15,
+                  top: 18,
+                  bottom: 8,
                 ),
                 child: ClipRRect(
                   // borderRadius: BorderRadius.circular(0),
                   child: Image.asset(
                     image,
-                    width: 100,
-                    height: 100,
+                    width: 80,
+                    height: 80,
                     fit: BoxFit.cover,
                   ),
                 ),
@@ -35,19 +37,23 @@ class AboutWidget extends StatelessWidget {
               Text(
                 name,
                 style: TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white),
+                  fontSize: 14,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white,
+                ),
               ),
               SizedBox(
-                height: 5,
+                height: 2,
               ),
               Text(
                 position,
-                style: TextStyle(color: Colors.white),
+                style: TextStyle(
+                  fontSize: 10,
+                  color: Colors.white,
+                ),
               ),
               SizedBox(
-                height: 5,
+                height: 2,
               ),
               Text(
                 birthDay,
@@ -55,34 +61,44 @@ class AboutWidget extends StatelessWidget {
               ),
               Container(
                 margin: const EdgeInsets.only(
-                  top: 20,
-                  right: 14,
+                  top: 8,
+                  right: 18,
                 ),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
-                    GestureDetector(
-                      onTap: () {
-
-                        launchInBrowser("");
-                        print("클릭되었습니다 :");
-                      },
-                      child: SvgPicture.asset(
-                        'assets/svg/icons/ico_instagram.svg',
-                        width: 25,
-                        height: 25,
+                    Container(
+                      child: GestureDetector(
+                        onTap: () {
+                          _launchInBrowser(insUrl);
+                          print('인스타클릭');
+                        },
+                        child: Container(
+                          width: 20,
+                          height: 20,
+                          child: SvgPicture.asset(
+                            'assets/svg/icons/ico_instagram.svg',
+                          ),
+                        ),
                       ),
                     ),
-
-
-
                     SizedBox(
-                      width: 16,
+                      width: 12,
                     ),
-                    SvgPicture.asset(
-                      'assets/svg/icons/ico_twitter.svg',
-                      width: 25,
-                      height: 25,
+                    Container(
+                      child: GestureDetector(
+                        onTap: () {
+                          _launchInBrowser(twiUrl);
+                          print('트위터 클릭');
+                        },
+                        child: Container(
+                          width: 20,
+                          height: 20,
+                          child: SvgPicture.asset(
+                            'assets/svg/icons/ico_twitter.svg',
+                          ),
+                        ),
+                      ),
                     ),
                   ],
                 ),
@@ -161,17 +177,37 @@ class AboutWidget extends StatelessWidget {
               padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
               sliver: SliverGrid(
                   delegate: SliverChildListDelegate([
-                    _profile('assets/images/img_min.png', 'MINYEONG',
-                        'Main Vocalist', '1990.09.12', '', ''),
-                    _profile('assets/images/img_yoo.png', 'YUJEONG',
-                        'Vocalist', '1991.05.02', '', ''),
-                    _profile('assets/images/img_eun.png', 'EUNJI', 'Vocalist',
-                        '1992.07.19', '', ''),
-                    _profile('assets/images/img_yuna.png', 'YUNA',
-                        'Lead Vocalist', '1993.04.06', '', ''),
+                    _profile(
+                        'assets/images/img_min.png',
+                        'MINYEONG',
+                        'Main Vocalist',
+                        '1990.09.12',
+                        'https://www.instagram.com/nyong2ya',
+                        'https://twitter.com/nyong2ya'),
+                    _profile(
+                        'assets/images/img_yoo.png',
+                        'YUJEONG',
+                        'Vocalist',
+                        '1991.05.02',
+                        'https://www.instagram.com/braveg_yj',
+                        'https://twitter.com/bgyjnice'),
+                    _profile(
+                        'assets/images/img_eun.png',
+                        'EUNJI',
+                        'Vocalist',
+                        '1992.07.19',
+                        'https://www.instagram.com/bg_eunji92',
+                        'https://twitter.com/braveunji'),
+                    _profile(
+                        'assets/images/img_yuna.png',
+                        'YUNA😘',
+                        'Lead Vocalist',
+                        '1993.04.06',
+                        'https://www.instagram.com/u.nalee',
+                        'https://twitter.com/u_nalee_'),
                   ]),
                   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                    childAspectRatio: 0.7,
+                      childAspectRatio: 0.7,
                       mainAxisSpacing: 0,
                       crossAxisSpacing: 10,
                       crossAxisCount: 2)),
@@ -180,6 +216,86 @@ class AboutWidget extends StatelessWidget {
         ),
       )),
 
+      /*
+    return Container(
+      margin: const EdgeInsets.only(left: 20, right: 20),
+      child: Column(
+        children: [
+          Container(
+            margin: const EdgeInsets.only(bottom: 14),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Container(
+                  width: (Get.width / 2) - (Get.width - Get.width * 0.925),
+                  height: (Get.height / 2) - (Get.height - Get.height * 0.8),
+                  child: _profile(
+                      'assets/images/img_min.png',
+                      'MINYEONG',
+                      'Main Vocalist',
+                      '1990.09.12',
+                      'https://www.instagram.com/nyong2ya',
+                      'https://twitter.com/nyong2ya'),
+                ),
+                Container(
+                  width: (Get.width / 2) - (Get.width - Get.width * 0.925),
+                  height: (Get.height / 2) - (Get.height - Get.height * 0.8),
+                  child: _profile(
+                      'assets/images/img_yoo.png',
+                      'YUJEONG',
+                      'Vocalist',
+                      '1991.05.02',
+                      'https://www.instagram.com/braveg_yj',
+                      'https://twitter.com/bgyjnice'),
+                ),
+              ],
+            ),
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Container(
+                width: (Get.width / 2) - (Get.width - Get.width * 0.925),
+                height: (Get.height / 2) - (Get.height - Get.height * 0.8),
+                child: _profile(
+                  'assets/images/img_eun.png',
+                  'EUNJI',
+                  'Vocalist',
+                  '1992.07.19',
+                  'https://www.instagram.com/bg_eunji92',
+                  'https://twitter.com/braveunji',
+                ),
+              ),
+              Container(
+                width: (Get.width / 2) - (Get.width - Get.width * 0.925),
+                height: (Get.height / 2) - (Get.height - Get.height * 0.8),
+                child: _profile(
+                  'assets/images/img_yuna.png',
+                  'YUNA😘',
+                  'Lead Vocalist',
+                  '1993.04.06',
+                  'https://www.instagram.com/u.nalee',
+                  'https://twitter.com/u_nalee_',
+                ),
+              ),
+            ],
+          ),
+        ],
+      ),
+*/
     );
+  }
+
+  Future<void> _launchInBrowser(String url) async {
+    if (await canLaunch(url)) {
+      await launch(
+        url,
+        forceSafariVC: false,
+        forceWebView: false,
+        headers: <String, String>{'my_header_key': 'my_header_value'},
+      );
+    } else {
+      throw 'Could not launch $url';
+    }
   }
 }

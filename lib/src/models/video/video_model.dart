@@ -20,8 +20,8 @@ class VideoModel {
   String code;
   String title;
   String playTime;
-  dynamic uploadDate;
-  dynamic channelTitle;
+  String uploadDate;
+  String channelTitle;
   List<Tag> tags;
   String thumbnailImg;
 

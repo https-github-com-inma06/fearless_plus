@@ -34,8 +34,10 @@ class VideoWidgetState extends State<VideoWidget> {
         child: CachedNetworkImage(
           width: Get.context.width,
           fit: BoxFit.fitWidth,
-          imageUrl: widget.video.code == null
-              ? ""
+          imageUrl: widget.video == null
+              ? SvgPicture.asset(
+                  "assets/svg/icons/null-img.svg",
+                )
               : "https://img.youtube.com/vi/${widget.video.code}/hqdefault.jpg",
           errorWidget: (context, url, error) => SvgPicture.asset(
             "assets/svg/icons/null-img.svg",
@@ -58,7 +60,7 @@ class VideoWidgetState extends State<VideoWidget> {
     return Container(
       margin: const EdgeInsets.only(top: 16, bottom: 10, left: 16, right: 16),
       child: Text(
-        widget.video.title,
+        widget.video == null ? "해당 태그에 영상이 없습니다" : widget.video.title,
         maxLines: 2,
       ),
     );

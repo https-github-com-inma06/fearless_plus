@@ -1,4 +1,4 @@
-import '../components/bottom_sheet/noti_bottom_sheet.dart';
+import '../components/bottom_sheet/bottom_sheet_widget.dart';
 import 'package:get/get.dart';
 
 enum RouteName {

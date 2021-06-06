@@ -1,4 +1,4 @@
-import 'package:fearlessassemble/src/components/campaign/campaign_appbar.dart';
+import 'package:fearlessassemble/src/components/appbar/custom_appbar.dart';
 import 'package:fearlessassemble/src/components/event/event_widget.dart';
 import 'package:fearlessassemble/src/controller/event_controller.dart';
 import 'package:fearlessassemble/src/controller/web_view_controller.dart';
@@ -18,7 +18,11 @@ class Event extends StatelessWidget {
         () => CustomScrollView(
           slivers: [
             SliverAppBar(
-              title: CampaignAppBar(),
+              title: CustomAppBar(
+                title: 'Event',
+                hasNewNotify: false,
+                isSetting: false,
+              ),
               floating: true,
               snap: true,
             ),
@@ -27,14 +31,17 @@ class Event extends StatelessWidget {
                 (context, index) {
                   return Container(
                     color: Colors.white,
-                    padding:
-                        const EdgeInsets.only(left: 20, right: 20, bottom: 8),
+                    padding: const EdgeInsets.only(
+                      left: 20,
+                      right: 20,
+                      bottom: 8,
+                    ),
                     child: GestureDetector(
                       onTap: () {
                         eventController.eventResponseResult.value.lists[index]
                                     .url ==
                                 null
-                            ? print("이벤트 클릭되11었습니다 url == null")
+                            ? print("이벤트 클릭되었습니다 url == null")
                             : _launchInBrowser(eventController
                                 .eventResponseResult.value.lists[index].url);
                         print(

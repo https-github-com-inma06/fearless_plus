@@ -35,6 +35,7 @@ class CustomAppBarState extends State<CustomAppBar> {
             BottomSheetWidget(
               title: 'Setting',
             ),
+            isScrollControlled: true,
           );
         },
         child: Container(
@@ -55,6 +56,7 @@ class CustomAppBarState extends State<CustomAppBar> {
             BottomSheetWidget(
               title: 'Notification',
             ),
+            isScrollControlled: true,
           );
         },
         child: Container(

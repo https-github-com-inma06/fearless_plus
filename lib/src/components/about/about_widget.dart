@@ -1,5 +1,6 @@
 import 'dart:ui';
 
+import 'package:fearlessassemble/extension.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -13,7 +14,7 @@ class AboutWidget extends StatelessWidget {
       String insUrl, String twiUrl) {
     return SafeArea(
       child: ClipRRect(
-        borderRadius: BorderRadius.circular(18),
+        borderRadius: BorderRadius.circular(12),
         child: Container(
           color: const Color(0xffFF9D6B),
           child: Column(
@@ -111,6 +112,111 @@ class AboutWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: Scaffold(
+          body: Container(
+        color: Colors.white,
+        child: CustomScrollView(
+          slivers: [
+            // SliverPersistentHeader(delegate: delegate),
+            SliverToBoxAdapter(),
+            SliverList(
+                delegate: SliverChildListDelegate(
+              [
+                Container(
+                  child: Row(
+                    children: [
+                      Padding(
+                        padding: EdgeInsets.all(10),
+                        child: ClipRRect(
+                          // borderRadius: BorderRadius.circular(0),
+                          child: SvgPicture.asset(
+                            "assets/svg/icons/ico_aboutbg_on.svg",
+                            width: 50,
+                            height: 50,
+                          ),
+                        ),
+                      ),
+                      Column(
+                        children: [
+                          Text(
+                            "BRAVE GIRLS",
+                            style: TextStyle(
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.black),
+                          ),
+                          Row(
+                            children: [
+                              SvgPicture.asset(
+                                'assets/svg/icons/ico_instagram.svg',
+                                color: Colors.black,
+                                width: 25,
+                                height: 25,
+                              ),
+                              SizedBox(
+                                width: 16,
+                              ),
+                              SvgPicture.asset(
+                                'assets/svg/icons/ico_twitter.svg',
+                                color: Colors.black,
+                                width: 25,
+                                height: 25,
+                              ),
+                            ],
+                          )
+                        ],
+                      )
+                    ],
+                  ),
+                )
+              ],
+            )),
+            SliverPadding(
+              padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
+              sliver: SliverGrid(
+                  delegate: SliverChildListDelegate([
+                    _profile(
+                        'assets/images/img_min.png',
+                        'MINYEONG',
+                        'Main Vocalist',
+                        '1990.09.12',
+                        'https://www.instagram.com/nyong2ya',
+                        'https://twitter.com/nyong2ya'),
+                    _profile(
+                        'assets/images/img_yoo.png',
+                        'YUJEONG',
+                        'Vocalist',
+                        '1991.05.02',
+                        'https://www.instagram.com/braveg_yj',
+                        'https://twitter.com/bgyjnice'),
+                    _profile(
+                        'assets/images/img_eun.png',
+                        'EUNJI',
+                        'Vocalist',
+                        '1992.07.19',
+                        'https://www.instagram.com/bg_eunji92',
+                        'https://twitter.com/braveunji'),
+                    _profile(
+                        'assets/images/img_yuna.png',
+                        'YUNA😘',
+                        'Lead Vocalist',
+                        '1993.04.06',
+                        'https://www.instagram.com/u.nalee',
+                        'https://twitter.com/u_nalee_'),
+                  ]),
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      childAspectRatio: 0.7,
+                      mainAxisSpacing: 0,
+                      crossAxisSpacing: 10,
+                      crossAxisCount: 2)),
+            ),
+          ],
+        ),
+      )),
+
+      /*
     return Container(
       margin: const EdgeInsets.only(left: 20, right: 20),
       child: Column(
@@ -176,6 +282,7 @@ class AboutWidget extends StatelessWidget {
           ),
         ],
       ),
+*/
     );
   }
 

@@ -73,9 +73,12 @@ class NotificationController extends GetxController {
     });
   }
 
-  launchUrlParser(String launchUrl) async {
+  launchUrlParser(String scheme) async {
     // launchUrl
 
+    if(scheme.startsWith("fearless://")) {
+
+    }
   }
 
   _initSetLogLevel() {

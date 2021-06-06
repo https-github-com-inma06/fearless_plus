@@ -12,7 +12,7 @@ class AboutWidget extends StatelessWidget {
   const AboutWidget({Key key}) : super(key: key);
 
   Widget _profile(String image, String name, String position, String birthDay,
-      String insUrl, String twiUrl) {
+      String instagram, String twitter, String youtube) {
     return SafeArea(
       child: ClipRRect(
         borderRadius: BorderRadius.circular(12),
@@ -62,41 +62,64 @@ class AboutWidget extends StatelessWidget {
               ),
               Container(
                 margin: const EdgeInsets.only(
-                  top: 8,
-                  right: 18,
+                  top: 16,
                 ),
                 child: Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Container(
-                      child: GestureDetector(
-                        onTap: () {
-                          launchInBrowser(insUrl);
-                          print('인스타클릭');
-                        },
-                        child: Container(
-                          width: 20,
-                          height: 20,
-                          child: SvgPicture.asset(
-                            'assets/svg/icons/ico_instagram.svg',
+                    Visibility(
+                      visible: instagram.isNotEmpty,
+                      child: Container(
+                        child: GestureDetector(
+                          onTap: () {
+                            launchInBrowser(instagram);
+                            print('인스타클릭');
+                          },
+                          child: Container(
+                            margin: EdgeInsets.symmetric(horizontal: 10),
+                            width: 20,
+                            height: 20,
+                            child: SvgPicture.asset(
+                              'assets/svg/icons/ico_instagram.svg',
+                            ),
                           ),
                         ),
                       ),
                     ),
-                    SizedBox(
-                      width: 12,
+                    Visibility(
+                      visible: twitter.isNotEmpty,
+                      child: Container(
+                        child: GestureDetector(
+                          onTap: () {
+                            launchInBrowser(twitter);
+                            print('트위터 클릭');
+                          },
+                          child: Container(
+                            margin: EdgeInsets.symmetric(horizontal: 10),
+                            width: 20,
+                            height: 20,
+                            child: SvgPicture.asset(
+                              'assets/svg/icons/ico_twitter.svg',
+                            ),
+                          ),
+                        ),
+                      ),
                     ),
-                    Container(
-                      child: GestureDetector(
-                        onTap: () {
-                          launchInBrowser(twiUrl);
-                          print('트위터 클릭');
-                        },
-                        child: Container(
-                          width: 20,
-                          height: 20,
-                          child: SvgPicture.asset(
-                            'assets/svg/icons/ico_twitter.svg',
+                    Visibility(
+                      visible: youtube.isNotEmpty,
+                      child: Container(
+                        child: GestureDetector(
+                          onTap: () {
+                            launchInBrowser(youtube);
+                            print('트위터 클릭');
+                          },
+                          child: Container(
+                            margin: EdgeInsets.symmetric(horizontal: 8),
+                            width: 20,
+                            height: 20,
+                            child: SvgPicture.asset(
+                              'assets/svg/icons/ico_twitter.svg',
+                            ),
                           ),
                         ),
                       ),
@@ -114,7 +137,6 @@ class AboutWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.only(left: 20, right: 20),
       color: Colors.white,
       child: CustomScrollView(
         slivers: [
@@ -127,7 +149,7 @@ class AboutWidget extends StatelessWidget {
                   child: Row(
                     children: [
                       Padding(
-                        padding: EdgeInsets.all(10),
+                        padding: EdgeInsets.all(20),
                         child: ClipRRect(
                           // borderRadius: BorderRadius.circular(0),
                           child: SvgPicture.asset(
@@ -174,7 +196,7 @@ class AboutWidget extends StatelessWidget {
             ),
           ),
           SliverPadding(
-            padding: EdgeInsets.fromLTRB(10, 5, 10, 5),
+            padding: EdgeInsets.fromLTRB(20, 5, 20, 5),
             sliver: SliverGrid(
                 delegate: SliverChildListDelegate([
                   _profile(
@@ -183,6 +205,7 @@ class AboutWidget extends StatelessWidget {
                       'Main Vocalist',
                       '1990.09.12',
                       'https://www.instagram.com/nyong2ya',
+                      'https://twitter.com/nyong2ya',
                       'https://twitter.com/nyong2ya'),
                   _profile(
                       'assets/images/img_yoo.png',
@@ -190,26 +213,29 @@ class AboutWidget extends StatelessWidget {
                       'Vocalist',
                       '1991.05.02',
                       'https://www.instagram.com/braveg_yj',
-                      'https://twitter.com/bgyjnice'),
+                      'https://twitter.com/bgyjnice',
+                      'https://twitter.com/nyong2ya'),
                   _profile(
                       'assets/images/img_eun.png',
                       'EUNJI',
                       'Vocalist',
                       '1992.07.19',
                       'https://www.instagram.com/bg_eunji92',
-                      'https://twitter.com/braveunji'),
+                      'https://twitter.com/braveunji',
+                      ''),
                   _profile(
                       'assets/images/img_yuna.png',
                       'YUNA😘',
                       'Lead Vocalist',
                       '1993.04.06',
                       'https://www.instagram.com/u.nalee',
-                      'https://twitter.com/u_nalee_'),
+                      'https://twitter.com/u_nalee_',
+                      'https://twitter.com/nyong2ya'),
                 ]),
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                     childAspectRatio: 0.9,
-                    mainAxisSpacing: 10,
-                    crossAxisSpacing: 10,
+                    mainAxisSpacing: 20,
+                    crossAxisSpacing: 20,
                     crossAxisCount: 2)),
           ),
         ],

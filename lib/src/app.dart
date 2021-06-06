@@ -1,14 +1,12 @@
+import 'package:fearlessassemble/src/chart_controller/app_controller.dart';
 import 'package:fearlessassemble/src/pages/about.dart';
+import 'package:fearlessassemble/src/pages/calendar.dart';
 import 'package:fearlessassemble/src/pages/chart.dart';
 import 'package:fearlessassemble/src/pages/event.dart';
 import 'package:fearlessassemble/src/pages/video.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
-import 'package:flutter_svg/svg.dart';
-import 'package:get/get_state_manager/src/rx_flutter/rx_obx_widget.dart';
-import 'package:get/get_state_manager/src/simple/get_view.dart';
-import 'controller/app_controller.dart';
-import 'pages/calendar.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
 
 class App extends GetView<AppController> {
   const App({Key key}) : super(key: key);

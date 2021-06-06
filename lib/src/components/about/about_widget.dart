@@ -214,7 +214,6 @@ class AboutWidget extends StatelessWidget {
           ),
         ],
       ),
-
     );
   }
 }

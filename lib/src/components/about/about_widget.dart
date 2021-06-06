@@ -70,7 +70,7 @@ class AboutWidget extends StatelessWidget {
                     Container(
                       child: GestureDetector(
                         onTap: () {
-                          _launchInBrowser(insUrl);
+                          launchInBrowser(insUrl);
                           print('인스타클릭');
                         },
                         child: Container(
@@ -88,7 +88,7 @@ class AboutWidget extends StatelessWidget {
                     Container(
                       child: GestureDetector(
                         onTap: () {
-                          _launchInBrowser(twiUrl);
+                          launchInBrowser(twiUrl);
                           print('트위터 클릭');
                         },
                         child: Container(
@@ -112,192 +112,108 @@ class AboutWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        body: Container(
-          color: Colors.white,
-          child: CustomScrollView(
-            slivers: [
-              // SliverPersistentHeader(delegate: delegate),
-              SliverToBoxAdapter(),
-              SliverList(
-                delegate: SliverChildListDelegate(
-                  [
-                    Container(
-                      child: Row(
-                        children: [
-                          Padding(
-                            padding: EdgeInsets.all(10),
-                            child: ClipRRect(
-                              // borderRadius: BorderRadius.circular(0),
-                              child: SvgPicture.asset(
-                                "assets/svg/icons/ico_aboutbg_on.svg",
-                                width: 50,
-                                height: 50,
-                              ),
-                            ),
+    return Container(
+      margin: const EdgeInsets.only(left: 20, right: 20),
+      color: Colors.white,
+      child: CustomScrollView(
+        slivers: [
+          // SliverPersistentHeader(delegate: delegate),
+          SliverToBoxAdapter(),
+          SliverList(
+            delegate: SliverChildListDelegate(
+              [
+                Container(
+                  child: Row(
+                    children: [
+                      Padding(
+                        padding: EdgeInsets.all(10),
+                        child: ClipRRect(
+                          // borderRadius: BorderRadius.circular(0),
+                          child: SvgPicture.asset(
+                            "assets/svg/icons/ico_aboutbg_on.svg",
+                            width: 50,
+                            height: 50,
                           ),
-                          Column(
+                        ),
+                      ),
+                      Column(
+                        children: [
+                          Text(
+                            "BRAVE GIRLS",
+                            style: TextStyle(
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.black),
+                          ),
+                          Row(
                             children: [
-                              Text(
-                                "BRAVE GIRLS",
-                                style: TextStyle(
-                                    fontSize: 18,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.black),
+                              SvgPicture.asset(
+                                'assets/svg/icons/ico_instagram.svg',
+                                color: Colors.black,
+                                width: 25,
+                                height: 25,
                               ),
-                              Row(
-                                children: [
-                                  SvgPicture.asset(
-                                    'assets/svg/icons/ico_instagram.svg',
-                                    color: Colors.black,
-                                    width: 25,
-                                    height: 25,
-                                  ),
-                                  SizedBox(
-                                    width: 16,
-                                  ),
-                                  SvgPicture.asset(
-                                    'assets/svg/icons/ico_twitter.svg',
-                                    color: Colors.black,
-                                    width: 25,
-                                    height: 25,
-                                  ),
-                                ],
-                              )
+                              SizedBox(
+                                width: 16,
+                              ),
+                              SvgPicture.asset(
+                                'assets/svg/icons/ico_twitter.svg',
+                                color: Colors.black,
+                                width: 25,
+                                height: 25,
+                              ),
                             ],
                           )
                         ],
-                      ),
-                    )
-                  ],
-                ),
-              ),
-              SliverPadding(
-                padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
-                sliver: SliverGrid(
-                    delegate: SliverChildListDelegate([
-                      _profile(
-                          'assets/images/img_min.png',
-                          'MINYEONG',
-                          'Main Vocalist',
-                          '1990.09.12',
-                          'https://www.instagram.com/nyong2ya',
-                          'https://twitter.com/nyong2ya'),
-                      _profile(
-                          'assets/images/img_yoo.png',
-                          'YUJEONG',
-                          'Vocalist',
-                          '1991.05.02',
-                          'https://www.instagram.com/braveg_yj',
-                          'https://twitter.com/bgyjnice'),
-                      _profile(
-                          'assets/images/img_eun.png',
-                          'EUNJI',
-                          'Vocalist',
-                          '1992.07.19',
-                          'https://www.instagram.com/bg_eunji92',
-                          'https://twitter.com/braveunji'),
-                      _profile(
-                          'assets/images/img_yuna.png',
-                          'YUNA😘',
-                          'Lead Vocalist',
-                          '1993.04.06',
-                          'https://www.instagram.com/u.nalee',
-                          'https://twitter.com/u_nalee_'),
-                    ]),
-                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                        childAspectRatio: 0.7,
-                        mainAxisSpacing: 0,
-                        crossAxisSpacing: 10,
-                        crossAxisCount: 2)),
-              ),
-            ],
+                      )
+                    ],
+                  ),
+                )
+              ],
+            ),
           ),
-        ),
-      ),
-
-      /*
-    return Container(
-      margin: const EdgeInsets.only(left: 20, right: 20),
-      child: Column(
-        children: [
-          Container(
-            margin: const EdgeInsets.only(bottom: 14),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Container(
-                  width: (Get.width / 2) - (Get.width - Get.width * 0.925),
-                  height: (Get.height / 2) - (Get.height - Get.height * 0.8),
-                  child: _profile(
+          SliverPadding(
+            padding: EdgeInsets.fromLTRB(10, 5, 10, 5),
+            sliver: SliverGrid(
+                delegate: SliverChildListDelegate([
+                  _profile(
                       'assets/images/img_min.png',
                       'MINYEONG',
                       'Main Vocalist',
                       '1990.09.12',
                       'https://www.instagram.com/nyong2ya',
                       'https://twitter.com/nyong2ya'),
-                ),
-                Container(
-                  width: (Get.width / 2) - (Get.width - Get.width * 0.925),
-                  height: (Get.height / 2) - (Get.height - Get.height * 0.8),
-                  child: _profile(
+                  _profile(
                       'assets/images/img_yoo.png',
                       'YUJEONG',
                       'Vocalist',
                       '1991.05.02',
                       'https://www.instagram.com/braveg_yj',
                       'https://twitter.com/bgyjnice'),
-                ),
-              ],
-            ),
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Container(
-                width: (Get.width / 2) - (Get.width - Get.width * 0.925),
-                height: (Get.height / 2) - (Get.height - Get.height * 0.8),
-                child: _profile(
-                  'assets/images/img_eun.png',
-                  'EUNJI',
-                  'Vocalist',
-                  '1992.07.19',
-                  'https://www.instagram.com/bg_eunji92',
-                  'https://twitter.com/braveunji',
-                ),
-              ),
-              Container(
-                width: (Get.width / 2) - (Get.width - Get.width * 0.925),
-                height: (Get.height / 2) - (Get.height - Get.height * 0.8),
-                child: _profile(
-                  'assets/images/img_yuna.png',
-                  'YUNA😘',
-                  'Lead Vocalist',
-                  '1993.04.06',
-                  'https://www.instagram.com/u.nalee',
-                  'https://twitter.com/u_nalee_',
-                ),
-              ),
-            ],
+                  _profile(
+                      'assets/images/img_eun.png',
+                      'EUNJI',
+                      'Vocalist',
+                      '1992.07.19',
+                      'https://www.instagram.com/bg_eunji92',
+                      'https://twitter.com/braveunji'),
+                  _profile(
+                      'assets/images/img_yuna.png',
+                      'YUNA😘',
+                      'Lead Vocalist',
+                      '1993.04.06',
+                      'https://www.instagram.com/u.nalee',
+                      'https://twitter.com/u_nalee_'),
+                ]),
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    childAspectRatio: 0.7,
+                    mainAxisSpacing: 10,
+                    crossAxisSpacing: 10,
+                    crossAxisCount: 2)),
           ),
         ],
       ),
-*/
-    );
-  }
 
-  Future<void> _launchInBrowser(String url) async {
-    if (await canLaunch(url)) {
-      await launch(
-        url,
-        forceSafariVC: false,
-        forceWebView: false,
-        headers: <String, String>{'my_header_key': 'my_header_value'},
-      );
-    } else {
-      throw 'Could not launch $url';
-    }
+    );
   }
 }

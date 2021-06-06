@@ -3,6 +3,7 @@ import 'dart:ui';
 import 'package:fearlessassemble/extension.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -206,7 +207,7 @@ class AboutWidget extends StatelessWidget {
                       'https://twitter.com/u_nalee_'),
                 ]),
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                    childAspectRatio: 0.7,
+                    childAspectRatio: 0.9,
                     mainAxisSpacing: 10,
                     crossAxisSpacing: 10,
                     crossAxisCount: 2)),

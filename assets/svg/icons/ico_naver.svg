@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+  <g id="ico_naver" transform="translate(-96.094 -173.671)">
+    <rect id="사각형_128" data-name="사각형 128" width="32" height="32" transform="translate(96.094 173.671)" fill="#fff"/>
+    <g id="그룹_70" data-name="그룹 70" transform="translate(-164.906 -473.568)">
+      <rect id="사각형_155" data-name="사각형 155" width="16" height="16" rx="0.5" transform="translate(269 655.238)" fill="#1ec800"/>
+      <path id="패스_48" data-name="패스 48" d="M306.637,690.351v4.128l-2.827-4.128h-3.057v8.181H303.8V694.4l2.828,4.128h3.056v-8.181Z" transform="translate(-28.218 -31.204)" fill="#fff"/>
+    </g>
+  </g>
+</svg>

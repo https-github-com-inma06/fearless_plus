@@ -21,9 +21,9 @@ class AboutWidget extends StatelessWidget {
             launchInBrowser("$domain/$id");
           },
           child: Container(
-            margin: EdgeInsets.symmetric(horizontal: 10),
-            width: 20,
-            height: 20,
+            padding: EdgeInsets.all(6),
+            width: 40,
+            height: 40,
             child: SvgPicture.asset(assets),
           ),
         ),
@@ -39,6 +39,8 @@ class AboutWidget extends StatelessWidget {
             launchInBrowser(path);
           },
           child: Container(
+            width: 38,
+            height: 38,
             child: SvgPicture.asset(assets),
           ),
         ),
@@ -63,7 +65,7 @@ class AboutWidget extends StatelessWidget {
                 child: ClipRRect(
                   // borderRadius: BorderRadius.circular(0),
                   child: Image.asset(
-                    image + "s",
+                    image,
                     width: 80,
                     height: 80,
                     fit: BoxFit.cover,
@@ -97,21 +99,21 @@ class AboutWidget extends StatelessWidget {
               ),
               Container(
                 margin: const EdgeInsets.only(
-                  top: 16,
+                  top: 6,
                 ),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     _profileSnsView(instagramId, "https://www.instagram.com",
-                        'assets/svg/icons/ico_instagram.svg'),
+                        'assets/svg/icons/ico_small_instagram.svg'),
                     _profileSnsView(twitterId, "https://www.twitter.com",
-                        'assets/svg/icons/ico_twitter.svg'),
+                        'assets/svg/icons/ico_small_twitter.svg'),
                     _profileSnsView(
                         youtubeId,
                         "https://www.youtube.com/channel",
-                        'assets/svg/icons/ico_instagram.svg'),
+                        'assets/svg/icons/ico_small_youtube.svg'),
                     _profileSnsView(tictokId, "https://www.tiktok.com",
-                        'assets/svg/icons/ico_instagram.svg'),
+                        'assets/svg/icons/ico_small_tictok.svg'),
                   ],
                 ),
               ),
@@ -141,15 +143,17 @@ class AboutWidget extends StatelessWidget {
                         child: ClipRRect(
                           // borderRadius: BorderRadius.circular(0),
                           child: SvgPicture.asset(
-                            "assets/svg/icons/ico_aboutbg_on.svg",
+                            "assets/svg/icons/ico_about_bg_logo.svg",
                             width: 50,
                             height: 50,
                           ),
                         ),
                       ),
                       Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Padding(padding: EdgeInsets.fromLTRB(0, 0, 0, 10),
+                          Padding(padding: EdgeInsets.fromLTRB(8, 0, 0, 10),
                             child: Text(
                               "BRAVE GIRLS",
                               style: TextStyle(
@@ -162,17 +166,17 @@ class AboutWidget extends StatelessWidget {
                           Row(
                             children: [
                               _officialSnsView("https://www.youtube.com/channel/UCx_kYu6Wp1yxZP_KtrW52EQ",
-                                'assets/svg/icons/ico_official_youtube.svg'),
+                                'assets/svg/icons/ico_youtube.svg'),
                               _officialSnsView("https://www.instagram.com/bravegirls.official/",
-                                'assets/svg/icons/ico_official_instagram.svg'),
+                                'assets/svg/icons/ico_instagram.svg'),
                               _officialSnsView("https://twitter.com/BraveGirls",
-                                'assets/svg/icons/ico_official_twitter.svg'),
+                                'assets/svg/icons/ico_twitter.svg'),
                               _officialSnsView("https://www.facebook.com/bravegirls.official/",
-                                'assets/svg/icons/ico_official_facebook.svg'),
+                                'assets/svg/icons/ico_facebook.svg'),
                               _officialSnsView("https://www.vlive.tv/channel/86FF07",
-                                'assets/svg/icons/ico_official_youtube.svg'),
+                                'assets/svg/icons/ico_vlive.svg'),
                               _officialSnsView("https://m.post.naver.com/my/series/detail.nhn?memberNo=40158097&seriesNo=394049",
-                                'assets/svg/icons/ico_official_youtube.svg'),
+                                'assets/svg/icons/ico_naver.svg'),
                             ],
                           )
                         ],
@@ -189,7 +193,7 @@ class AboutWidget extends StatelessWidget {
                 delegate: SliverChildListDelegate([
                   _profile(
                       'assets/images/img_min.png',
-                      'MINYEONG',
+                      'MINYEONG🎤',
                       'Main Vocalist',
                       '1990.09.12',
                       'nyong2ya',
@@ -198,7 +202,7 @@ class AboutWidget extends StatelessWidget {
                       "@bravegirls_my"),
                   _profile(
                       'assets/images/img_yoo.png',
-                      'YUJEONG',
+                      'YUJEONG🐢',
                       'Vocalist',
                       '1991.05.02',
                       'braveg_yj',
@@ -207,7 +211,7 @@ class AboutWidget extends StatelessWidget {
                       "@yjistimeless"),
                   _profile(
                       'assets/images/img_eun.png',
-                      'EUNJI',
+                      'EUNJI👀',
                       'Vocalist',
                       '1992.07.19',
                       'bg_eunji92',
@@ -216,7 +220,7 @@ class AboutWidget extends StatelessWidget {
                       "@bravegirls_eunji"),
                   _profile(
                       'assets/images/img_yuna.png',
-                      'YUNA😘',
+                      'YUNA👩',
                       'Lead Vocalist',
                       '1993.04.06',
                       'u.nalee',

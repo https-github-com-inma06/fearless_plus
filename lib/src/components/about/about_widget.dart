@@ -161,17 +161,17 @@ class AboutWidget extends StatelessWidget {
 
                           Row(
                             children: [
-                              _officialSnsView("https://www.twitter.com/aaaaaa",
+                              _officialSnsView("https://www.youtube.com/channel/UCx_kYu6Wp1yxZP_KtrW52EQ",
                                 'assets/svg/icons/ico_official_youtube.svg'),
-                              _officialSnsView("https://www.twitter.com",
+                              _officialSnsView("https://www.instagram.com/bravegirls.official/",
                                 'assets/svg/icons/ico_official_instagram.svg'),
-                              _officialSnsView("https://www.twitter.com",
+                              _officialSnsView("https://twitter.com/BraveGirls",
                                 'assets/svg/icons/ico_official_twitter.svg'),
-                              _officialSnsView("https://www.twitter.com",
+                              _officialSnsView("https://www.facebook.com/bravegirls.official/",
                                 'assets/svg/icons/ico_official_facebook.svg'),
-                              _officialSnsView("https://www.twitter.com",
+                              _officialSnsView("https://www.vlive.tv/channel/86FF07",
                                 'assets/svg/icons/ico_official_youtube.svg'),
-                              _officialSnsView("https://www.twitter.com",
+                              _officialSnsView("https://m.post.naver.com/my/series/detail.nhn?memberNo=40158097&seriesNo=394049",
                                 'assets/svg/icons/ico_official_youtube.svg'),
                             ],
                           )

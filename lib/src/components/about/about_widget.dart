@@ -218,45 +218,6 @@ class AboutWidget extends StatelessWidget {
                   ),
                 ),
 
-                GridView.count(crossAxisCount: 2,
-                children: [
-                  _profile(
-                      'assets/images/img_min.png',
-                      'MINYEONG🎤',
-                      'Main Vocalist',
-                      '1990.09.12',
-                      'nyong2ya',
-                      'nyong2ya',
-                      'UCM7sspcSzirLxsfIUt6i3Vw',
-                      "@bravegirls_my"),
-                  _profile(
-                      'assets/images/img_yoo.png',
-                      'YUJEONG🐢',
-                      'Vocalist',
-                      '1991.05.02',
-                      'braveg_yj',
-                      'bgyjnice',
-                      'UC0rYv-5_Ce72wegF9_pmDpw',
-                      "@yjistimeless"),
-                  _profile(
-                      'assets/images/img_eun.png',
-                      'EUNJI👀',
-                      'Vocalist',
-                      '1992.07.19',
-                      'bg_eunji92',
-                      'braveunji',
-                      '',
-                      "@bravegirls_eunji"),
-                  _profile(
-                      'assets/images/img_yuna.png',
-                      'YUNA👩',
-                      'Lead Vocalist',
-                      '1993.04.06',
-                      'u.nalee',
-                      'u_nalee_',
-                      'UCMLa547c-KJbOSzTf010Q1Q',
-                      "@bravegirls_u_na"),
-                ],)
 
 
               ],

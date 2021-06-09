@@ -1,4 +1,3 @@
-import 'package:fearlessassemble/src/models/video/video_model_new.dart';
 import 'package:fearlessassemble/src/models/video/video_result.dart';
 import 'package:get/get.dart';
 

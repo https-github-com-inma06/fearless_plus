@@ -1,3 +1,5 @@
+import 'package:fearlessassemble/src/models/video/video_data_model.dart';
+
 import 'video_model.dart';
 
 class VideoResult {

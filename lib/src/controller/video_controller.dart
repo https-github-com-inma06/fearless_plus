@@ -1,5 +1,4 @@
 import 'package:fearlessassemble/extension.dart';
-import 'package:fearlessassemble/src/models/video/video_model_new.dart';
 import 'package:fearlessassemble/src/models/video/video_result.dart';
 import 'package:fearlessassemble/src/repository/video_repository.dart';
 

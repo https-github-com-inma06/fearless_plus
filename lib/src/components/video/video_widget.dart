@@ -1,14 +1,7 @@
-import 'dart:convert';
-import 'dart:ffi';
-
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:fearlessassemble/src/models/video/video_model.dart';
-import 'package:fearlessassemble/src/models/video/video_model_new.dart';
-import 'package:fearlessassemble/src/pages/video.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/svg.dart';
-import '../../models/campaign/campaign_model.dart';
-import '../../models/event/event_model.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';

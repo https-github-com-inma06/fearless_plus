@@ -3,7 +3,6 @@ import 'package:fearlessassemble/src/components/appbar/custom_appbar.dart';
 import 'package:fearlessassemble/src/components/video/video_widget.dart';
 import 'package:fearlessassemble/src/controller/video_controller.dart';
 import 'package:fearlessassemble/src/models/video/video_model.dart';
-import 'package:fearlessassemble/src/models/video/video_model_new.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';

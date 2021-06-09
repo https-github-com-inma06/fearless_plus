@@ -1,10 +1,12 @@
 import 'package:url_launcher/url_launcher.dart';
 
-class Extension {
+class Log {
   void trace(dynamic log) {
     print("TRACE :: $log");
   }
+}
 
+class LaunchInBrowser {
   Future<void> launchInBrowser(String url) async {
     if (await canLaunch(url)) {
       await launch(
@@ -13,10 +15,10 @@ class Extension {
         forceWebView: false,
         // headers: <String, String>{'my_header_key': 'my_header_value'},
       );
-      trace("launchInBrowser Success: $url");
+      Log().trace("launchInBrowser Success: $url");
     } else {
       // throw 'Could not launch $url';
-      trace("launchInBrowser Fail: $url");
+      Log().trace("launchInBrowser Fail: $url");
     }
   }
 }

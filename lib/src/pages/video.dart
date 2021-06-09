@@ -61,7 +61,7 @@ class Video extends StatelessWidget {
                     color: Colors.white,
                     child: GestureDetector(
                       onTap: () {
-                        Extension().launchInBrowser(
+                        LaunchInBrowser().launchInBrowser(
                             "https://www.youtube.com/watch?v=${videoModel[index].code}");
                         // _launchInBrowser(
                         //         "https://www.youtube.com/watch?v=${videoModel[index].code}");

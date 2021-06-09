@@ -8,14 +8,14 @@ import 'package:get/get.dart';
 class VideoController extends GetxController {
   static VideoController get to => Get.find();
 
-  Rx<VideoModelNew> videoResponseResult = VideoModelNew().obs;
+  Rx<VideoResult> videoResponseResult = VideoResult().obs;
 
   @override
   void onInit() {
     if (videoResponseResult.value == null) {
-      Extension().trace("video api Response : null");
+      Log().trace("video api Response : null");
     } else {
-      Extension().trace("video api Response : null");
+      Log().trace(videoResponseResult.toString());
     }
     _videoLoad();
     super.onInit();

@@ -27,38 +27,68 @@ class VideoWidgetState extends State<VideoWidget> {
     super.initState();
   }
 
+  // Widget _thumbnail() {
+  //   return Column(
+  //     // crossAxisAlignment: CrossAxisAlignment.stretch,
+  //     children: [
+  //       Container(
+  //         child: ClipRRect(
+  //           borderRadius: BorderRadius.circular(24),
+  //           child: CachedNetworkImage(
+  //             // width: Get.context.width,
+  //             // fit: BoxFit.fitWidth,
+  //             imageUrl: widget.video == null
+  //                 ? SvgPicture.asset(
+  //               "assets/svg/icons/null-img.svg",
+  //             )
+  //                 : "https://img.youtube.com/vi/${widget.video.code}/hqdefault.jpg",
+  //             errorWidget: (context, url, error) => SvgPicture.asset(
+  //               "assets/svg/icons/null-img.svg",
+  //             ),
+  //             placeholder: (context, url) => ClipRRect(
+  //               borderRadius: BorderRadius.circular(24),
+  //               child: Container(
+  //                 // height: 278.5,
+  //                 child: Center(
+  //                   child: CircularProgressIndicator(),
+  //                 ),
+  //               ),
+  //             ),
+  //           ),
+  //         ),
+  //       ),
+  //     ],
+  //   );
+  // }
+
   Widget _thumbnail() {
-    return Container(
-      child: ClipRRect(
-        borderRadius: BorderRadius.circular(24),
-        child: CachedNetworkImage(
-          width: Get.context.width,
-          fit: BoxFit.fitWidth,
-          imageUrl: widget.video == null
-              ? SvgPicture.asset(
-                  "assets/svg/icons/null-img.svg",
-                )
-              : "https://img.youtube.com/vi/${widget.video.code}/hqdefault.jpg",
-          errorWidget: (context, url, error) => SvgPicture.asset(
-            "assets/svg/icons/null-img.svg",
-          ),
-          placeholder: (context, url) => ClipRRect(
-            borderRadius: BorderRadius.circular(24),
-            child: Container(
-              height: 278.5,
-              child: Center(
-                child: CircularProgressIndicator(),
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        ClipRRect(
+          borderRadius: BorderRadius.circular(24),
+          child: Container(
+            color: Colors.grey.withOpacity(0.5),
+            child: CachedNetworkImage(
+              height: Get.height - Get.height * 0.7,
+              imageUrl:
+                  "https://img.youtube.com/vi/${widget.video.code}/hqdefault.jpg",
+              placeholder: (context, url) => Container(
+                height: Get.height - Get.height * 0.7,
+                child: SvgPicture.asset("assets/svg/icons/null-img.svg"),
               ),
+              fit: BoxFit.fitWidth,
             ),
           ),
         ),
-      ),
+        _simpleDetailInfo(),
+      ],
     );
   }
 
   Widget _simpleDetailInfo() {
     return Container(
-      margin: const EdgeInsets.only(top: 16, bottom: 10, left: 16, right: 16),
+      padding: const EdgeInsets.only(top: 16, bottom: 50, left: 10, right: 10),
       child: Text(
         widget.video == null ? "해당 태그에 영상이 없습니다" : widget.video.title,
         maxLines: 2,
@@ -70,9 +100,10 @@ class VideoWidgetState extends State<VideoWidget> {
   Widget build(BuildContext context) {
     return Container(
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           _thumbnail(),
-          _simpleDetailInfo(),
+          // _simpleDetailInfo(),
         ],
       ),
     );

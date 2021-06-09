@@ -19,72 +19,72 @@ class Video extends StatelessWidget {
     List<VideoModel> videoModel =
         videoController.videoResponseResult.value.lists;
     // 만약 api response 값이 null 이라면 예외처리
-    if (videoModel == null) {
-      return Scaffold(
-        appBar: AppBar(
-          elevation: 0,
-          title: CustomAppBar(
-            title: 'Video',
-            hasNewNotify: false, // TODO : obx 처리
-            isSetting: false,
-          ),
-        ),
-        body: Container(
-            padding: const EdgeInsets.only(
-              left: 20,
-              right: 20,
-            ),
-            child: SvgPicture.asset('assets/svg/icons/null-img.svg')),
-      );
-    } else {
-      return SafeArea(
-        child: Obx(
-          () => CustomScrollView(
-            slivers: [
-              SliverAppBar(
-                title: CustomAppBar(
-                  title: 'Video',
-                  hasNewNotify: false, // TODO : obx 처리
-                  isSetting: false,
-                ),
-                floating: true,
-                snap: true,
+    // if (videoModel == null) {
+    //   return Scaffold(
+    //     appBar: AppBar(
+    //       elevation: 0,
+    //       title: CustomAppBar(
+    //         title: 'Video',
+    //         hasNewNotify: false, // TODO : obx 처리
+    //         isSetting: false,
+    //       ),
+    //     ),
+    //     body: Container(
+    //         padding: const EdgeInsets.only(
+    //           left: 20,
+    //           right: 20,
+    //         ),
+    //         child: SvgPicture.asset('assets/svg/icons/null-img.svg')),
+    //   );
+    // } else {
+    return SafeArea(
+      child: Obx(
+        () => CustomScrollView(
+          slivers: [
+            SliverAppBar(
+              title: CustomAppBar(
+                title: 'Video',
+                hasNewNotify: false, // TODO : obx 처리
+                isSetting: false,
               ),
-              SliverList(
-                delegate: SliverChildBuilderDelegate(
-                  (context, index) {
-                    return Container(
-                      color: Colors.white,
-                      child: GestureDetector(
-                        onTap: () {
-                          videoModel == null
-                              ? _launchInBrowser(
-                                  "https://www.youtube.com") // url 없을 때
-                              : _launchInBrowser(
-                                  "https://www.youtube.com/watch?v=${videoModel[index].code}");
-                          print("이벤트 영상 클릭되었습니다");
-                        },
-                        child: Container(
-                          padding: const EdgeInsets.only(left: 20, right: 20),
-                          child: VideoWidget(
-                            video: videoController.videoResponseResult.value
-                                .lists[index], // VideoWidget 으로 값 넘겨줌
-                          ),
+              floating: true,
+              snap: true,
+            ),
+            SliverList(
+              delegate: SliverChildBuilderDelegate(
+                (context, index) {
+                  return Container(
+                    color: Colors.white,
+                    child: GestureDetector(
+                      onTap: () {
+                        videoModel == null
+                            ? _launchInBrowser(
+                                "https://www.youtube.com") // url 없을 때
+                            : _launchInBrowser(
+                                "https://www.youtube.com/watch?v=${videoModel[index].code}");
+                        print("이벤트 영상 클릭되었습니다");
+                      },
+                      child: Container(
+                        padding: const EdgeInsets.only(left: 20, right: 20),
+                        child: VideoWidget(
+                          video: videoController.videoResponseResult.value
+                              .lists[index], // VideoWidget 으로 값 넘겨줌
                         ),
                       ),
-                    );
-                  },
-                  childCount: videoController.videoResponseResult.value.lists ==
-                          null
-                      ? 0
-                      : videoController.videoResponseResult.value.lists.length,
-                ),
+                    ),
+                  );
+                },
+                childCount: videoController.videoResponseResult.value.lists ==
+                        null
+                    ? 0
+                    : videoController.videoResponseResult.value.lists.length,
               ),
-            ],
-          ),
+            ),
+          ],
         ),
-      );
-    }
+      ),
+    );
+    // }
   }
 
   Future<void> _launchInBrowser(String url) async {

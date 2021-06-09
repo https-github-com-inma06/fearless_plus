@@ -18,7 +18,8 @@ class AboutWidget extends StatelessWidget {
       child: Container(
         child: GestureDetector(
           onTap: () {
-            launchInBrowser("$domain/$id");
+            Extension().launchInBrowser("$domain/$id");
+            // launchInBrowser("$domain/$id");
           },
           child: Container(
             padding: EdgeInsets.all(6),
@@ -37,7 +38,8 @@ class AboutWidget extends StatelessWidget {
       child: Container(
         child: GestureDetector(
           onTap: () {
-            launchInBrowser(path);
+            Extension().launchInBrowser(path);
+            // launchInBrowser(path);
           },
           child: Container(
             width: 38,

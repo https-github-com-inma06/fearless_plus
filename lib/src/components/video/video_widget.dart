@@ -3,6 +3,7 @@ import 'dart:ffi';
 
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:fearlessassemble/src/models/video/video_model.dart';
+import 'package:fearlessassemble/src/models/video/video_model_new.dart';
 import 'package:fearlessassemble/src/pages/video.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/svg.dart';
@@ -14,6 +15,7 @@ import 'package:get/get.dart';
 
 class VideoWidget extends StatefulWidget {
   final VideoModel video;
+  // final ViedoeModelNew video;
   // pages - video_model.dart 에서  넘겨 받음
   const VideoWidget({Key key, this.video}) : super(key: key);
 
@@ -81,14 +83,13 @@ class VideoWidgetState extends State<VideoWidget> {
             ),
           ),
         ),
-        _simpleDetailInfo(),
       ],
     );
   }
 
   Widget _simpleDetailInfo() {
     return Container(
-      padding: const EdgeInsets.only(top: 16, bottom: 50, left: 10, right: 10),
+      padding: const EdgeInsets.only(top: 20, bottom: 40, left: 10, right: 10),
       child: Text(
         widget.video == null ? "해당 태그에 영상이 없습니다" : widget.video.title,
         maxLines: 2,
@@ -103,7 +104,7 @@ class VideoWidgetState extends State<VideoWidget> {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           _thumbnail(),
-          // _simpleDetailInfo(),
+          _simpleDetailInfo(),
         ],
       ),
     );

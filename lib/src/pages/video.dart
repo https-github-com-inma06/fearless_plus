@@ -1,7 +1,9 @@
+import 'package:fearlessassemble/extension.dart';
 import 'package:fearlessassemble/src/chart_controller/video_controller.dart';
 import 'package:fearlessassemble/src/components/appbar/custom_appbar.dart';
 import 'package:fearlessassemble/src/components/video/video_widget.dart';
 import 'package:fearlessassemble/src/models/video/video_model.dart';
+import 'package:fearlessassemble/src/models/video/video_model_new.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -18,6 +20,8 @@ class Video extends StatelessWidget {
   Widget build(BuildContext context) {
     List<VideoModel> videoModel =
         videoController.videoResponseResult.value.lists;
+    // List<ViedoeModelNew> videoModel =
+    //     videoController.videoResponseResult.value.lists;
     // 만약 api response 값이 null 이라면 예외처리
     // if (videoModel == null) {
     //   return Scaffold(
@@ -57,11 +61,10 @@ class Video extends StatelessWidget {
                     color: Colors.white,
                     child: GestureDetector(
                       onTap: () {
-                        videoModel == null
-                            ? _launchInBrowser(
-                                "https://www.youtube.com") // url 없을 때
-                            : _launchInBrowser(
-                                "https://www.youtube.com/watch?v=${videoModel[index].code}");
+                        Extension().launchInBrowser(
+                            "https://www.youtube.com/watch?v=${videoModel[index].code}");
+                        // _launchInBrowser(
+                        //         "https://www.youtube.com/watch?v=${videoModel[index].code}");
                         print("이벤트 영상 클릭되었습니다");
                       },
                       child: Container(
@@ -87,16 +90,16 @@ class Video extends StatelessWidget {
     // }
   }
 
-  Future<void> _launchInBrowser(String url) async {
-    if (await canLaunch(url)) {
-      await launch(
-        url,
-        forceSafariVC: false,
-        forceWebView: false,
-        headers: <String, String>{'my_header_key': 'my_header_value'},
-      );
-    } else {
-      throw 'Could not launch $url';
-    }
-  }
+  // Future<void> _launchInBrowser(String url) async {
+  //   if (await canLaunch(url)) {
+  //     await launch(
+  //       url,
+  //       forceSafariVC: false,
+  //       forceWebView: false,
+  //       headers: <String, String>{'my_header_key': 'my_header_value'},
+  //     );
+  //   } else {
+  //     throw 'Could not launch $url';
+  //   }
+  // }
 }

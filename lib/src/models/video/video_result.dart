@@ -18,13 +18,7 @@ class VideoResult {
       );
     } catch (e) {
       print(e.toString());
-      print('ERRRRRRRRRRRRRRRRROOOOOOOOOOOOOORRRRRRRRRRRRRRRRRRR');
     }
     return null;
   }
-
-  // factory VideoResult.fromJson(Map<String, dynamic> json) => VideoResult(
-  //       lists: List<VideoModel>.from(
-  //           json["data"]["list"].map((data) => VideoModel.fromJson(data))),
-  //     );
 }

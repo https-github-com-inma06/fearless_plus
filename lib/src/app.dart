@@ -16,12 +16,12 @@ class App extends GetView<AppController> {
     return Scaffold(
       body: Obx(() {
         switch (RouteName.values[controller.currentIndex.value]) {
-          case RouteName.Calendar:
-            return Calendar();
-            break;
-          case RouteName.Chart:
-            return Chart();
-            break;
+          // case RouteName.Calendar:
+          //   return Calendar();
+          //   break;
+          // case RouteName.Chart:
+          //   return Chart();
+          //   break;
           case RouteName.Video:
             return Video();
             break;
@@ -43,19 +43,19 @@ class App extends GetView<AppController> {
           showUnselectedLabels: false,
           onTap: controller.changePageIndex,
           items: [
-            /* 캘린더 */
-            BottomNavigationBarItem(
-              icon: SvgPicture.asset('assets/svg/icons/ico_calendar.svg'),
-              activeIcon:
-                  SvgPicture.asset('assets/svg/icons/ico_calendar_on.svg'),
-              label: "CALENDAR",
-            ),
-            /* 차트 */
-            BottomNavigationBarItem(
-              icon: SvgPicture.asset('assets/svg/icons/ico_chart.svg'),
-              activeIcon: SvgPicture.asset('assets/svg/icons/ico_chart_on.svg'),
-              label: "CHART",
-            ),
+            // /* 캘린더 */
+            // BottomNavigationBarItem(
+            //   icon: SvgPicture.asset('assets/svg/icons/ico_calendar.svg'),
+            //   activeIcon:
+            //       SvgPicture.asset('assets/svg/icons/ico_calendar_on.svg'),
+            //   label: "CALENDAR",
+            // ),
+            // /* 차트 */
+            // BottomNavigationBarItem(
+            //   icon: SvgPicture.asset('assets/svg/icons/ico_chart.svg'),
+            //   activeIcon: SvgPicture.asset('assets/svg/icons/ico_chart_on.svg'),
+            //   label: "CHART",
+            // ),
 
             /* 영상 */
             BottomNavigationBarItem(

@@ -30,6 +30,7 @@ class AboutWidget extends StatelessWidget {
       ),
     );
   }
+
   Widget _officialSnsView(String path, String assets) {
     return Visibility(
       visible: path.isNotEmpty,
@@ -59,7 +60,7 @@ class AboutWidget extends StatelessWidget {
             children: [
               Container(
                 margin: const EdgeInsets.only(
-                  top: 18,
+                  top: 10,
                   bottom: 8,
                 ),
                 child: ClipRRect(
@@ -98,9 +99,7 @@ class AboutWidget extends StatelessWidget {
                 style: TextStyle(color: Colors.white),
               ),
               Container(
-                margin: const EdgeInsets.only(
-                  top: 6,
-                ),
+                padding: const EdgeInsets.all(0),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -132,7 +131,6 @@ class AboutWidget extends StatelessWidget {
           color: const Color(0xffFFEEE5),
           child: Row(
             children: [
-
               Text(
                 name,
                 style: TextStyle(
@@ -141,7 +139,6 @@ class AboutWidget extends StatelessWidget {
                   color: Colors.black,
                 ),
               ),
-
               Text(
                 ">",
                 style: TextStyle(
@@ -186,7 +183,8 @@ class AboutWidget extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.start,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Padding(padding: EdgeInsets.fromLTRB(8, 0, 0, 0),
+                          Padding(
+                            padding: EdgeInsets.fromLTRB(8, 0, 0, 0),
                             child: Text(
                               "BRAVE GIRLS",
                               style: TextStyle(
@@ -195,21 +193,25 @@ class AboutWidget extends StatelessWidget {
                                   color: Colors.black),
                             ),
                           ),
-
                           Row(
                             children: [
-                              _officialSnsView("https://www.youtube.com/channel/UCx_kYu6Wp1yxZP_KtrW52EQ",
-                                'assets/svg/icons/ico_youtube.svg'),
-                              _officialSnsView("https://www.instagram.com/bravegirls.official/",
-                                'assets/svg/icons/ico_instagram.svg'),
+                              _officialSnsView(
+                                  "https://www.youtube.com/channel/UCx_kYu6Wp1yxZP_KtrW52EQ",
+                                  'assets/svg/icons/ico_youtube.svg'),
+                              _officialSnsView(
+                                  "https://www.instagram.com/bravegirls.official/",
+                                  'assets/svg/icons/ico_instagram.svg'),
                               _officialSnsView("https://twitter.com/BraveGirls",
-                                'assets/svg/icons/ico_twitter.svg'),
-                              _officialSnsView("https://www.facebook.com/bravegirls.official/",
-                                'assets/svg/icons/ico_facebook.svg'),
-                              _officialSnsView("https://www.vlive.tv/channel/86FF07",
-                                'assets/svg/icons/ico_vlive.svg'),
-                              _officialSnsView("https://m.post.naver.com/my/series/detail.nhn?memberNo=40158097&seriesNo=394049",
-                                'assets/svg/icons/ico_naver.svg'),
+                                  'assets/svg/icons/ico_twitter.svg'),
+                              _officialSnsView(
+                                  "https://www.facebook.com/bravegirls.official/",
+                                  'assets/svg/icons/ico_facebook.svg'),
+                              _officialSnsView(
+                                  "https://www.vlive.tv/channel/86FF07",
+                                  'assets/svg/icons/ico_vlive.svg'),
+                              _officialSnsView(
+                                  "https://m.post.naver.com/my/series/detail.nhn?memberNo=40158097&seriesNo=394049",
+                                  'assets/svg/icons/ico_naver.svg'),
                             ],
                           )
                         ],
@@ -217,9 +219,6 @@ class AboutWidget extends StatelessWidget {
                     ],
                   ),
                 ),
-
-
-
               ],
             ),
           ),

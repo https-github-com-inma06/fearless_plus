@@ -13,13 +13,13 @@ class VideoRepository extends GetConnect {
 
   @override
   void onInit() {
-    httpClient.baseUrl = "https://api.fearless-plus.cf/api/v1";
+    httpClient.baseUrl = "https://api.fearlessplus.net/api/v1";
     super.onInit();
   }
 
   /*  off_set -> 현재페이지, page_size -> 한 페이지의 컨텐츠수 */
   Future<VideoResult> loadVideo() async {
-    String url = "/hotVideos?tag_id=1&page=1&size=55";
+    String url = "/hotVideos?tag_id=1&page=1&size=10";
     final response = await get(url);
     if (response.status.hasError) {
       return Future.error(response.statusText);

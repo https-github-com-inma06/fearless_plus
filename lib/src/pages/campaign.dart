@@ -1,6 +1,6 @@
-import 'package:fearlessassemble/src/chart_controller/campaign_controller.dart';
 import 'package:fearlessassemble/src/components/appbar/custom_appbar.dart';
 import 'package:fearlessassemble/src/components/campaign/campaign_widget.dart';
+import 'package:fearlessassemble/src/controller/campaign_controller.dart';
 import 'package:fearlessassemble/src/models/campaign/campaign_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';

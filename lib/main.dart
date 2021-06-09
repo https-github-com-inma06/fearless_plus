@@ -1,4 +1,4 @@
-import 'package:fearlessassemble/src/chart_controller/noti_history_controller.dart';
+import 'package:fearlessassemble/src/controller/noti_history_controller.dart';
 import 'package:flutter/services.dart';
 
 import 'src/pages/noti_history.dart';

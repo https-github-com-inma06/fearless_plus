@@ -1,10 +1,7 @@
-import 'package:fearlessassemble/src/chart_controller/chart_controller.dart';
 import 'package:fearlessassemble/src/components/appbar/custom_appbar.dart';
 import 'package:fearlessassemble/src/components/chart/chart_widget.dart';
-import 'package:fearlessassemble/src/models/chart/chart_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:get/get.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class Chart extends StatelessWidget {

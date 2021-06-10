@@ -223,7 +223,7 @@ class CustomAppBarState extends State<CustomAppBar> {
                 _notification(),
               ],
             ),
-            _topTagView(),
+            // _topTagView(),  //TODO: 비디오 상단태그
           ],
         );
         break;

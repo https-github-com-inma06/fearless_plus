@@ -26,7 +26,7 @@ class VideoWidgetState extends State<VideoWidget> {
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         ClipRRect(
-          borderRadius: BorderRadius.circular(24),
+          borderRadius: BorderRadius.circular(12),
           child: Container(
             color: Colors.grey.withOpacity(0.5),
             child: CachedNetworkImage(

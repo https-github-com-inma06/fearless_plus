@@ -214,13 +214,14 @@ class CustomAppBarState extends State<CustomAppBar> {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                SizedBox(
-                  width: 25,
-                ),
+                // SizedBox(
+                //   width: 25,
+                // ),
                 _title(),
-                _notification(),
+                // _notification(),
               ],
             ),
             // _topTagView(),  //TODO: 비디오 상단태그
@@ -229,71 +230,77 @@ class CustomAppBarState extends State<CustomAppBar> {
         break;
       case "Event":
         return Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            SizedBox(
-              width: 25,
-            ),
+            // SizedBox(
+            //   width: 25,
+            // ),
             _title(),
-            _notification(),
+            // _notification(),
           ],
         );
         break;
       case "Campaign":
         return Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            SizedBox(
-              width: 25,
-            ),
+            // SizedBox(
+            //   width: 25,
+            // ),
             _title(),
-            _notification(),
+            // _notification(),
           ],
         );
         break;
       case "About":
         return Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            _setting(),
+            //   _setting(),
             _title(),
-            _notification(),
+            // _notification(),
           ],
         );
         break;
       case "Chart":
         return Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            SizedBox(
-              width: 25,
-            ),
+            // SizedBox(
+            //   width: 25,
+            // ),
             _title(),
-            _notification(),
+            // _notification(),
           ],
         );
         break;
       case "Calendar":
         return Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            SizedBox(
-              width: 25,
-            ),
+            // SizedBox(
+            //   width: 25,
+            // ),
             _title(),
-            _notification(),
+            // _notification(),
           ],
         );
         break;
     }
     return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        SizedBox(
-          width: 25,
-        ),
+        // SizedBox(
+        //   width: 25,
+        // ),
         _title(),
-        _notification(),
+        // _notification(),
       ],
     );
   }

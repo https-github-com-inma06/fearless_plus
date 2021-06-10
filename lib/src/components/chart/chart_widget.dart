@@ -24,7 +24,7 @@ class ChartWidgetState extends State<ChartWidget> {
     return Container(
       width: Get.width - (Get.width * 0.7),
       child: ClipRRect(
-        borderRadius: BorderRadius.circular(14),
+        borderRadius: BorderRadius.circular(12),
         child: Container(
           padding:
               const EdgeInsets.only(left: 24, right: 24, top: 14, bottom: 14),

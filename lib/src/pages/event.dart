@@ -5,6 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+/*  캠페인 처음보이는 페이지 */
+
 class Event extends StatelessWidget {
   Event({Key key}) : super(key: key);
 

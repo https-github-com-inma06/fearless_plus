@@ -25,7 +25,7 @@ class CampaignWidgetState extends State<CampaignWidget> {
     return Container(
       margin: const EdgeInsets.only(top: 24),
       child: ClipRRect(
-        borderRadius: BorderRadius.circular(24),
+        borderRadius: BorderRadius.circular(12),
         child: CachedNetworkImage(
           imageUrl: widget.campaign.thumbnailImg == null
               ? "https://i.pinimg.com/originals/6e/2b/37/6e2b3766b78038cc505596134a5d1cda.jpg"
@@ -33,7 +33,7 @@ class CampaignWidgetState extends State<CampaignWidget> {
           errorWidget: (context, url, error) =>
               SvgPicture.asset('assets/svg/icons/null-img.svg'),
           placeholder: (context, url) => ClipRRect(
-            borderRadius: BorderRadius.circular(24),
+            borderRadius: BorderRadius.circular(12),
             child: Container(
               height: 150,
               child: Center(

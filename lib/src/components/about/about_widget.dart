@@ -16,15 +16,16 @@ class AboutWidget extends StatelessWidget {
     return Visibility(
       visible: id.isNotEmpty,
       child: Container(
+        width: Get.width / 13,
         child: GestureDetector(
           onTap: () {
             LaunchInBrowser().launchInBrowser("$domain/$id");
             // launchInBrowser("$domain/$id");
           },
           child: Container(
-            padding: EdgeInsets.all(6),
-            width: 40,
-            height: 40,
+            padding: EdgeInsets.all(5),
+            width: 30,
+            height: 30,
             child: SvgPicture.asset(assets),
           ),
         ),
@@ -53,7 +54,7 @@ class AboutWidget extends StatelessWidget {
 
   Widget _profile(String image, String name, String position, String birthDay,
       String instagramId, String twitterId, String youtubeId, String tictokId) {
-    return SafeArea(
+    return Container(
       child: ClipRRect(
         borderRadius: BorderRadius.circular(12),
         child: Container(
@@ -61,9 +62,9 @@ class AboutWidget extends StatelessWidget {
           child: Column(
             children: [
               Container(
-                margin: const EdgeInsets.only(
-                  top: 10,
-                  bottom: 8,
+                padding: const EdgeInsets.only(
+                  top: 20,
+                  bottom: 10,
                 ),
                 child: ClipRRect(
                   // borderRadius: BorderRadius.circular(0),
@@ -101,7 +102,7 @@ class AboutWidget extends StatelessWidget {
                 style: TextStyle(color: Colors.white),
               ),
               Container(
-                padding: const EdgeInsets.all(0),
+                margin: const EdgeInsets.only(left: 5, right: 5),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -215,7 +216,7 @@ class AboutWidget extends StatelessWidget {
                                   "https://m.post.naver.com/my/series/detail.nhn?memberNo=40158097&seriesNo=394049",
                                   'assets/svg/icons/ico_naver.svg'),
                             ],
-                          )
+                          ),
                         ],
                       )
                     ],
@@ -269,9 +270,9 @@ class AboutWidget extends StatelessWidget {
                     "@bravegirls_u_na"),
               ]),
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  childAspectRatio: 0.9,
-                  mainAxisSpacing: 20,
-                  crossAxisSpacing: 20,
+                  childAspectRatio: 0.8,
+                  mainAxisSpacing: 30,
+                  crossAxisSpacing: 15,
                   crossAxisCount: 2),
             ),
           ),

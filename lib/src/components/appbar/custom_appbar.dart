@@ -167,7 +167,7 @@ class CustomAppBarState extends State<CustomAppBar> {
           );
         },
         child: Container(
-          width: 80,
+          width: 25,
           height: 25,
           child: SvgPicture.asset("assets/svg/icons/ico_setting.svg"),
         ),

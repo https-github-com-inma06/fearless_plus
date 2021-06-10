@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+// import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:get/get.dart';
 import 'package:onesignal_flutter/onesignal_flutter.dart';
@@ -13,12 +14,13 @@ class NotificationController extends GetxController {
   RxMap<String, dynamic> message = Map<String, dynamic>().obs;
   @override
   void onInit() {
+    // _initLocalNoti();
     _initOneSignal();
     _initNotification();
     _getToken();
-    // _initLocalNoti();
     _receivedHandler();
     _openedHandler();
+    _initSetLogLevel();
     super.onInit();
   }
 
@@ -66,19 +68,16 @@ class NotificationController extends GetxController {
       //     jsonDecode(result.notification.jsonRepresentation()));
       // print("NotiData : ${notiData}");
 
-      if(result.notification.payload.launchUrl?.isNotEmpty) {
+      if (result.notification.payload.launchUrl?.isNotEmpty) {
         launchUrlParser(result.notification.payload.launchUrl);
       }
-
     });
   }
 
   launchUrlParser(String scheme) async {
     // launchUrl
 
-    if(scheme.startsWith("fearless://")) {
-
-    }
+    if (scheme.startsWith("fearless://")) {}
   }
 
   _initSetLogLevel() {

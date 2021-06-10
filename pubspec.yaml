@@ -37,8 +37,8 @@ dependencies:
 
 
   ## 푸시메시지 관련 START ##
-  firebase_core: "0.5.3"
-  firebase_messaging: "7.0.3"
+  firebase_core: ^0.5.3
+  firebase_messaging: ^7.0.3
   onesignal_flutter: ^2.0.0 # 원시그널 (푸시메시지)
   ## 푸시메시지 관련 END ##
 

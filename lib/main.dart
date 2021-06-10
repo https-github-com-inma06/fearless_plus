@@ -1,4 +1,7 @@
 import 'package:fearlessassemble/src/controller/noti_history_controller.dart';
+import 'package:fearlessassemble/src/controller/video_controller.dart';
+import 'package:fearlessassemble/src/pages/about.dart';
+import 'package:fearlessassemble/src/pages/video.dart';
 import 'package:flutter/services.dart';
 
 import 'src/pages/noti_history.dart';
@@ -48,12 +51,19 @@ class MyApp extends StatelessWidget {
       initialBinding: InitBinding(),
       initialRoute: "/",
       getPages: [
-        GetPage(name: "/", page: () => App()),
         GetPage(
-            name: "/noti_history/",
-            page: () => NotiHistory(),
-            binding: BindingsBuilder(() => Get.lazyPut<NotiHistoryController>(
-                () => NotiHistoryController())))
+          name: "/",
+          page: () => App(),
+        ),
+        GetPage(
+          name: "/video/",
+          page: () => Video(),
+          binding: BindingsBuilder(
+            () => Get.lazyPut<VideoController>(
+              () => VideoController(),
+            ),
+          ),
+        ),
       ],
     );
   }

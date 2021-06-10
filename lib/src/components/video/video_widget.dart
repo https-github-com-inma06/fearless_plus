@@ -8,7 +8,6 @@ import 'package:get/get.dart';
 
 class VideoWidget extends StatefulWidget {
   final VideoModel video;
-  // final ViedoeModelNew video;
   // pages - video_model.dart 에서  넘겨 받음
   const VideoWidget({Key key, this.video}) : super(key: key);
 
@@ -21,40 +20,6 @@ class VideoWidgetState extends State<VideoWidget> {
   void initState() {
     super.initState();
   }
-
-  // Widget _thumbnail() {
-  //   return Column(
-  //     // crossAxisAlignment: CrossAxisAlignment.stretch,
-  //     children: [
-  //       Container(
-  //         child: ClipRRect(
-  //           borderRadius: BorderRadius.circular(24),
-  //           child: CachedNetworkImage(
-  //             // width: Get.context.width,
-  //             // fit: BoxFit.fitWidth,
-  //             imageUrl: widget.video == null
-  //                 ? SvgPicture.asset(
-  //               "assets/svg/icons/null-img.svg",
-  //             )
-  //                 : "https://img.youtube.com/vi/${widget.video.code}/hqdefault.jpg",
-  //             errorWidget: (context, url, error) => SvgPicture.asset(
-  //               "assets/svg/icons/null-img.svg",
-  //             ),
-  //             placeholder: (context, url) => ClipRRect(
-  //               borderRadius: BorderRadius.circular(24),
-  //               child: Container(
-  //                 // height: 278.5,
-  //                 child: Center(
-  //                   child: CircularProgressIndicator(),
-  //                 ),
-  //               ),
-  //             ),
-  //           ),
-  //         ),
-  //       ),
-  //     ],
-  //   );
-  // }
 
   Widget _thumbnail() {
     return Column(

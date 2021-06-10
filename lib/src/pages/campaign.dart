@@ -22,7 +22,6 @@ class Campaign extends StatelessWidget {
           title: CustomAppBar(
             title: 'Campaign',
             hasNewNotify: false, // TODO : obx 처리
-            isSetting: false,
           ),
         ),
         body: Container(
@@ -41,7 +40,6 @@ class Campaign extends StatelessWidget {
                 title: CustomAppBar(
                   title: 'Video',
                   hasNewNotify: false, // TODO : obx 처리
-                  isSetting: false,
                 ),
                 floating: true,
                 snap: true,

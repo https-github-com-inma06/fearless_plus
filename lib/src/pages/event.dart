@@ -20,7 +20,6 @@ class Event extends StatelessWidget {
               title: CustomAppBar(
                 title: 'Campaign',
                 hasNewNotify: false,
-                isSetting: false,
               ),
               floating: true,
               snap: true,

@@ -16,7 +16,6 @@ class About extends StatelessWidget {
         title: CustomAppBar(
           title: 'About',
           hasNewNotify: false,
-          isSetting: true,
         ),
       ),
       body: Container(

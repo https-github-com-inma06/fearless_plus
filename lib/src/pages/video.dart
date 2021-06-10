@@ -6,9 +6,7 @@ import 'package:fearlessassemble/src/models/video/video_model.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 class Video extends StatelessWidget {
   Video({Key key}) : super(key: key);
@@ -22,12 +20,15 @@ class Video extends StatelessWidget {
     return SafeArea(
       child: Obx(
         () => CustomScrollView(
+          controller: videoController.scrollController,
           slivers: [
             SliverAppBar(
-              title: CustomAppBar(
-                title: 'Video',
-                hasNewNotify: false, // TODO : obx 처리
-                isSetting: false,
+              toolbarHeight: 100,
+              title: Container(
+                child: CustomAppBar(
+                  title: 'Video',
+                  hasNewNotify: false, // TODO : obx 처리
+                ),
               ),
               floating: true,
               snap: true,
@@ -44,7 +45,7 @@ class Video extends StatelessWidget {
                         print("이벤트 영상 클릭되었습니다");
                       },
                       child: Container(
-                        padding: const EdgeInsets.only(left: 20, right: 20),
+                        margin: const EdgeInsets.only(left: 20, right: 20),
                         child: VideoWidget(
                           video: videoController.videoResponseResult.value
                               .lists[index], // VideoWidget 으로 값 넘겨줌

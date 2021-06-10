@@ -17,9 +17,8 @@ class VideoRepository extends GetConnect {
     super.onInit();
   }
 
-  /*  off_set -> 현재페이지, page_size -> 한 페이지의 컨텐츠수 */
   Future<VideoResult> loadVideo() async {
-    String url = "/hotVideos?tag_id=1&page=1&size=10";
+    String url = "/hotVideos?tag_id=1&page=1&size=1000"; // TODO : 하드코딩상태
     final response = await get(url);
     if (response.status.hasError) {
       return Future.error(response.statusText);

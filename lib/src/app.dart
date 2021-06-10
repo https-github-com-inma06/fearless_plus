@@ -1,6 +1,4 @@
 import 'package:fearlessassemble/src/pages/about.dart';
-import 'package:fearlessassemble/src/pages/calendar.dart';
-import 'package:fearlessassemble/src/pages/chart.dart';
 import 'package:fearlessassemble/src/pages/event.dart';
 import 'package:fearlessassemble/src/pages/video.dart';
 import 'package:flutter/material.dart';

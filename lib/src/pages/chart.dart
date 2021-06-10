@@ -22,7 +22,6 @@ class Chart extends StatelessWidget {
           title: CustomAppBar(
             title: 'Chart',
             hasNewNotify: false, // TODO : obx 처리
-            isSetting: false,
           ),
         ),
         body: Container(
@@ -40,7 +39,6 @@ class Chart extends StatelessWidget {
               title: CustomAppBar(
                 title: 'Chart',
                 hasNewNotify: false, // TODO : obx 처리
-                isSetting: false,
               ),
               floating: true,
               snap: true,

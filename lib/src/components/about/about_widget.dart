@@ -52,6 +52,7 @@ class AboutWidget extends StatelessWidget {
     );
   }
 
+  /* TODO : 이부분 높이 조정하는 방법좀 */
   Widget _profile(String image, String name, String position, String birthDay,
       String instagramId, String twitterId, String youtubeId, String tictokId) {
     return Container(

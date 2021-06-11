@@ -2,7 +2,7 @@ import 'package:fearlessassemble/extension.dart';
 import 'package:fearlessassemble/src/models/video/video_data_model.dart';
 import 'package:fearlessassemble/src/models/video/video_result.dart';
 import 'package:fearlessassemble/src/repository/video_repository.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 

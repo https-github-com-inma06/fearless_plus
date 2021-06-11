@@ -1,4 +1,4 @@
-import 'chart_model.dart';
+import 'package:fearlessassemble/src/models/chart/chart_model.dart';
 
 class ChartResult {
   List<ChartModel> lists;
@@ -6,8 +6,19 @@ class ChartResult {
   ChartResult({
     this.lists,
   });
-  factory ChartResult.fromJson(Map<String, dynamic> json) => ChartResult(
+
+  factory ChartResult.fromJson(Map<String, dynamic> json) {
+    try {
+      return ChartResult(
         lists: List<ChartModel>.from(
-            json["data"]["list"].map((data) => ChartModel.fromJson(data))),
+          json["data"]["list"].map(
+            (data) => ChartModel.fromJson(data),
+          ),
+        ),
       );
+    } catch (e) {
+      print(e.toString());
+    }
+    return null;
+  }
 }

@@ -8,7 +8,7 @@ import 'package:get/get.dart';
 
 class VideoWidget extends StatefulWidget {
   final VideoModel video;
-  // pages - video_model.dart 에서  넘겨 받음
+  // pages - video.dart 에서  넘겨 받음
   const VideoWidget({Key key, this.video}) : super(key: key);
 
   @override

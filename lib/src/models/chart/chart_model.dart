@@ -1,72 +1,52 @@
+// To parse this JSON data, do
+//
+//     final chartModel = chartModelFromJson(jsonString);
+
+/*
+*
+* ChartModel ( list [ ... ] )
+* ChartResult ( List<ChartModel> lists )
+*
+* */
+
 import 'dart:convert';
 
 ChartModel chartFromJson(String str) => ChartModel.fromJson(json.decode(str));
+
 String chartToJson(ChartModel data) => json.encode(data.toJson());
 
 class ChartModel {
   ChartModel({
     this.id,
+    this.no,
+    this.name,
     this.title,
-    this.startTime,
-    this.endTime,
-    this.description,
-    this.thumbnailImg,
-    this.url,
-    this.regDtm,
-    this.viewStart,
-    this.viewEnd,
-    this.isInProgress,
-    this.viewCal,
-    this.limitDay,
-    this.category,
+    this.writeDate,
+    this.dcUrl,
   });
 
   int id;
+  String no;
+  String name;
   String title;
-  String startTime;
-  String endTime;
-  String description;
-  String thumbnailImg;
-  String url;
-  String regDtm;
-  String viewStart;
-  String viewEnd;
-  String isInProgress;
-  String viewCal;
-  String limitDay;
-  String category;
+  String writeDate;
+  String dcUrl;
 
   factory ChartModel.fromJson(Map<String, dynamic> json) => ChartModel(
         id: json["id"],
+        no: json["no"],
+        name: json["name"],
         title: json["title"],
-        startTime: json["startTime"],
-        endTime: json["endTime"],
-        description: json["description"],
-        thumbnailImg: json["thumbnailImg"],
-        url: json["url"],
-        regDtm: json["regDtm"],
-        viewStart: json["viewStart"],
-        viewEnd: json["viewEnd"],
-        isInProgress: json["isInProgress"],
-        viewCal: json["viewCal"],
-        limitDay: json["limitDay"],
-        category: json["category"],
+        writeDate: json["writeDate"],
+        dcUrl: json["dcUrl"],
       );
 
   Map<String, dynamic> toJson() => {
         "id": id,
+        "no": no,
+        "name": name,
         "title": title,
-        "startTime": startTime,
-        "endTime": endTime,
-        "description": description,
-        "thumbnailImg": thumbnailImg,
-        "url": url,
-        "regDtm": regDtm,
-        "viewStart": viewStart,
-        "viewEnd": viewEnd,
-        "isInProgress": isInProgress,
-        "viewCal": viewCal,
-        "limitDay": limitDay,
-        "category": category,
+        "writeDate": writeDate,
+        "dcUrl": dcUrl,
       };
 }

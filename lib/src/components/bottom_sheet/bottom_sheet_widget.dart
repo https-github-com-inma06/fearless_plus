@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
+import 'package:onesignal_flutter/onesignal_flutter.dart';
 
 enum SheetName {
   Notification,
@@ -11,25 +12,16 @@ enum SheetName {
 
 class BottomSheetWidget extends StatefulWidget {
   final String title;
-  const BottomSheetWidget({Key key, this.title}) : super(key: key);
+
+  const BottomSheetWidget({
+    Key key,
+    this.title,
+  }) : super(key: key);
   @override
   BottomSheetWidgetState createState() => BottomSheetWidgetState();
 }
 
 class BottomSheetWidgetState extends State<BottomSheetWidget> {
-  /* SNS Switch Status */
-  bool _instaSwitch = false;
-  bool _twitterSwitch = false;
-
-  /* 공식카페 Switch Status */
-  bool _officialNoticeSwitch = false;
-  bool _officialEventSwitch = false;
-
-  /* 브레이브걸스 갤러리 Switch Status */
-  bool _dcNoticeSwitch = false;
-  bool _dcEventSwitch = false;
-  bool _dcFunding = false;
-
   @override
   void initState() {
     super.initState();
@@ -47,6 +39,7 @@ class BottomSheetWidgetState extends State<BottomSheetWidget> {
   /* 타이틀 */
   Widget _title() {
     return Container(
+      margin: const EdgeInsets.only(top: 10),
       child: Text(
         widget.title,
         style: TextStyle(
@@ -62,7 +55,7 @@ class BottomSheetWidgetState extends State<BottomSheetWidget> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Container(
-            margin: const EdgeInsets.only(top: 20, bottom: 10),
+            margin: const EdgeInsets.only(top: 30, bottom: 10),
             child: Text(sectionTitle),
           ),
           Row(
@@ -74,15 +67,29 @@ class BottomSheetWidgetState extends State<BottomSheetWidget> {
                   color: Colors.black54,
                 ),
               ),
-              CupertinoSwitch(
-                activeColor: Color(0xFFFF8B50),
-                value: _instaSwitch,
-                onChanged: (bool value) {
-                  print(' Switch State : $value');
-                  setState(() {
-                    _instaSwitch = value;
-                  });
-                },
+              Container(
+                child: Transform.scale(
+                  scale: 0.8,
+                  child: CupertinoSwitch(
+                    activeColor: Color(0xFFFF8B50),
+                    value: false,
+                    onChanged: (bool value) {
+                      // print('Instagram onChanged : $value');
+                      // if (value) {
+                      //   OneSignal().sendTag("Instagram", "1");
+                      //   NotificationOption.setSpfs("Instagram", true);
+                      //   print(
+                      //       'Instagram OneSignal().sendTag("Instagram", "1")');
+                      // } else {
+                      //   OneSignal().sendTag("Instagram", "0");
+                      //   NotificationOption.setSpfs("Instagram", false);
+                      // }
+                      setState(() {
+                        // NotificationOption.setInstagram = value;
+                      });
+                    },
+                  ),
+                ),
               ),
             ],
           ),
@@ -95,71 +102,30 @@ class BottomSheetWidgetState extends State<BottomSheetWidget> {
                   color: Colors.black54,
                 ),
               ),
-              CupertinoSwitch(
-                activeColor: Color(0xFFFF8B50),
-                value: _twitterSwitch,
-                onChanged: (bool value) {
-                  print(' Switch State : $value');
-                  setState(() {
-                    _twitterSwitch = value;
-                  });
-                },
-              ),
-            ],
-          ),
-        ],
-      ),
-    );
-  }
-
-  Widget _officialCafe(String sectionTitle) {
-    return Container(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Container(
-            margin: const EdgeInsets.only(top: 20, bottom: 10),
-            child: Text(sectionTitle),
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                '공지',
-                style: TextStyle(
-                  color: Colors.black54,
+              Container(
+                child: Transform.scale(
+                  scale: 0.8,
+                  child: CupertinoSwitch(
+                    activeColor: Color(0xFFFF8B50),
+                    // value: widget.twitter,
+                    value: false,
+                    onChanged: (bool value) {
+                      // print('Twitter Switch State : $value');
+                      // if (value) {
+                      //   OneSignal().sendTag("Twitter", "1");
+                      //   NotificationOption.setSpfs("Twitter", true);
+                      // } else {
+                      //   OneSignal().sendTag("Twitter", "0");
+                      //   NotificationOption.setSpfs("Twitter", false);
+                      // }
+                      setState(
+                        () {
+                          // NotificationOption.setTwitter = value;
+                        },
+                      );
+                    },
+                  ),
                 ),
-              ),
-              CupertinoSwitch(
-                activeColor: Color(0xFFFF8B50),
-                value: _officialNoticeSwitch,
-                onChanged: (bool value) {
-                  print(' Switch State : $value');
-                  setState(() {
-                    _officialNoticeSwitch = value;
-                  });
-                },
-              ),
-            ],
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                '이벤트',
-                style: TextStyle(
-                  color: Colors.black54,
-                ),
-              ),
-              CupertinoSwitch(
-                activeColor: Color(0xFFFF8B50),
-                value: _officialEventSwitch,
-                onChanged: (bool value) {
-                  print(' Switch State : $value');
-                  setState(() {
-                    _officialEventSwitch = value;
-                  });
-                },
               ),
             ],
           ),
@@ -181,20 +147,35 @@ class BottomSheetWidgetState extends State<BottomSheetWidget> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                '공지',
+                '공지', // 갤러리
                 style: TextStyle(
                   color: Colors.black54,
                 ),
               ),
-              CupertinoSwitch(
-                activeColor: Color(0xFFFF8B50),
-                value: _dcNoticeSwitch,
-                onChanged: (bool value) {
-                  print(' Switch State : $value');
-                  setState(() {
-                    _dcNoticeSwitch = value;
-                  });
-                },
+              Container(
+                child: Transform.scale(
+                  scale: 0.8,
+                  child: CupertinoSwitch(
+                    activeColor: Color(0xFFFF8B50),
+                    // value: widget.gallNotice,
+                    value: false,
+                    onChanged: (bool value) {
+                      // print('GalleryNotice Switch State : $value');
+                      // if (value) {
+                      //   OneSignal().sendTag("GalleryNotice", "1");
+                      //   NotificationOption.setSpfs("GalleryNotice", true);
+                      // } else {
+                      //   OneSignal().sendTag("GalleryNotice", "0");
+                      //   NotificationOption.setSpfs("GalleryNotice", false);
+                      // }
+                      setState(
+                        () {
+                          // NotificationOption.setGalleryNotice = value;
+                        },
+                      );
+                    },
+                  ),
+                ),
               ),
             ],
           ),
@@ -202,20 +183,35 @@ class BottomSheetWidgetState extends State<BottomSheetWidget> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                '모금',
+                '모금', // 갤러리
                 style: TextStyle(
                   color: Colors.black54,
                 ),
               ),
-              CupertinoSwitch(
-                activeColor: Color(0xFFFF8B50),
-                value: _dcFunding,
-                onChanged: (bool value) {
-                  print(' Switch State : $value');
-                  setState(() {
-                    _dcFunding = value;
-                  });
-                },
+              Container(
+                child: Transform.scale(
+                  scale: 0.8,
+                  child: CupertinoSwitch(
+                    activeColor: Color(0xFFFF8B50),
+                    // value: widget.gallFund,
+                    value: false,
+                    onChanged: (bool value) {
+                      // print('GalleryFund Switch State : $value');
+                      // if (value) {
+                      //   OneSignal().sendTag("GalleryFund", "1");
+                      //   NotificationOption.setSpfs("GalleryFund", true);
+                      // } else {
+                      //   OneSignal().sendTag("GalleryFund", "0");
+                      //   NotificationOption.setSpfs("GalleryFund", false);
+                      // }
+                      setState(
+                        () {
+                          // NotificationOption.setGalleryFund = value;
+                        },
+                      );
+                    },
+                  ),
+                ),
               ),
             ],
           ),
@@ -223,20 +219,35 @@ class BottomSheetWidgetState extends State<BottomSheetWidget> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                '이벤트',
+                '이벤트', // 갤러리
                 style: TextStyle(
                   color: Colors.black54,
                 ),
               ),
-              CupertinoSwitch(
-                activeColor: Color(0xFFFF8B50),
-                value: _dcEventSwitch,
-                onChanged: (bool value) {
-                  print(' Switch State : $value');
-                  setState(() {
-                    _dcEventSwitch = value;
-                  });
-                },
+              Container(
+                child: Transform.scale(
+                  scale: 0.8,
+                  child: CupertinoSwitch(
+                    activeColor: Color(0xFFFF8B50),
+                    // value: widget.gallEvent,
+                    value: false,
+                    onChanged: (bool value) {
+                      // print('GalleryEvent Switch State : $value');
+                      // if (value) {
+                      //   OneSignal().sendTag("GalleryEvent", "1");
+                      //   NotificationOption.setSpfs("GalleryEvent", true);
+                      // } else {
+                      //   OneSignal().sendTag("GalleryEvent", "0");
+                      //   NotificationOption.setSpfs("GalleryEvent", false);
+                      // }
+                      setState(
+                        () {
+                          // NotificationOption.setGalleryEvent = value;
+                        },
+                      );
+                    },
+                  ),
+                ),
               ),
             ],
           ),
@@ -249,7 +260,7 @@ class BottomSheetWidgetState extends State<BottomSheetWidget> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: Get.context.height - (Get.context.height * 0.235),
+      height: Get.context.height - (Get.context.height * 0.4),
       margin: const EdgeInsets.only(
         left: 32,
         right: 32,
@@ -279,10 +290,8 @@ class BottomSheetWidgetState extends State<BottomSheetWidget> {
                 _sns(
                   'SNS',
                 ),
-                _officialCafe(
-                  '공식카페',
-                ),
                 _dcGallery('브레이브걸스 갤러리'),
+                // _officialCafe('공식카페'),
               ],
             ),
           ),
@@ -290,4 +299,81 @@ class BottomSheetWidgetState extends State<BottomSheetWidget> {
       ),
     );
   }
+
+  /*Widget _officialCafe(String sectionTitle) {
+    return Container(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Container(
+            margin: const EdgeInsets.only(top: 20, bottom: 10),
+            child: Text(sectionTitle),
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                '공지', // 공식 팬카페
+                style: TextStyle(
+                  color: Colors.black54,
+                ),
+              ),
+              Container(
+                child: Transform.scale(
+                  scale: 0.8,
+                  child: CupertinoSwitch(
+                    activeColor: Color(0xFFFF8B50),
+                    value: _officialNoticeSwitch,
+                    onChanged: (bool value) {
+                      print(' Switch State : $value');
+                      // if (value) {
+                      //   OneSignal().sendTag("OfficialNotice", "1");
+                      // } else {
+                      //   OneSignal().sendTag("OfficialNotice", "0");
+                      // }
+                      setState(() {
+                        _officialNoticeSwitch = value;
+                      });
+                    },
+                  ),
+                ),
+              ),
+            ],
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                '이벤트', // 공식 팬카페
+                style: TextStyle(
+                  color: Colors.black54,
+                ),
+              ),
+              Container(
+                child: Transform.scale(
+                  scale: 0.8,
+                  child: CupertinoSwitch(
+                    activeColor: Color(0xFFFF8B50),
+                    value: _officialEventSwitch,
+                    onChanged: (bool value) {
+                      print(' Switch State : $value');
+                      // if (value) {
+                      //   OneSignal().sendTag("OfficialEvent", "1");
+                      // } else {
+                      //   OneSignal().sendTag("OfficialEvent", "0");
+                      // }
+                      setState(() {
+                        _officialEventSwitch = value;
+                      });
+                    },
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ],
+      ),
+    );
+  }*/
+
 }

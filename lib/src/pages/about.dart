@@ -1,8 +1,6 @@
 import 'package:fearlessassemble/src/components/about/about_widget.dart';
 import 'package:fearlessassemble/src/components/appbar/custom_appbar.dart';
-import 'package:fearlessassemble/src/components/bottom_sheet/bottom_sheet_widget.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:url_launcher/url_launcher.dart';
+import 'package:fearlessassemble/src/controller/notification_receive_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

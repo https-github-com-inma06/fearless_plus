@@ -1,4 +1,5 @@
 import 'package:fearlessassemble/src/pages/about.dart';
+import 'package:fearlessassemble/src/pages/chart.dart';
 import 'package:fearlessassemble/src/pages/event.dart';
 import 'package:fearlessassemble/src/pages/video.dart';
 import 'package:flutter/material.dart';
@@ -18,9 +19,9 @@ class App extends GetView<AppController> {
           // case RouteName.Calendar:
           //   return Calendar();
           //   break;
-          // case RouteName.Chart:
-          //   return Chart();
-          //   break;
+          case RouteName.Chart:
+            return Chart();
+            break;
           case RouteName.Video:
             return Video();
             break;
@@ -50,11 +51,11 @@ class App extends GetView<AppController> {
             //   label: "CALENDAR",
             // ),
             // /* 차트 */
-            // BottomNavigationBarItem(
-            //   icon: SvgPicture.asset('assets/svg/icons/ico_chart.svg'),
-            //   activeIcon: SvgPicture.asset('assets/svg/icons/ico_chart_on.svg'),
-            //   label: "CHART",
-            // ),
+            BottomNavigationBarItem(
+              icon: SvgPicture.asset('assets/svg/icons/ico_chart.svg'),
+              activeIcon: SvgPicture.asset('assets/svg/icons/ico_chart_on.svg'),
+              label: "CHART",
+            ),
 
             /* 영상 */
             BottomNavigationBarItem(

@@ -259,7 +259,7 @@ class CustomAppBarState extends State<CustomAppBar> {
           // mainAxisAlignment: MainAxisAlignment.spaceBetween,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            //   _setting(),
+            _setting(),
             _title(),
             // _notification(),
           ],

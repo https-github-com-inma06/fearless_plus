@@ -20,7 +20,7 @@ class Event extends StatelessWidget {
           slivers: [
             SliverAppBar(
               title: CustomAppBar(
-                title: 'Campaign',
+                title: 'Event',
                 hasNewNotify: false,
               ),
               floating: true,

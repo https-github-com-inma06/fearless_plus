@@ -1,10 +1,6 @@
 import 'dart:ui';
 
 import 'package:fearlessassemble/src/components/bottom_sheet/bottom_sheet_widget.dart';
-import 'package:fearlessassemble/src/pages/about.dart';
-import 'package:fearlessassemble/src/pages/event.dart';
-import 'package:fearlessassemble/src/pages/video.dart';
-import 'package:fearlessassemble/src/repository/video_repository.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -40,119 +36,119 @@ class CustomAppBarState extends State<CustomAppBar> {
     super.initState();
   }
 
-  Widget _topTagView() {
-    // TODO : API 받아온거로 처리해야함
-    return Container(
-      margin: const EdgeInsets.symmetric(vertical: 5.0),
-      width: 80,
-      height: 30,
-      child: ListView(
-        scrollDirection: Axis.horizontal,
-        children: <Widget>[
-          Container(
-            margin: const EdgeInsets.only(left: 10, right: 10),
-            width: 80,
-            height: 30,
-            child: OutlinedButton(
-              style: ButtonStyle(
-                backgroundColor: MaterialStateProperty.all(
-                  enabledBackColor,
-                ),
-              ),
-              onPressed: () {
-                print("버튼클릭됨");
-              },
-              child: Text(
-                "음방",
-                style: TextStyle(
-                    fontWeight: FontWeight.bold, color: enabledFontColor),
-              ),
-            ),
-          ),
-          Container(
-            margin: const EdgeInsets.only(left: 10, right: 10),
-            width: 80,
-            height: 30,
-            child: OutlinedButton(
-              style: ButtonStyle(
-                backgroundColor: MaterialStateProperty.all(
-                  enabledBackColor,
-                ),
-              ),
-              onPressed: () {
-                print("버튼클릭됨");
-              },
-              child: Text(
-                "예능",
-                style: TextStyle(
-                    fontWeight: FontWeight.bold, color: enabledFontColor),
-              ),
-            ),
-          ),
-          Container(
-            margin: const EdgeInsets.only(left: 10, right: 10),
-            width: 80,
-            height: 30,
-            child: OutlinedButton(
-              style: ButtonStyle(
-                backgroundColor: MaterialStateProperty.all(
-                  enabledBackColor,
-                ),
-              ),
-              onPressed: () {
-                print("버튼클릭됨");
-              },
-              child: Text(
-                "라디오",
-                style: TextStyle(
-                    fontWeight: FontWeight.bold, color: enabledFontColor),
-              ),
-            ),
-          ),
-          Container(
-            margin: const EdgeInsets.only(left: 10, right: 10),
-            width: 80,
-            height: 30,
-            child: OutlinedButton(
-              style: ButtonStyle(
-                backgroundColor: MaterialStateProperty.all(
-                  enabledBackColor,
-                ),
-              ),
-              onPressed: () {
-                print("버튼클릭됨");
-              },
-              child: Text(
-                "직캠",
-                style: TextStyle(
-                    fontWeight: FontWeight.bold, color: enabledFontColor),
-              ),
-            ),
-          ),
-          Container(
-            margin: const EdgeInsets.only(left: 10, right: 10),
-            width: 80,
-            height: 30,
-            child: OutlinedButton(
-              style: ButtonStyle(
-                backgroundColor: MaterialStateProperty.all(
-                  enabledBackColor,
-                ),
-              ),
-              onPressed: () {
-                print("버튼클릭됨");
-              },
-              child: Text(
-                "유나👩",
-                style: TextStyle(
-                    fontWeight: FontWeight.bold, color: enabledFontColor),
-              ),
-            ),
-          ),
-        ],
-      ),
-    );
-  }
+  // Widget _topTagView() {
+  //
+  //   return Container(
+  //     margin: const EdgeInsets.symmetric(vertical: 5.0),
+  //     width: 80,
+  //     height: 30,
+  //     child: ListView(
+  //       scrollDirection: Axis.horizontal,
+  //       children: <Widget>[
+  //         Container(
+  //           margin: const EdgeInsets.only(left: 10, right: 10),
+  //           width: 80,
+  //           height: 30,
+  //           child: OutlinedButton(
+  //             style: ButtonStyle(
+  //               backgroundColor: MaterialStateProperty.all(
+  //                 enabledBackColor,
+  //               ),
+  //             ),
+  //             onPressed: () {
+  //               print("버튼클릭됨");
+  //             },
+  //             child: Text(
+  //               "음방",
+  //               style: TextStyle(
+  //                   fontWeight: FontWeight.bold, color: enabledFontColor),
+  //             ),
+  //           ),
+  //         ),
+  //         Container(
+  //           margin: const EdgeInsets.only(left: 10, right: 10),
+  //           width: 80,
+  //           height: 30,
+  //           child: OutlinedButton(
+  //             style: ButtonStyle(
+  //               backgroundColor: MaterialStateProperty.all(
+  //                 enabledBackColor,
+  //               ),
+  //             ),
+  //             onPressed: () {
+  //               print("버튼클릭됨");
+  //             },
+  //             child: Text(
+  //               "예능",
+  //               style: TextStyle(
+  //                   fontWeight: FontWeight.bold, color: enabledFontColor),
+  //             ),
+  //           ),
+  //         ),
+  //         Container(
+  //           margin: const EdgeInsets.only(left: 10, right: 10),
+  //           width: 80,
+  //           height: 30,
+  //           child: OutlinedButton(
+  //             style: ButtonStyle(
+  //               backgroundColor: MaterialStateProperty.all(
+  //                 enabledBackColor,
+  //               ),
+  //             ),
+  //             onPressed: () {
+  //               print("버튼클릭됨");
+  //             },
+  //             child: Text(
+  //               "라디오",
+  //               style: TextStyle(
+  //                   fontWeight: FontWeight.bold, color: enabledFontColor),
+  //             ),
+  //           ),
+  //         ),
+  //         Container(
+  //           margin: const EdgeInsets.only(left: 10, right: 10),
+  //           width: 80,
+  //           height: 30,
+  //           child: OutlinedButton(
+  //             style: ButtonStyle(
+  //               backgroundColor: MaterialStateProperty.all(
+  //                 enabledBackColor,
+  //               ),
+  //             ),
+  //             onPressed: () {
+  //               print("버튼클릭됨");
+  //             },
+  //             child: Text(
+  //               "직캠",
+  //               style: TextStyle(
+  //                   fontWeight: FontWeight.bold, color: enabledFontColor),
+  //             ),
+  //           ),
+  //         ),
+  //         Container(
+  //           margin: const EdgeInsets.only(left: 10, right: 10),
+  //           width: 80,
+  //           height: 30,
+  //           child: OutlinedButton(
+  //             style: ButtonStyle(
+  //               backgroundColor: MaterialStateProperty.all(
+  //                 enabledBackColor,
+  //               ),
+  //             ),
+  //             onPressed: () {
+  //               print("버튼클릭됨");
+  //             },
+  //             child: Text(
+  //               "유나👩",
+  //               style: TextStyle(
+  //                   fontWeight: FontWeight.bold, color: enabledFontColor),
+  //             ),
+  //           ),
+  //         ),
+  //       ],
+  //     ),
+  //   );
+  // }
 
   Widget _setting() {
     return Container(
@@ -175,30 +171,30 @@ class CustomAppBarState extends State<CustomAppBar> {
     );
   }
 
-  Widget _notification() {
-    return Container(
-      child: GestureDetector(
-        onTap: () {
-          print("설정 톱니바퀴 클릭");
-          Get.bottomSheet(
-            BottomSheetWidget(
-              title: 'Notification',
-            ),
-            isScrollControlled: true,
-          );
-        },
-        child: Container(
-          width: 25,
-          height: 25,
-          child: widget.hasNewNotify == false
-              ? SvgPicture.asset(
-                  "assets/svg/icons/bell.svg") // if ( 새로운 노티가 없다면 ? )
-              : SvgPicture.asset(
-                  "assets/svg/icons/bell.svg"), // else ( 새로운 노티가 존재한다면 )
-        ),
-      ),
-    );
-  }
+  // Widget _notification() {
+  //   return Container(
+  //     child: GestureDetector(
+  //       onTap: () {
+  //         print("설정 톱니바퀴 클릭");
+  //         Get.bottomSheet(
+  //           BottomSheetWidget(
+  //             title: 'Notification',
+  //           ),
+  //           isScrollControlled: true,
+  //         );
+  //       },
+  //       child: Container(
+  //         width: 25,
+  //         height: 25,
+  //         child: widget.hasNewNotify == false
+  //             ? SvgPicture.asset(
+  //                 "assets/svg/icons/bell.svg") // if ( 새로운 노티가 없다면 ? )
+  //             : SvgPicture.asset(
+  //                 "assets/svg/icons/bell.svg"), // else ( 새로운 노티가 존재한다면 )
+  //       ),
+  //     ),
+  //   );
+  // }
 
   Widget _title() {
     return Container(
@@ -256,11 +252,14 @@ class CustomAppBarState extends State<CustomAppBar> {
         break;
       case "About":
         return Row(
-          // mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          // mainAxisAlignment: MainAxisAlignment.center,
           children: [
             _setting(),
             _title(),
+            SizedBox(
+              width: 25,
+            ),
             // _notification(),
           ],
         );

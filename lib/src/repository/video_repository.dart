@@ -25,10 +25,14 @@ class VideoRepository extends GetConnect {
     } else {
       if (response.body["data"]["list"] != null &&
           response.body["data"]["list"].length > 0) {
-        for (var i = 0; i < response.body["data"]["list"].length; i++) {
-          print(
-              "Video Response data-> list : ${response.body["data"]["list"][i]}");
-        }
+        // for (var i = 0; i < response.body["data"]["list"].length; i++) {
+        //   print(
+        //       "Video Response data-> list : ${response.body["data"]["list"][i]}");
+        // }
+
+        print(
+          "Video Response data-> list : ${response.body["data"]["list"][0]}",
+        );
         print("result size : ${response.body["data"]["list"].length} ");
         return VideoResult.fromJson(response.body);
       }

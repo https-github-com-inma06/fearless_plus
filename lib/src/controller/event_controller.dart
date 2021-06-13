@@ -15,12 +15,14 @@ class EventController extends GetxController {
 
   void _eventLoad() async {
     EventResult eventResult = await EventRepository.to.loadEvent();
-    print("event api response : ${eventResult.lists.length}");
 
     if (eventResult != null &&
         eventResult.lists != null &&
         eventResult.lists.length > 0) {
       eventResponseResult(eventResult);
+      print("event api response : ${eventResult.lists.length}");
+    } else {
+      print('event api is null');
     }
   }
 }

@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 // import 'package:firebase_messaging/firebase_messaging.dart';
+import 'package:fearlessassemble/extension.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:get/get.dart';
 import 'package:onesignal_flutter/onesignal_flutter.dart';
@@ -60,6 +61,8 @@ class NotificationController extends GetxController {
 
   // 노티 클릭시
   _openedHandler() {
+    String _launchUrl = "";
+
     _oneSignal
         .setNotificationOpenedHandler((OSNotificationOpenedResult result) {
       // a notification has been opened
@@ -68,19 +71,28 @@ class NotificationController extends GetxController {
       //     jsonDecode(result.notification.jsonRepresentation()));
       // print("NotiData : ${notiData}");
 
-      if (result.notification.payload.launchUrl?.isNotEmpty) {
-        launchUrlParser(result.notification.payload.launchUrl);
+      if (result.notification.payload.launchUrl != null) {
+        _launchUrl = result.notification.payload.launchUrl.toString();
+        print('result launchUrl : ${result.notification.payload.launchUrl}');
+        try {
+          LaunchInBrowser().launchInBrowser(_launchUrl);
+          // launchUrlParser(result.notification.payload.launchUrl);
+        } catch (e) {
+          print('Error : $e');
+          print('Check UnInstall Dc App : $_launchUrl');
+        }
       }
     });
   }
 
   launchUrlParser(String scheme) async {
     // launchUrl
-
+    print('launchUrlParser');
     if (scheme.startsWith("fearless://")) {}
   }
 
   _initSetLogLevel() {
+    print('_initSetLogLevel');
     _oneSignal.setLogLevel(OSLogLevel.verbose, OSLogLevel.none);
   }
 

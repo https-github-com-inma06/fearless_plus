@@ -1,8 +1,16 @@
+import 'package:device_apps/device_apps.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class Log {
   void trace(dynamic log) {
     print("TRACE :: $log");
+  }
+}
+
+class DeviceApps {
+  Future<bool> isInstalled(String packageName) async {
+    bool isInstalled = await DeviceApps().isInstalled("$packageName");
+    return isInstalled;
   }
 }
 

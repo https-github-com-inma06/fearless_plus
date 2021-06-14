@@ -1,6 +1,9 @@
+import 'package:fearlessassemble/src/components/event/event_detail.dart';
+import 'package:fearlessassemble/src/controller/event_detail_controller.dart';
 import 'package:fearlessassemble/src/controller/noti_history_controller.dart';
 import 'package:fearlessassemble/src/controller/video_controller.dart';
 import 'package:fearlessassemble/src/pages/about.dart';
+import 'package:fearlessassemble/src/pages/event.dart';
 import 'package:fearlessassemble/src/pages/video.dart';
 import 'package:flutter/services.dart';
 
@@ -56,14 +59,10 @@ class MyApp extends StatelessWidget {
           page: () => App(),
         ),
         GetPage(
-          name: "/video/",
-          page: () => Video(),
-          binding: BindingsBuilder(
-            () => Get.lazyPut<VideoController>(
-              () => VideoController(),
-            ),
-          ),
-        ),
+            name: "/detail/",
+            page: () => EventDetail(),
+            binding: BindingsBuilder(() => Get.lazyPut<EventDetailController>(
+                () => EventDetailController()))),
       ],
     );
   }

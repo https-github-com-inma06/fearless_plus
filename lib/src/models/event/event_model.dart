@@ -19,6 +19,7 @@ class EventModel {
     this.viewCal,
     this.limitDay,
     this.category,
+    this.shortDesc,
   });
 
   int id;
@@ -28,6 +29,7 @@ class EventModel {
   String description;
   String thumbnailImg;
   String url;
+  String shortDesc;
   String regDtm;
   String viewStart;
   String viewEnd;
@@ -44,6 +46,7 @@ class EventModel {
         description: json["description"],
         thumbnailImg: json["thumbnailImg"],
         url: json["url"],
+        shortDesc: json["shortDesc"],
         regDtm: json["regDtm"],
         viewStart: json["viewStart"],
         viewEnd: json["viewEnd"],
@@ -61,6 +64,7 @@ class EventModel {
         "description": description,
         "thumbnailImg": thumbnailImg,
         "url": url,
+        "shortDesc": shortDesc,
         "regDtm": regDtm,
         "viewStart": viewStart,
         "viewEnd": viewEnd,

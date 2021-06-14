@@ -38,6 +38,8 @@ class Event extends StatelessWidget {
                     ),
                     child: GestureDetector(
                       onTap: () {
+                        //page route
+                        // Get.toNamed("/detail/");
                         eventController.eventResponseResult.value.lists[index]
                                     .url ==
                                 null
@@ -72,7 +74,6 @@ class Event extends StatelessWidget {
         url,
         forceSafariVC: false,
         forceWebView: false,
-        headers: <String, String>{'my_header_key': 'my_header_value'},
       );
     } else {
       throw 'Could not launch $url';

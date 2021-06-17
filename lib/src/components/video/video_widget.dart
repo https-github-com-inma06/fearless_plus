@@ -45,12 +45,25 @@ class VideoWidgetState extends State<VideoWidget> {
     );
   }
 
-  Widget _simpleDetailInfo() {
+  Widget _title() {
     return Container(
-      padding: const EdgeInsets.only(top: 20, bottom: 40, left: 10, right: 10),
+      padding: const EdgeInsets.only(top: 20, bottom: 5, left: 10, right: 10),
       child: Text(
         widget.video == null ? "해당 태그에 영상이 없습니다" : widget.video.title,
         maxLines: 2,
+        overflow: TextOverflow.ellipsis,
+      ),
+    );
+  }
+
+  Widget _uploadDate() {
+    return Container(
+      padding: const EdgeInsets.only(bottom: 40, left: 10, right: 10),
+      child: Text(
+        widget.video == null ? "해당 태그에 영상이 없습니다" : widget.video.uploadDate,
+        maxLines: 1,
+        style: TextStyle(color: Colors.black26),
+        overflow: TextOverflow.ellipsis,
       ),
     );
   }
@@ -62,7 +75,8 @@ class VideoWidgetState extends State<VideoWidget> {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           _thumbnail(),
-          _simpleDetailInfo(),
+          _title(),
+          _uploadDate(),
         ],
       ),
     );

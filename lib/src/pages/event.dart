@@ -30,7 +30,7 @@ class Event extends StatelessWidget {
               delegate: SliverChildBuilderDelegate(
                 (context, index) {
                   return Container(
-                    color: Colors.white,
+                    color: Color(0xfff2f2f2),
                     padding: const EdgeInsets.only(
                       left: 20,
                       right: 20,

@@ -66,7 +66,7 @@ class VideoState extends State<Video> {
                 delegate: SliverChildBuilderDelegate(
                   (context, index) {
                     return Container(
-                      color: Colors.white,
+                      color: Color(0xfff2f2f2),
                       child: GestureDetector(
                         onTap: () {
                           LaunchInBrowser().launchInBrowser(

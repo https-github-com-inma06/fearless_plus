@@ -32,20 +32,24 @@ class ChartWidgetState extends State<ChartWidget> {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Container(
+              width: Get.width / 1.8,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Container(
-                    child: Text(widget.chart.writeDate), // 글 작성일
+                  Text(
+                    widget.chart.writeDate,
+                    style: TextStyle(
+                      fontSize: 12,
+                      color: Colors.black26,
+                    ),
+                    overflow: TextOverflow.ellipsis,
                   ),
-                  Container(
-                    child: Text(
-                      widget.chart.title,
-                      style:
-                          TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
-                    ), // 글 제목
-                  )
+                  Text(
+                    widget.chart.title,
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+                    overflow: TextOverflow.ellipsis,
+                  ),
                 ],
               ),
             ),

@@ -67,13 +67,12 @@ class AboutWidget extends StatelessWidget {
                   bottom: 10,
                 ),
                 child: ClipRRect(
-                    borderRadius: BorderRadius.circular(500),
-                    child: CachedNetworkImage(
-                      imageUrl: image,
-                      width: Get.width / 5.2,
-                      // height: 70,
-                      fit: BoxFit.cover,
-                    )),
+                  // borderRadius: BorderRadius.circular(500),
+                  child: Image.asset(
+                    image,
+                    width: 75,
+                  ),
+                ),
               ),
               Text(
                 name,
@@ -232,7 +231,7 @@ class AboutWidget extends StatelessWidget {
             sliver: SliverGrid(
               delegate: SliverChildListDelegate([
                 _profile(
-                    'https://cdn.fearlessplus.net/image_upload/2021/06/16/cc372b9b52efe5de7e0d92d7c08de585b352146a.png',
+                    'assets/images/img_min.png',
                     'MINYEONG🎤',
                     'Main Vocalist',
                     '1990.09.12',
@@ -241,7 +240,7 @@ class AboutWidget extends StatelessWidget {
                     'UCM7sspcSzirLxsfIUt6i3Vw',
                     "@bravegirls_my"),
                 _profile(
-                    'https://cdn.fearlessplus.net/image_upload/2021/06/16/cc372b9b52efe5de7e0d92d7c08de585b352146a.png',
+                    'assets/images/img_yoo.png',
                     'YUJEONG🐢',
                     'Vocalist',
                     '1991.05.02',
@@ -250,7 +249,7 @@ class AboutWidget extends StatelessWidget {
                     'UC0rYv-5_Ce72wegF9_pmDpw',
                     "@yjistimeless"),
                 _profile(
-                    'https://cdn.fearlessplus.net/image_upload/2021/06/16/cc372b9b52efe5de7e0d92d7c08de585b352146a.png',
+                    'assets/images/img_eun.png',
                     'EUNJI👀',
                     'Vocalist',
                     '1992.07.19',
@@ -259,7 +258,7 @@ class AboutWidget extends StatelessWidget {
                     '',
                     "@bravegirls_eunji"),
                 _profile(
-                    'https://cdn.fearlessplus.net/image_upload/2021/06/16/cc372b9b52efe5de7e0d92d7c08de585b352146a.png',
+                    'assets/images/img_yuna.png',
                     'YUNA👩',
                     'Lead Vocalist',
                     '1993.04.06',

@@ -9,7 +9,8 @@ import 'package:onesignal_flutter/onesignal_flutter.dart';
 class NotificationController extends GetxController {
   static NotificationController get to => Get.find();
   OneSignal _oneSignal = OneSignal();
-  String oneSignalID = "6395ae43-f8e5-4862-b70a-da8402d413c8";
+  // String oneSignalID = "6395ae43-f8e5-4862-b70a-da8402d413c8"; // 기존 ID
+  String oneSignalID = "469b6e4a-c568-4f74-afec-c478acb153bf"; // 복구 ID
   FirebaseMessaging _messaging = FirebaseMessaging();
   // FlutterLocalNotificationsPlugin _flutterLocalNoti = FlutterLocalNotificationsPlugin();
   RxMap<String, dynamic> message = Map<String, dynamic>().obs;

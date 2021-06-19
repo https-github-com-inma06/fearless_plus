@@ -67,10 +67,12 @@ class AboutWidget extends StatelessWidget {
                   bottom: 10,
                 ),
                 child: ClipRRect(
-                  // borderRadius: BorderRadius.circular(500),
-                  child: Image.asset(
-                    image,
-                    width: 75,
+                  borderRadius: BorderRadius.circular(200),
+                  child: Container(
+                    color: Colors.grey.withOpacity(0.5),
+                    child: Image.network(
+                      'https://cdn.fearlessplus.net/profile/img/$image.png',
+                    ),
                   ),
                 ),
               ),
@@ -229,44 +231,50 @@ class AboutWidget extends StatelessWidget {
               right: 20,
             ),
             sliver: SliverGrid(
-              delegate: SliverChildListDelegate([
-                _profile(
-                    'assets/images/img_min.png',
+              delegate: SliverChildListDelegate(
+                [
+                  _profile(
+                    'minyeong',
                     'MINYEONG🎤',
                     'Main Vocalist',
                     '1990.09.12',
                     'nyong2ya',
                     'nyong2ya',
                     'UCM7sspcSzirLxsfIUt6i3Vw',
-                    "@bravegirls_my"),
-                _profile(
-                    'assets/images/img_yoo.png',
+                    "@bravegirls_my",
+                  ),
+                  _profile(
+                    'yujeong',
                     'YUJEONG🐢',
                     'Vocalist',
                     '1991.05.02',
                     'braveg_yj',
                     'bgyjnice',
                     'UC0rYv-5_Ce72wegF9_pmDpw',
-                    "@yjistimeless"),
-                _profile(
-                    'assets/images/img_eun.png',
+                    "@yjistimeless",
+                  ),
+                  _profile(
+                    'eunji',
                     'EUNJI👀',
                     'Vocalist',
                     '1992.07.19',
                     'bg_eunji92',
                     'braveunji',
                     '',
-                    "@bravegirls_eunji"),
-                _profile(
-                    'assets/images/img_yuna.png',
+                    "@bravegirls_eunji",
+                  ),
+                  _profile(
+                    'yuna',
                     'YUNA👩',
                     'Lead Vocalist',
                     '1993.04.06',
                     'u.nalee',
                     'u_nalee_',
                     'UCMLa547c-KJbOSzTf010Q1Q',
-                    "@bravegirls_u_na"),
-              ]),
+                    "@bravegirls_u_na",
+                  ),
+                ],
+              ),
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                   childAspectRatio: 0.8,
                   mainAxisSpacing: 30,

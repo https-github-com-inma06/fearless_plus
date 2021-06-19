@@ -132,9 +132,9 @@ class BottomSheetWidgetState extends State<BottomSheetWidget> {
   /* 타이틀 */
   Widget _title() {
     return Container(
-      margin: const EdgeInsets.only(top: 10),
+      margin: const EdgeInsets.only(top: 25),
       child: Text(
-        widget.title,
+        "Notify ${widget.title}",
         style: TextStyle(
           fontSize: 18,
         ),
@@ -353,7 +353,7 @@ class BottomSheetWidgetState extends State<BottomSheetWidget> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: Get.context.height - (Get.context.height * 0.4),
+      height: Get.context.height / 1.35,
       margin: const EdgeInsets.only(
         left: 32,
         right: 32,

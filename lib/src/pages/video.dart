@@ -9,14 +9,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 
-class Video extends StatefulWidget {
-  const Video({Key key}) : super(key: key);
-
-  @override
-  VideoState createState() => VideoState();
-}
-
-class VideoState extends State<Video> {
+class Video extends StatelessWidget {
+  Video({Key key}) : super(key: key);
   final VideoController videoController = Get.put(VideoController());
   var refreshKey = GlobalKey<RefreshIndicatorState>();
 
@@ -26,16 +20,10 @@ class VideoState extends State<Video> {
   //   random = Random();
   //   refreshList();
   // }
-
+  //
   Future<Null> refreshList() async {
     refreshKey.currentState?.show(atTop: false);
-    await Future.delayed(Duration(seconds: 2));
-
-    setState(() {
-      print('새로고침완료');
-      new Video();
-    });
-
+    await Future.delayed(Duration(seconds: 1));
     return null;
   }
 
@@ -71,7 +59,7 @@ class VideoState extends State<Video> {
                         onTap: () {
                           LaunchInBrowser().launchInBrowser(
                               "https://www.youtube.com/watch?v=${videoModel[index].code}");
-                          print("이벤트 영상 클릭되었습니다");
+                          print("쁘튜브 클릭되었습니다");
                         },
                         child: Container(
                           margin: const EdgeInsets.only(left: 20, right: 20),
@@ -83,10 +71,8 @@ class VideoState extends State<Video> {
                       ),
                     );
                   },
-                  childCount: videoController.videoResponseResult.value.lists ==
-                          null
-                      ? 0
-                      : videoController.videoResponseResult.value.lists.length,
+                  childCount:
+                      videoController.videoResponseResult.value.lists.length,
                 ),
               ),
             ],

@@ -101,8 +101,8 @@ class NotificationController extends GetxController {
   // OneSignal 초기화
   Future<void> _initOneSignal() async {
     _oneSignal.init(oneSignalID, iOSSettings: {
-      OSiOSSettings.autoPrompt: false,
-      OSiOSSettings.inAppLaunchUrl: false,
+      OSiOSSettings.autoPrompt: false, // 푸시 인증
+      OSiOSSettings.inAppLaunchUrl: false, // 웹으로 바로 연결
     });
     /*
     * none -> Foreground 일때 노티X (데이터는 수신)

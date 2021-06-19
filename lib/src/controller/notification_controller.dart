@@ -1,4 +1,3 @@
-import 'dart:convert';
 
 // import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:fearlessassemble/extension.dart';
@@ -154,6 +153,6 @@ class NotificationController extends GetxController {
     print("_onMessage : $message");
     return null;
   }
-  /* Google FCM Setting End */
+/* Google FCM Setting End */
 
 }

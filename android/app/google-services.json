@@ -1,62 +1,33 @@
 {
   "project_info": {
-    "project_number": "999678821054",
-    "project_id": "flutter-push-notificatio-25494",
-    "storage_bucket": "flutter-push-notificatio-25494.appspot.com"
+    "project_number": "465717549296",
+    "project_id": "fearless-assemble",
+    "storage_bucket": "fearless-assemble.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:999678821054:android:ceb43353b617c2a07c54ef",
-        "android_client_info": {
-          "package_name": "com.example.flutter_push_notification"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "999678821054-9a3i7v9uf226vc8vua9tan764n7ilgt1.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyAgvuYt4qyuTA9p0fcW1MvaTdMKi_rp7Vs"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "999678821054-9a3i7v9uf226vc8vua9tan764n7ilgt1.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:999678821054:android:778bbf546c712f977c54ef",
+        "mobilesdk_app_id": "1:465717549296:android:77f8fc7d4d21f8c1fdca35",
         "android_client_info": {
           "package_name": "com.fearless.fearlessassemble"
         }
       },
       "oauth_client": [
         {
-          "client_id": "999678821054-9a3i7v9uf226vc8vua9tan764n7ilgt1.apps.googleusercontent.com",
+          "client_id": "465717549296-6hp2vqie9nlt3qsr7ds32trhj5iarpgh.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyAgvuYt4qyuTA9p0fcW1MvaTdMKi_rp7Vs"
+          "current_key": "AIzaSyAVZKmN8UhVOEonrpXs3SZHfQJNfMD35z4"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "999678821054-9a3i7v9uf226vc8vua9tan764n7ilgt1.apps.googleusercontent.com",
+              "client_id": "465717549296-6hp2vqie9nlt3qsr7ds32trhj5iarpgh.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

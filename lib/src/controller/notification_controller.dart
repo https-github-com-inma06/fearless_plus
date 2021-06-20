@@ -8,7 +8,7 @@ class NotificationController extends GetxController {
   static NotificationController get to => Get.find();
   OneSignal _oneSignal = OneSignal();
   // String oneSignalID = "6395ae43-f8e5-4862-b70a-da8402d413c8"; // Android Old ver
-  String oneSignalID = "469b6e4a-c568-4f74-afec-c478acb153bf"; // Android
+  String oneSignalID = "bc816451-e2cd-4ad7-aed0-2f8795055d44"; // Android
   // String oneSignalID = "8eadf95f-a1ad-47db-97f3-a9aa43c1fc50"; // iOS
   FirebaseMessaging _messaging = FirebaseMessaging();
   // FlutterLocalNotificationsPlugin _flutterLocalNoti = FlutterLocalNotificationsPlugin();

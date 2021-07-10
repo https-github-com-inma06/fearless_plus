@@ -1,33 +1,33 @@
 {
   "project_info": {
-    "project_number": "465717549296",
-    "project_id": "fearless-assemble",
-    "storage_bucket": "fearless-assemble.appspot.com"
+    "project_number": "856749903537",
+    "project_id": "fearless-4000b",
+    "storage_bucket": "fearless-4000b.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:465717549296:android:77f8fc7d4d21f8c1fdca35",
+        "mobilesdk_app_id": "1:856749903537:android:790985965dcc248e385c90",
         "android_client_info": {
           "package_name": "com.fearless.fearlessassemble"
         }
       },
       "oauth_client": [
         {
-          "client_id": "465717549296-6hp2vqie9nlt3qsr7ds32trhj5iarpgh.apps.googleusercontent.com",
+          "client_id": "856749903537-pvefskult8aaf4raljsjjrem51tmvgqq.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyAVZKmN8UhVOEonrpXs3SZHfQJNfMD35z4"
+          "current_key": "AIzaSyAIL8pYY8WbbyPgVt5vlMcvssUL2ckW_mg"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "465717549296-6hp2vqie9nlt3qsr7ds32trhj5iarpgh.apps.googleusercontent.com",
+              "client_id": "856749903537-pvefskult8aaf4raljsjjrem51tmvgqq.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

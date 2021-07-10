@@ -8,7 +8,7 @@ class ChartRepository extends GetConnect {
 
   @override
   void onInit() {
-    httpClient.baseUrl = "https://api.fearlessplus.net/api/v1";
+    httpClient.baseUrl = "https://api.fearlessplus.net/app-api/v2";
     super.onInit();
   }
 

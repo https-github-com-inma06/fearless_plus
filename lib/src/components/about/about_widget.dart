@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:fearlessassemble/extension.dart';
+import 'package:fearlessassemble/src/components/about/about_detail_widget.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
@@ -54,102 +55,92 @@ class AboutWidget extends StatelessWidget {
   Widget _profile(String image, String name, String position, String birthDay,
       String instagramId, String twitterId, String youtubeId, String tictokId) {
     return Container(
-      child: ClipRRect(
-        borderRadius: BorderRadius.circular(12),
-        child: Container(
-          color: const Color(0xffFF9D6B),
-          child: Column(
-            children: [
-              Container(
-                padding: const EdgeInsets.only(
-                  top: 20,
-                  bottom: 10,
-                ),
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(200),
-                  child: Container(
-                    color: Colors.grey.withOpacity(0.5),
-                    child: Image.network(
-                      'https://cdn.fearlessplus.net/profile/img/$image.png',
+      child: GestureDetector(
+        onTap: () {
+          Map<String, String> arg = {
+            'image': image,
+            'name': name,
+            'position': position,
+            'birthDay': birthDay,
+            'instagramId': instagramId,
+            'twitterId': twitterId,
+            'youtubeId': youtubeId,
+            'tictokId': tictokId,
+          };
+          Get.toNamed('/aboutDetail/', arguments: arg);
+        },
+        child: ClipRRect(
+          borderRadius: BorderRadius.circular(12),
+          child: Container(
+            color: const Color(0xffFF9D6B),
+            child: Column(
+              children: [
+                Container(
+                  padding: const EdgeInsets.only(
+                    top: 20,
+                    bottom: 10,
+                  ),
+                  child: Hero(
+                    tag: name,
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(100),
+                        child: Container(
+                          width: 75,
+                          height: 75,
+                          color: Colors.grey.withOpacity(0.5),
+                        child: Image.asset(
+                          'assets/images/$image.png',
+                          fit: BoxFit.cover,
+                        ),
+                      ),
                     ),
                   ),
                 ),
-              ),
-              Text(
-                name,
-                style: TextStyle(
-                  fontSize: 14,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.white,
+                Text(
+                  name,
+                  style: TextStyle(
+                    fontSize: 14,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                  ),
                 ),
-              ),
-              SizedBox(
-                height: 2,
-              ),
-              Text(
-                position,
-                style: TextStyle(
-                  fontSize: 10,
-                  color: Colors.white,
+                SizedBox(
+                  height: 2,
                 ),
-              ),
-              SizedBox(
-                height: 2,
-              ),
-              Text(
-                birthDay,
-                style: TextStyle(color: Colors.white),
-              ),
-              Container(
-                margin: const EdgeInsets.only(left: 5, right: 5),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    _profileSnsView(instagramId, "https://www.instagram.com",
-                        'assets/svg/icons/ico_small_instagram.svg'),
-                    _profileSnsView(twitterId, "https://www.twitter.com",
-                        'assets/svg/icons/ico_small_twitter.svg'),
-                    _profileSnsView(
-                        youtubeId,
-                        "https://www.youtube.com/channel",
-                        'assets/svg/icons/ico_small_youtube.svg'),
-                    _profileSnsView(tictokId, "https://www.tiktok.com",
-                        'assets/svg/icons/ico_small_tictok.svg'),
-                  ],
+                Text(
+                  position,
+                  style: TextStyle(
+                    fontSize: 10,
+                    color: Colors.white,
+                  ),
                 ),
-              ),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-
-  Widget _community(String name, String url) {
-    return SafeArea(
-      child: ClipRRect(
-        borderRadius: BorderRadius.circular(12),
-        child: Container(
-          color: const Color(0xffFFEEE5),
-          child: Row(
-            children: [
-              Text(
-                name,
-                style: TextStyle(
-                  fontSize: 14,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.black,
+                SizedBox(
+                  height: 2,
                 ),
-              ),
-              Text(
-                ">",
-                style: TextStyle(
-                  fontSize: 14,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.black,
+                Text(
+                  birthDay,
+                  style: TextStyle(color: Colors.white),
                 ),
-              ),
-            ],
+                Container(
+                  margin: const EdgeInsets.only(left: 5, right: 5),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      _profileSnsView(instagramId, "https://www.instagram.com",
+                          'assets/svg/icons/ico_small_instagram.svg'),
+                      _profileSnsView(twitterId, "https://www.twitter.com",
+                          'assets/svg/icons/ico_small_twitter.svg'),
+                      _profileSnsView(
+                          youtubeId,
+                          "https://www.youtube.com/channel",
+                          'assets/svg/icons/ico_small_youtube.svg'),
+                      _profileSnsView(tictokId, "https://www.tiktok.com",
+                          'assets/svg/icons/ico_small_tictok.svg'),
+                    ],
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),
@@ -163,7 +154,7 @@ class AboutWidget extends StatelessWidget {
       child: CustomScrollView(
         slivers: [
           // SliverPersistentHeader(delegate: delegate),
-          SliverToBoxAdapter(),
+          // SliverToBoxAdapter(),
           SliverList(
             delegate: SliverChildListDelegate(
               [
@@ -226,6 +217,7 @@ class AboutWidget extends StatelessWidget {
           ),
           SliverPadding(
             padding: EdgeInsets.only(
+              top: 24,
               left: 20,
               right: 20,
             ),
@@ -281,34 +273,6 @@ class AboutWidget extends StatelessWidget {
                   crossAxisCount: 2),
             ),
           ),
-
-/*
-          SliverToBoxAdapter(
-            child: Container(
-              height: 20,
-              color: const Color(0xffF2F2F2),
-            ),
-          ),
-
-
-          SliverPadding(
-            padding: EdgeInsets.fromLTRB(20, 5, 20, 25),
-            sliver: SliverGrid(
-                delegate: SliverChildListDelegate([
-                  _community(
-                      '공식카페',
-                      "@bravegirls_eunji"),
-                  _community(
-                      '갤러리',
-                      "@bravegirls_u_na"),
-                ]),
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                    childAspectRatio: 0.9,
-                    mainAxisSpacing: 20,
-                    crossAxisSpacing: 20,
-                    crossAxisCount: 2)),
-          ),
-          */
         ],
       ),
     );

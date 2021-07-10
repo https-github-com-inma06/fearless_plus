@@ -353,7 +353,7 @@ class BottomSheetWidgetState extends State<BottomSheetWidget> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: Get.context.height / 1.35,
+      height: Get.context.height / 1.65,
       margin: const EdgeInsets.only(
         left: 32,
         right: 32,
@@ -383,7 +383,7 @@ class BottomSheetWidgetState extends State<BottomSheetWidget> {
                 _sns(
                   'SNS',
                 ),
-                _dcGallery('브레이브걸스 갤러리'),
+                _dcGallery('Community'),
                 // _officialCafe('공식카페'),
               ],
             ),

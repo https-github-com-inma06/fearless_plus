@@ -1,6 +1,7 @@
 import 'package:fearlessassemble/src/pages/about.dart';
 import 'package:fearlessassemble/src/pages/chart.dart';
 import 'package:fearlessassemble/src/pages/event.dart';
+import 'package:fearlessassemble/src/pages/home.dart';
 import 'package:fearlessassemble/src/pages/video.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -22,12 +23,15 @@ class App extends GetView<AppController> {
           case RouteName.Chart:
             return Chart();
             break;
-          case RouteName.Video:
-            return Video();
+          // case RouteName.Video:
+          //   return Video();
+          //   break;
+          case RouteName.Youtube:
+            return Home();
             break;
-          case RouteName.Event:
-            return Event();
-            break;
+          // case RouteName.Event:
+          //   return Event();
+          //   break;
           case RouteName.About:
             return About();
             break;
@@ -58,19 +62,26 @@ class App extends GetView<AppController> {
             ),
 
             /* 영상 */
+            // BottomNavigationBarItem(
+            //   icon: SvgPicture.asset('assets/svg/icons/ico_bgtube.svg'),
+            //   activeIcon:
+            //   SvgPicture.asset('assets/svg/icons/ico_bgtube_on.svg'),
+            //   label: "BGTUBE",
+            // ),
+            /* 영상 */
             BottomNavigationBarItem(
               icon: SvgPicture.asset('assets/svg/icons/ico_bgtube.svg'),
               activeIcon:
-                  SvgPicture.asset('assets/svg/icons/ico_bgtube_on.svg'),
-              label: "BGTUBE",
+              SvgPicture.asset('assets/svg/icons/ico_bgtube_on.svg'),
+              label: "YOUTUBE",
             ),
-            /* 광고 / 캠페인 */
-            BottomNavigationBarItem(
-              icon: SvgPicture.asset('assets/svg/icons/ico_campaign.svg'),
-              activeIcon:
-                  SvgPicture.asset('assets/svg/icons/ico_campaign_on.svg'),
-              label: "CAMPAIGN",
-            ),
+            // /* 광고 / 캠페인 */
+            // BottomNavigationBarItem(
+            //   icon: SvgPicture.asset('assets/svg/icons/ico_campaign.svg'),
+            //   activeIcon:
+            //       SvgPicture.asset('assets/svg/icons/ico_campaign_on.svg'),
+            //   label: "CAMPAIGN",
+            // ),
 
             /* About */
             BottomNavigationBarItem(

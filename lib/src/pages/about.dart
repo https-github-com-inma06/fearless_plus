@@ -6,6 +6,7 @@ import 'package:get/get.dart';
 
 class About extends StatelessWidget {
   About({Key key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

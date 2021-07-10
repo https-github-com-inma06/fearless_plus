@@ -1,10 +1,14 @@
+import 'package:fearlessassemble/src/components/about/about_detail_widget.dart';
 import 'package:fearlessassemble/src/components/event/event_detail.dart';
+import 'package:fearlessassemble/src/components/youtube/youtube_detail.dart';
 import 'package:fearlessassemble/src/controller/event_detail_controller.dart';
 import 'package:fearlessassemble/src/controller/noti_history_controller.dart';
 import 'package:fearlessassemble/src/controller/video_controller.dart';
+import 'package:fearlessassemble/src/controller/youtube_datail_controller.dart';
 import 'package:fearlessassemble/src/pages/about.dart';
 import 'package:fearlessassemble/src/pages/event.dart';
 import 'package:fearlessassemble/src/pages/video.dart';
+import 'package:fearlessassemble/src/splash_screen.dart';
 import 'package:flutter/services.dart';
 
 import 'src/pages/noti_history.dart';
@@ -56,13 +60,23 @@ class MyApp extends StatelessWidget {
       getPages: [
         GetPage(
           name: "/",
+          page: () => SplashScreen(),
+        ),
+        GetPage(
+          name: "/main/",
           page: () => App(),
         ),
         GetPage(
-            name: "/detail/",
-            page: () => EventDetail(),
-            binding: BindingsBuilder(() => Get.lazyPut<EventDetailController>(
-                () => EventDetailController()))),
+          name: "/aboutDetail/",
+          page: () => AboutDetailWidget(),
+          transitionDuration: Duration(milliseconds: 600),
+          transition: Transition.noTransition,
+        ),
+        GetPage(
+            name: "/detail/:videoId",
+            page: () => YoutubeDetail(),
+            binding: BindingsBuilder(() => Get.lazyPut<YoutubeDetailController>(
+                () => YoutubeDetailController()))),
       ],
     );
   }

@@ -19,8 +19,10 @@ class LaunchInBrowser {
     if (await canLaunch(url)) {
       await launch(
         url,
-        forceSafariVC: false,
-        forceWebView: false,
+        forceSafariVC: true, // iOS 인앱 여부
+        forceWebView: true, // Android 인앱 여부
+        enableJavaScript: true, // javascript 페이지 활성화
+
         // headers: <String, String>{'my_header_key': 'my_header_value'},
       );
       Log().trace("launchInBrowser Success: $url");

@@ -18,6 +18,7 @@ class BottomSheetWidget extends StatefulWidget {
     Key key,
     this.title,
   }) : super(key: key);
+
   @override
   BottomSheetWidgetState createState() => BottomSheetWidgetState();
 }
@@ -320,17 +321,8 @@ class BottomSheetWidgetState extends State<BottomSheetWidget> {
                   scale: 0.8,
                   child: CupertinoSwitch(
                     activeColor: Color(0xFFFF8B50),
-                    // value: widget.gallEvent,
                     value: _isGalleryEvent,
                     onChanged: (bool value) {
-                      // print('GalleryEvent Switch State : $value');
-                      // if (value) {
-                      //   OneSignal().sendTag("GalleryEvent", "1");
-                      //   NotificationOption.setSpfs("GalleryEvent", true);
-                      // } else {
-                      //   OneSignal().sendTag("GalleryEvent", "0");
-                      //   NotificationOption.setSpfs("GalleryEvent", false);
-                      // }
                       setState(
                         () {
                           _isGalleryEvent = value;
@@ -392,81 +384,4 @@ class BottomSheetWidgetState extends State<BottomSheetWidget> {
       ),
     );
   }
-
-  /*Widget _officialCafe(String sectionTitle) {
-    return Container(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Container(
-            margin: const EdgeInsets.only(top: 20, bottom: 10),
-            child: Text(sectionTitle),
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                '공지', // 공식 팬카페
-                style: TextStyle(
-                  color: Colors.black54,
-                ),
-              ),
-              Container(
-                child: Transform.scale(
-                  scale: 0.8,
-                  child: CupertinoSwitch(
-                    activeColor: Color(0xFFFF8B50),
-                    value: _officialNoticeSwitch,
-                    onChanged: (bool value) {
-                      print(' Switch State : $value');
-                      // if (value) {
-                      //   OneSignal().sendTag("OfficialNotice", "1");
-                      // } else {
-                      //   OneSignal().sendTag("OfficialNotice", "0");
-                      // }
-                      setState(() {
-                        _officialNoticeSwitch = value;
-                      });
-                    },
-                  ),
-                ),
-              ),
-            ],
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                '이벤트', // 공식 팬카페
-                style: TextStyle(
-                  color: Colors.black54,
-                ),
-              ),
-              Container(
-                child: Transform.scale(
-                  scale: 0.8,
-                  child: CupertinoSwitch(
-                    activeColor: Color(0xFFFF8B50),
-                    value: _officialEventSwitch,
-                    onChanged: (bool value) {
-                      print(' Switch State : $value');
-                      // if (value) {
-                      //   OneSignal().sendTag("OfficialEvent", "1");
-                      // } else {
-                      //   OneSignal().sendTag("OfficialEvent", "0");
-                      // }
-                      setState(() {
-                        _officialEventSwitch = value;
-                      });
-                    },
-                  ),
-                ),
-              ),
-            ],
-          ),
-        ],
-      ),
-    );
-  }*/
-
 }

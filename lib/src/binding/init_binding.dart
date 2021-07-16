@@ -1,6 +1,7 @@
 import 'package:fearlessassemble/src/controller/app_controller.dart';
 import 'package:fearlessassemble/src/controller/notification_controller.dart';
 import 'package:fearlessassemble/src/controller/notification_receive_controller.dart';
+import 'package:fearlessassemble/src/controller/paltform_channel_controller.dart';
 import 'package:fearlessassemble/src/repository/campaign_repository.dart';
 import 'package:fearlessassemble/src/repository/chart_repository.dart';
 import 'package:fearlessassemble/src/repository/event_repository.dart';
@@ -12,6 +13,7 @@ class InitBinding implements Bindings {
   @override
   void dependencies() {
     Get.put(AppController());
+    Get.put(PlatformChannelController());
     Get.put(NotificationController());
     Get.put(EventRepository(), permanent: true);
     Get.put(VideoRepository(), permanent: true);

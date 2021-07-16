@@ -18,17 +18,13 @@ class VideoRepository extends GetConnect {
   }
 
   Future<VideoResult> loadVideo() async {
-    String url = "/hotVideos?tag_id=1&page=1&size=1000"; // TODO : 하드코딩상태 페이징(x)
+    String url = "/hotVideos?tag_id=1&page=1&size=1000";
     final response = await get(url);
     if (response.status.hasError) {
       return Future.error(response.statusText);
     } else {
       if (response.body["data"]["list"] != null &&
           response.body["data"]["list"].length > 0) {
-        // for (var i = 0; i < response.body["data"]["list"].length; i++) {
-        //   print(
-        //       "Video Response data-> list : ${response.body["data"]["list"][i]}");
-        // }
 
         print(
           "Video Response data-> list : ${response.body["data"]["list"][0]}",

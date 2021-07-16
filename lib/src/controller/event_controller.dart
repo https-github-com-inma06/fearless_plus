@@ -1,6 +1,5 @@
 import 'package:fearlessassemble/src/models/event/event_model.dart';
 import 'package:fearlessassemble/src/models/event/event_result.dart';
-import 'package:fearlessassemble/src/pages/event.dart';
 import 'package:fearlessassemble/src/repository/event_repository.dart';
 import 'package:get/get.dart';
 

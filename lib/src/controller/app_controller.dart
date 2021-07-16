@@ -3,11 +3,12 @@ import 'package:get/get.dart';
 
 enum RouteName {
   // Calendar, // 일정
-  Chart, // 음원차트
+  // Chart, // 음원차트
   // Video, // 관련영상
   Youtube,
   // Event,
   About, // 셋팅
+  AppInfo,
 }
 
 class AppController extends GetxService {

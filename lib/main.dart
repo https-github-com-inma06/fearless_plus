@@ -1,17 +1,10 @@
 import 'package:fearlessassemble/src/components/about/about_detail_widget.dart';
-import 'package:fearlessassemble/src/components/event/event_detail.dart';
 import 'package:fearlessassemble/src/components/youtube/youtube_detail.dart';
-import 'package:fearlessassemble/src/controller/event_detail_controller.dart';
-import 'package:fearlessassemble/src/controller/noti_history_controller.dart';
-import 'package:fearlessassemble/src/controller/video_controller.dart';
 import 'package:fearlessassemble/src/controller/youtube_datail_controller.dart';
-import 'package:fearlessassemble/src/pages/about.dart';
-import 'package:fearlessassemble/src/pages/event.dart';
-import 'package:fearlessassemble/src/pages/video.dart';
+import 'package:fearlessassemble/src/pages/app_info.dart';
+import 'package:fearlessassemble/src/pages/menu.dart';
 import 'package:fearlessassemble/src/splash_screen.dart';
 import 'package:flutter/services.dart';
-
-import 'src/pages/noti_history.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -19,20 +12,6 @@ import 'package:get/get.dart';
 import 'src/app.dart';
 import 'src/binding/init_binding.dart';
 
-/*
-WidgetsFlutterBinding.ensureInitialized();
-  await EasyLocalization.ensureInitialized();
-  runApp(EasyLocalization(
-    supportedLocales: [
-      Locale('en', 'US'),
-      Locale('ko', 'KR'),
-      Locale('ja', 'JP')
-    ],
-    path: 'assets/translations',
-    fallbackLocale: Locale('en', 'US'),
-    child: MyApp(),
-  ));
- */
 
 void main() async {
   runApp(MyApp());
@@ -47,9 +26,6 @@ class MyApp extends StatelessWidget {
 
     return GetMaterialApp(
       title: "Fearless_App",
-      // localizationsDelegates: context.localizationDelegates,
-      // supportedLocales: context.supportedLocales,
-      // locale: context.locale,
       theme: ThemeData(
         primaryColor: Colors.white,
         primarySwatch: Colors.blue,
@@ -63,6 +39,10 @@ class MyApp extends StatelessWidget {
           page: () => SplashScreen(),
         ),
         GetPage(
+          name: "/menuChart/",
+          page: () => Menu(),
+        ),
+        GetPage(
           name: "/main/",
           page: () => App(),
         ),
@@ -71,6 +51,10 @@ class MyApp extends StatelessWidget {
           page: () => AboutDetailWidget(),
           transitionDuration: Duration(milliseconds: 600),
           transition: Transition.noTransition,
+        ),
+        GetPage(
+          name: "/appInfo/",
+          page: () => AppInfo(),
         ),
         GetPage(
             name: "/detail/:videoId",

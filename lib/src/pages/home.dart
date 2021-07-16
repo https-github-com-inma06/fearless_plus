@@ -37,7 +37,7 @@ class Home extends StatelessWidget {
                       },
                       child: Container(
                         margin: const EdgeInsets.only(left: 20, right: 20),
-                        child: VideoWidget(
+                        child: VideoWidget(  // Stateful 위젯
                             video: controller.youtubeResult.value.items[index]),
                       ),
                     ),

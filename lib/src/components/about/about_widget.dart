@@ -1,7 +1,6 @@
 import 'dart:ui';
 
 import 'package:fearlessassemble/extension.dart';
-import 'package:fearlessassemble/src/components/about/about_detail_widget.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
